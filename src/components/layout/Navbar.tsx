@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { navLinks } from "../../data/site";
+import logo from "../../assets/neyla-logo.png.asset.json";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
