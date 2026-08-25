@@ -22,7 +22,7 @@ export const navLinks = [
 export type Service = {
   slug: string;
   title: string;
-  icon: "video" | "camera" | "megaphone" | "sparkles";
+  icon: "video" | "camera" | "megaphone" | "sparkles" | "newspaper";
   description: string;
   points: string[];
 };
@@ -45,8 +45,8 @@ export const services: Service[] = [
     points: ["Portraits & équipes", "Culinaire & produit", "Architecture & immobilier"],
   },
   {
-    slug: "marketing-digital",
-    title: "Marketing Digital",
+    slug: "communication-digital",
+    title: "Communication Digital",
     icon: "megaphone",
     description:
       "Stratégie de contenu, community management et campagnes social media pensées pour la performance.",
@@ -59,6 +59,14 @@ export const services: Service[] = [
     description:
       "Animations graphiques, habillages et vidéos explicatives qui donnent du rythme à vos messages.",
     points: ["Habillage & génériques", "Vidéos explicatives", "Animation 2D/3D"],
+  },
+  {
+    slug: "relation-presse",
+    title: "Relation Presse",
+    icon: "newspaper",
+    description:
+      "Nous accompagnons nos clients dans la conception et la mise en œuvre de leur stratégie de relations médias afin d'obtenir une couverture éditoriale qualitative. Notre mission est de développer votre visibilité médiatique et de renforcer votre notoriété auprès de vos publics cibles.",
+    points: ["Stratégie médias", "Relations journalistes", "Couverture éditoriale"],
   },
 ];
 

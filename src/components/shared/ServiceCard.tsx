@@ -1,10 +1,10 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { Camera, Megaphone, Sparkles, Video, ArrowUpRight } from "lucide-react";
+import { Camera, Megaphone, Newspaper, Sparkles, Video, ArrowUpRight } from "lucide-react";
 
 import type { Service } from "../../data/site";
 
-const icons = { video: Video, camera: Camera, megaphone: Megaphone, sparkles: Sparkles };
+const icons = { video: Video, camera: Camera, megaphone: Megaphone, sparkles: Sparkles, newspaper: Newspaper };
 
 export function ServiceCard({ service, index = 0 }: { service: Service; index?: number }) {
   const Icon = icons[service.icon];
