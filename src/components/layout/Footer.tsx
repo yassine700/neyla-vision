@@ -23,7 +23,26 @@ export function Footer() {
             {company.tagline}. Captation vidéo, shooting corporate, marketing digital et motion
             design.
           </p>
+          <ul className="mt-6 flex flex-wrap gap-3">
+            {socials.map((s) => {
+              const Icon = socialIcons[s.icon];
+              return (
+                <li key={s.label}>
+                  <a
+                    href={s.href}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    aria-label={s.label}
+                    className="grid size-10 place-items-center border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+                  >
+                    <Icon className="size-4" />
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
         </div>
+
 
         <div>
           <p className="label-eyebrow">Navigation</p>
