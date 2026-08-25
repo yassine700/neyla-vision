@@ -19,6 +19,14 @@ export const navLinks = [
   { to: "/contact", label: "Contact" },
 ] as const;
 
+export const socials = [
+  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61585832632916", icon: "facebook" },
+  { label: "Instagram", href: "https://www.instagram.com/neylaproduction", icon: "instagram" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/neyla-production", icon: "linkedin" },
+  { label: "TikTok", href: "https://www.tiktok.com/@neylaproduction", icon: "tiktok" },
+  { label: "YouTube", href: "https://www.youtube.com/@Neylaproduction", icon: "youtube" },
+] as const;
+
 export type Service = {
   slug: string;
   title: string;
