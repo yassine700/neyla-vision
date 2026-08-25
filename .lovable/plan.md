@@ -1,54 +1,68 @@
-# Neyla Production — site vitrine (dark luxury)
+# Neyla Production — site multi-pages (dark luxury)
 
-Redesign inspired by the ndfilms.ma structure, with Neyla's black/white/red identity, built as a single scrolling home page with dedicated section anchors plus separate routes for SEO-relevant pages.
+Build the site as a true multi-page app with real URLs instead of one long scrolling page. Routing uses TanStack Router (the router this project is built on — same behaviour as React Router, type-safe file-based routes).
 
 ## Design system
 
-- Palette: near-black `#0A0A0A` background, white text, accent red `#E50914` (hover `#DC2626`), muted grays for secondary text.
-- Typography: bold condensed display headings, clean sans body; generous uppercase tracking on section labels.
-- Motion: Framer Motion (`motion` package) for scroll-reveal, staggered grids, and subtle parallax. Lucide React for icons.
-- Tokens go into `src/styles.css` (`@theme inline` + `:root`), never hardcoded colors in components.
+- Palette: near-black `#0A0A0A` background, white text, accent red `#E50914` (hover `#DC2626`), muted grays.
+- Bold display headings, uppercase tracked section labels, clean sans body.
+- Framer Motion for scroll reveals and page transitions; Lucide React icons.
+- Tokens defined in `src/styles.css` (`@theme inline` + `:root`) — no hardcoded colors in components.
 
-## Sections (home page)
+## Routes
 
-1. **Header** — fixed navbar, dark glassmorphism (`backdrop-blur-md`), logo left, links: Accueil, Nos Réalisations, Nos Références, Services, Contact, red CTA "Demandez un devis". Mobile drawer menu.
-2. **Hero** — fullscreen background video (`autoplay loop muted playsinline`) from `/videos/`, dark gradient overlay, headline "Neyla Production — Agence de Création Audiovisuelle & Digitale à Casablanca", floating sound toggle (🔊/🔇) that unmutes on user click without breaking autoplay, scroll cue.
-3. **Nos Réalisations** — filterable grid (Tous, Vidéos, Événements, Institutionnel) of YouTube entries; thumbnails pulled from `img.youtube.com/vi/{id}/maxresdefault.jpg`; click opens a responsive lightbox modal embedding `youtube.com/embed/{id}?rel=0&modestbranding=1&autoplay=1`.
-4. **Notre Clientèle d'Exception** — logo marquee + grid from `/logos/`, grayscale by default, full color on hover.
-5. **Nos Services** — 4 cards with the exact supplied French copy (Captation Vidéo, Shooting Corporate, Marketing Digital, Motion Design), red hover accent and Lucide icons.
-6. **CTA banner** — "Prêt à discuter votre projet ? CONTACTEZ-NOUS" with red button scrolling to the contact form.
-7. **Contact & Footer** — quote request form (nom, société, email, téléphone, service, message) with client-side validation and success toast, plus address block: 144 Rue Mohamed Smiha, 8ème Étage, Casablanca · +212 663 66 88 17 · contact@neylaproduction.ma. Footer with nav, socials, copyright.
+| URL | Page |
+| --- | --- |
+| `/` | Accueil — hero video, services teaser, réalisations teaser, clients marquee, CTA |
+| `/nos-realisations` | Portfolio — dual tabs: Vidéos (YouTube) / Photos (galerie) |
+| `/nos-services` | 4 service cards with the exact supplied French copy + detail blocks |
+| `/nos-references` | Clientèle d'exception — logo grid/marquee |
+| `/a-propos` | À propos + section Équipe avec portraits |
+| `/contact` | Formulaire de devis + coordonnées + carte/adresse |
+
+Navbar links become real route links (`<Link to="/nos-services">`) with active states — no more `#services` anchors. Mobile drawer menu mirrors the same routes. Red CTA "Demandez un devis" routes to `/contact`.
+
+## Page details
+
+- **Accueil**: fullscreen background video (`autoplay loop muted playsinline`) from `/videos/`, floating 🔊/🔇 sound toggle that unmutes on click, headline "Neyla Production — Agence de Création Audiovisuelle & Digitale à Casablanca", condensed teasers for services/réalisations/références each linking to its page, CTA banner "Prêt à discuter votre projet ? CONTACTEZ-NOUS".
+- **/nos-realisations**: tab switcher Vidéos | Photos.
+  - Vidéos: category filters (Tous, Vidéos, Événements, Institutionnel), YouTube thumbnails from `img.youtube.com/vi/{id}/maxresdefault.jpg`, lightbox modal embedding `?rel=0&modestbranding=1&autoplay=1`.
+  - Photos: masonry gallery from `/public/portfolio/` with a full-screen image lightbox (prev/next, keyboard nav).
+- **/nos-services**: the 4 cards (Captation Vidéo, Shooting Corporate, Marketing Digital, Motion Design) with exact copy, red hover accents, plus a process strip and CTA.
+- **/nos-references**: grayscale-to-color logo grid + marquee from `/public/logos/`.
+- **/a-propos**: agency story, key figures, and a Team grid built from `/public/team/` portraits (nom, rôle, hover overlay).
+- **/contact**: quote form (nom, société, email, téléphone, service, message) with validation + success toast, and the info block: 144 Rue Mohamed Smiha, 8ème Étage, Casablanca · +212 663 66 88 17 · contact@neylaproduction.ma.
+- Shared Footer on every page with route links, contact info, socials.
+
+## SEO per route
+
+Each route defines its own `head()`: unique French title, description, `og:title`, `og:description`, `og:type`, `og:url`, self-referencing canonical, plus LocalBusiness JSON-LD (name, address, phone, geo/area served, openingHours, sameAs) via the route `scripts` array. Root keeps only sitewide defaults (viewport, site name, twitter:card). `public/sitemap.xml` lists all six routes.
 
 ## File architecture
 
 ```text
 public/
-  logos/        # client logos (README placeholder listing expected filenames)
-  portfolio/    # photo assets
-  team/         # team photos
-  videos/       # best-of-neyla.mp4 hero video
+  logos/ portfolio/ team/ videos/
 src/
   components/
-    Navbar.tsx  Hero.tsx  Realisations.tsx  VideoLightbox.tsx
-    Clients.tsx Services.tsx CtaBanner.tsx  Contact.tsx  Footer.tsx
-    SectionHeading.tsx
+    layout/   Navbar.tsx  Footer.tsx  PageHeader.tsx
+    home/     Hero.tsx  ServicesTeaser.tsx  RealisationsTeaser.tsx  ClientsMarquee.tsx  CtaBanner.tsx
+    shared/   ServiceCard.tsx  VideoCard.tsx  VideoLightbox.tsx  PhotoGallery.tsx  TeamGrid.tsx  ContactForm.tsx  SectionHeading.tsx
   data/
-    site.ts     # company info, nav, services copy, contact details
-    videos.ts   # typed video dataset (id, title, youtubeId, category)
-    logos.ts    # typed client logo dataset (name, src)
+    site.ts     # coordonnées, nav, services copy, JSON-LD source
+    videos.ts   # { id, title, client?, youtubeId, category }
+    logos.ts    # { name, src }
+    photos.ts   # { src, alt, category }
+    team.ts     # { name, role, photo }
   routes/
-    index.tsx   # assembles all sections
-site-data.txt   # content master doc + YouTube URLs to fill in
+    __root.tsx  index.tsx  nos-realisations.tsx  nos-services.tsx
+    nos-references.tsx  a-propos.tsx  contact.tsx
+site-data.txt   # content master doc + YouTube URLs + expected asset filenames
 ```
-
-## Data templates (ready for real assets)
-
-- `videos.ts`: `type VideoItem = { id: string; title: string; client?: string; youtubeId: string; category: "videos" | "evenements" | "institutionnel" }` seeded with clearly-marked example rows to replace.
-- `logos.ts`: `type ClientLogo = { name: string; src: string }` seeded with Richbond, Hyundai, DP World and friends pointing at `/logos/*.png`.
-- Placeholder hero video and logo files: I'll generate lightweight stand-ins so the layout renders before you drop in real files, and document exact expected filenames in `site-data.txt`.
 
 ## Technical notes
 
 - Add the `motion` package (Framer Motion for React 19).
-- Single index route with anchor scrolling for the main sections (as on ndfilms.ma), with per-route `head()` metadata: title, description, og/twitter tags in French.
-- Static site, no backend — the quote form validates and shows a confirmation; wiring it to email/database can be a follow-up with Lovable Cloud.
+- Datasets stay typed and seeded with clearly marked example rows so real assets from your GitHub repo drop straight in.
+- No backend: the quote form validates client-side and confirms; wiring it to email/database is a follow-up with Lovable Cloud.
+- If the single-page version already exists in the project, its sections are moved into the new page components rather than rewritten.
