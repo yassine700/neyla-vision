@@ -1,21 +1,21 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import { Hero } from "@/components/home/Hero";
-import { CtaBanner } from "@/components/home/CtaBanner";
-import { SectionHeading } from "@/components/shared/SectionHeading";
-import { ServiceCard } from "@/components/shared/ServiceCard";
-import { VideoGrid } from "@/components/shared/VideoGrid";
-import { ClientsMarquee } from "@/components/shared/ClientsMarquee";
-import { services } from "@/data/site";
-import { videos } from "@/data/videos";
-import { pageHead } from "@/lib/seo";
+
+import { Hero } from "../components/home/Hero";
+import { CtaBanner } from "../components/home/CtaBanner";
+import { SectionHeading } from "../components/shared/SectionHeading";
+import { ServiceCard } from "../components/shared/ServiceCard";
+import { VideoGrid } from "../components/shared/VideoGrid";
+import { ClientsMarquee } from "../components/shared/ClientsMarquee";
+import { services } from "../data/site";
+import { seo } from "../lib/seo";
 
 export const Route = createFileRoute("/")({
   head: () =>
-    pageHead({
+    seo({
       title: "Neyla Production — Agence Audiovisuelle & Digitale à Casablanca",
       description:
-        "Neyla Production réalise vos films d'entreprise, captations vidéo, shootings corporate, campagnes digitales et motion design à Casablanca.",
+        "Agence de production audiovisuelle à Casablanca : captation vidéo, shooting corporate, marketing digital et motion design pour les marques et institutions au Maroc.",
       path: "/",
     }),
   component: HomePage,
@@ -26,62 +26,45 @@ function HomePage() {
     <>
       <Hero />
 
-      <section className="container-page py-24">
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <SectionHeading eyebrow="Nos Services" title="Ce que nous produisons" />
-          <Link
-            to="/nos-services"
-            className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary"
-          >
-            Tous les services
-            <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-          </Link>
-        </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+      <section className="mx-auto w-full max-w-7xl px-5 py-20 md:py-28">
+        <SectionHeading
+          eyebrow="Nos expertises"
+          title="Ce que nous produisons"
+          subtitle="Quatre pôles complémentaires pour couvrir toute la chaîne de production de votre contenu."
+        />
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service, i) => (
             <ServiceCard key={service.slug} service={service} index={i} />
           ))}
         </div>
       </section>
 
-      <section className="border-t border-border bg-card/40 py-24">
-        <div className="container-page">
+      <section className="border-t border-border">
+        <div className="mx-auto w-full max-w-7xl px-5 py-20 md:py-28">
           <div className="flex flex-wrap items-end justify-between gap-6">
-            <SectionHeading eyebrow="Nos Réalisations" title="Nos dernières productions" />
+            <SectionHeading
+              eyebrow="Portfolio"
+              title="Réalisations récentes"
+              subtitle="Une sélection de films institutionnels, événementiels et corporate."
+            />
             <Link
               to="/nos-realisations"
-              className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary"
+              className="inline-flex items-center gap-2 font-display text-xs tracking-[0.2em] text-primary uppercase"
             >
-              Voir le portfolio
-              <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+              Tout voir <ArrowRight className="size-4" />
             </Link>
           </div>
           <div className="mt-12">
-            <VideoGrid items={videos.slice(0, 3)} showFilters={false} />
+            <VideoGrid limit={6} />
           </div>
         </div>
       </section>
 
-      <section className="py-24">
-        <div className="container-page">
-          <SectionHeading
-            eyebrow="Nos Références"
-            title="Notre clientèle d'exception"
-            subtitle="Des groupes industriels aux marques internationales, nous accompagnons des entreprises exigeantes au Maroc."
-            align="center"
-          />
+      <section>
+        <div className="mx-auto w-full max-w-7xl px-5 pb-10">
+          <SectionHeading eyebrow="Ils nous font confiance" title="Nos références" align="center" />
         </div>
-        <div className="mt-14">
-          <ClientsMarquee />
-        </div>
-        <div className="container-page mt-12 text-center">
-          <Link
-            to="/nos-references"
-            className="inline-flex items-center gap-2 border border-border px-7 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary hover:text-primary"
-          >
-            Toutes nos références
-          </Link>
-        </div>
+        <ClientsMarquee />
       </section>
 
       <CtaBanner />

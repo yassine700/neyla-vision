@@ -1,103 +1,100 @@
-import { useState, type FormEvent } from "react";
-import { toast } from "sonner";
 import { Send } from "lucide-react";
-import { services } from "@/data/site";
+import { useState } from "react";
+import { toast } from "sonner";
 
-const initial = { nom: "", societe: "", email: "", telephone: "", service: "", message: "" };
+type Fields = { nom: string; email: string; telephone: string; sujet: string; message: string };
+
+const empty: Fields = { nom: "", email: "", telephone: "", sujet: "", message: "" };
 
 export function ContactForm() {
-  const [values, setValues] = useState(initial);
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [values, setValues] = useState<Fields>(empty);
+  const [errors, setErrors] = useState<Partial<Record<keyof Fields, string>>>({});
 
-  const set = (key: keyof typeof initial, value: string) => {
-    setValues((v) => ({ ...v, [key]: value }));
-    setErrors((e) => ({ ...e, [key]: "" }));
-  };
+  const set = (key: keyof Fields) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+    setValues((v) => ({ ...v, [key]: e.target.value }));
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const next: Record<string, string> = {};
-    if (values.nom.trim().length < 2) next["nom"] = "Merci d'indiquer votre nom.";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) next["email"] = "Adresse e-mail invalide.";
-    if (values.message.trim().length < 10) next["message"] = "Décrivez votre projet en quelques mots.";
+    const next: Partial<Record<keyof Fields, string>> = {};
+    if (values.nom.trim().length < 2) next.nom = "Merci d'indiquer votre nom.";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) next.email = "Adresse e-mail invalide.";
+    if (values.message.trim().length < 10) next.message = "Décrivez votre projet en quelques mots.";
     setErrors(next);
     if (Object.keys(next).length > 0) return;
-
-    toast.success("Demande envoyée", {
-      description: "Merci ! Notre équipe vous recontacte sous 24 h ouvrées.",
+    toast.success("Message envoyé", {
+      description: "Notre équipe vous recontacte sous 24h ouvrées.",
     });
-    setValues(initial);
+    setValues(empty);
   };
 
-  const field =
-    "w-full border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none";
+  const inputClass =
+    "w-full border border-border bg-card px-4 py-3 text-sm outline-none transition-colors focus:border-primary";
 
   return (
     <form onSubmit={onSubmit} className="space-y-5" noValidate>
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="nom" className="mb-2 block text-xs uppercase tracking-[0.2em] text-muted-foreground">
-            Nom complet *
+          <label htmlFor="nom" className="label-eyebrow">
+            Nom *
           </label>
-          <input id="nom" className={field} value={values.nom} onChange={(e) => set("nom", e.target.value)} placeholder="Votre nom" />
-          {errors['nom'] ? <p className="mt-2 text-xs text-primary">{errors['nom']}</p> : null}
+          <input id="nom" value={values.nom} onChange={set("nom")} className={`${inputClass} mt-2`} />
+          {errors.nom ? <p className="mt-1 text-xs text-primary">{errors.nom}</p> : null}
         </div>
         <div>
-          <label htmlFor="societe" className="mb-2 block text-xs uppercase tracking-[0.2em] text-muted-foreground">
-            Société
-          </label>
-          <input id="societe" className={field} value={values.societe} onChange={(e) => set("societe", e.target.value)} placeholder="Votre entreprise" />
-        </div>
-        <div>
-          <label htmlFor="email" className="mb-2 block text-xs uppercase tracking-[0.2em] text-muted-foreground">
+          <label htmlFor="email" className="label-eyebrow">
             E-mail *
           </label>
-          <input id="email" type="email" className={field} value={values.email} onChange={(e) => set("email", e.target.value)} placeholder="vous@societe.ma" />
-          {errors['email'] ? <p className="mt-2 text-xs text-primary">{errors['email']}</p> : null}
+          <input
+            id="email"
+            type="email"
+            value={values.email}
+            onChange={set("email")}
+            className={`${inputClass} mt-2`}
+          />
+          {errors.email ? <p className="mt-1 text-xs text-primary">{errors.email}</p> : null}
         </div>
         <div>
-          <label htmlFor="telephone" className="mb-2 block text-xs uppercase tracking-[0.2em] text-muted-foreground">
+          <label htmlFor="telephone" className="label-eyebrow">
             Téléphone
           </label>
-          <input id="telephone" className={field} value={values.telephone} onChange={(e) => set("telephone", e.target.value)} placeholder="+212 6 00 00 00 00" />
+          <input
+            id="telephone"
+            value={values.telephone}
+            onChange={set("telephone")}
+            className={`${inputClass} mt-2`}
+          />
+        </div>
+        <div>
+          <label htmlFor="sujet" className="label-eyebrow">
+            Sujet
+          </label>
+          <input
+            id="sujet"
+            value={values.sujet}
+            onChange={set("sujet")}
+            placeholder="Captation vidéo, shooting, motion design…"
+            className={`${inputClass} mt-2`}
+          />
         </div>
       </div>
-
       <div>
-        <label htmlFor="service" className="mb-2 block text-xs uppercase tracking-[0.2em] text-muted-foreground">
-          Service souhaité
-        </label>
-        <select id="service" className={field} value={values.service} onChange={(e) => set("service", e.target.value)}>
-          <option value="">Sélectionnez un service</option>
-          {services.map((s) => (
-            <option key={s.slug} value={s.slug}>
-              {s.title}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div>
-        <label htmlFor="message" className="mb-2 block text-xs uppercase tracking-[0.2em] text-muted-foreground">
+        <label htmlFor="message" className="label-eyebrow">
           Votre projet *
         </label>
         <textarea
           id="message"
-          rows={5}
-          className={field}
+          rows={6}
           value={values.message}
-          onChange={(e) => set("message", e.target.value)}
-          placeholder="Décrivez votre besoin, vos délais et votre budget estimé."
+          onChange={set("message")}
+          className={`${inputClass} mt-2 resize-none`}
         />
-        {errors['message'] ? <p className="mt-2 text-xs text-primary">{errors['message']}</p> : null}
+        {errors.message ? <p className="mt-1 text-xs text-primary">{errors.message}</p> : null}
       </div>
-
       <button
         type="submit"
-        className="group inline-flex items-center gap-3 bg-primary px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-primary/85"
+        className="inline-flex items-center gap-2 bg-primary px-8 py-4 font-display text-xs tracking-[0.2em] text-primary-foreground uppercase transition-colors hover:bg-primary/85"
       >
-        Envoyer ma demande
-        <Send className="size-4 transition-transform group-hover:translate-x-1" />
+        Envoyer la demande <Send className="size-4" />
       </button>
     </form>
   );

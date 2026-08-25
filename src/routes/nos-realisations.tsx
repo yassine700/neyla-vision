@@ -1,25 +1,25 @@
-import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Camera, Film } from "lucide-react";
-import { PageHeader } from "@/components/shared/PageHeader";
-import { VideoGrid } from "@/components/shared/VideoGrid";
-import { PhotoGallery } from "@/components/shared/PhotoGallery";
-import { CtaBanner } from "@/components/home/CtaBanner";
-import { pageHead } from "@/lib/seo";
-import { cn } from "@/lib/utils";
+import { useState } from "react";
+
+import { PageHeader } from "../components/shared/PageHeader";
+import { VideoGrid } from "../components/shared/VideoGrid";
+import { PhotoGallery } from "../components/shared/PhotoGallery";
+import { CtaBanner } from "../components/home/CtaBanner";
+import { seo } from "../lib/seo";
 
 export const Route = createFileRoute("/nos-realisations")({
   head: () =>
-    pageHead({
-      title: "Nos Réalisations — Portfolio vidéo & photo | Neyla Production",
+    seo({
+      title: "Nos Réalisations — Portfolio Vidéo & Photo | Neyla Production",
       description:
-        "Découvrez le portfolio de Neyla Production : films institutionnels, captations d'événements, vidéos de marque et galeries photo corporate réalisés à Casablanca.",
+        "Découvrez nos réalisations à Casablanca : films institutionnels, aftermovies événementiels, shooting corporate, culinaire et immobilier au Maroc.",
       path: "/nos-realisations",
     }),
-  component: RealisationsPage,
+  component: PortfolioPage,
 });
 
-function RealisationsPage() {
+function PortfolioPage() {
   const [tab, setTab] = useState<"videos" | "photos">("videos");
 
   return (
@@ -27,29 +27,29 @@ function RealisationsPage() {
       <PageHeader
         eyebrow="Portfolio"
         title="Nos Réalisations"
-        description="Vidéos et photographies produites pour nos clients : institutionnel, événementiel, corporate et campagnes de marque."
+        subtitle="Vidéos et photographies produites pour nos clients : institutionnel, événementiel, corporate et campagnes de marque."
       />
 
-      <section className="container-page py-16">
-        <div className="mb-12 inline-flex border border-border">
-          {[
-            { key: "videos" as const, label: "Vidéos", Icon: Film },
-            { key: "photos" as const, label: "Photos", Icon: Camera },
-          ].map(({ key, label, Icon }) => (
-            <button
-              key={key}
-              type="button"
-              onClick={() => setTab(key)}
-              aria-pressed={tab === key}
-              className={cn(
-                "inline-flex items-center gap-2 px-7 py-4 text-xs font-semibold uppercase tracking-[0.2em] transition-colors",
-                tab === key ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground",
-              )}
-            >
-              <Icon className="size-4" />
-              {label}
-            </button>
-          ))}
+      <section className="mx-auto w-full max-w-7xl px-5 py-16">
+        <div className="mb-10 inline-flex border border-border">
+          <button
+            type="button"
+            onClick={() => setTab("videos")}
+            className={`inline-flex items-center gap-2 px-6 py-3 font-display text-xs tracking-[0.18em] uppercase transition-colors ${
+              tab === "videos" ? "bg-primary text-primary-foreground" : "text-muted-foreground"
+            }`}
+          >
+            <Film className="size-4" /> Vidéos
+          </button>
+          <button
+            type="button"
+            onClick={() => setTab("photos")}
+            className={`inline-flex items-center gap-2 px-6 py-3 font-display text-xs tracking-[0.18em] uppercase transition-colors ${
+              tab === "photos" ? "bg-primary text-primary-foreground" : "text-muted-foreground"
+            }`}
+          >
+            <Camera className="size-4" /> Photos
+          </button>
         </div>
 
         {tab === "videos" ? <VideoGrid /> : <PhotoGallery />}

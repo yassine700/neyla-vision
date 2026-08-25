@@ -1,47 +1,49 @@
 import { motion } from "motion/react";
 
-type Props = {
+export function PageHeader({
+  eyebrow,
+  title,
+  subtitle,
+}: {
   eyebrow: string;
   title: string;
-  description?: string;
-};
-
-export function PageHeader({ eyebrow, title, description }: Props) {
+  subtitle?: string;
+}) {
   return (
-    <header className="relative overflow-hidden border-b border-border bg-background pb-16 pt-36 sm:pt-44">
+    <header className="relative overflow-hidden border-b border-border pt-36 pb-16 md:pt-44 md:pb-24">
       <div
-        className="pointer-events-none absolute inset-0 opacity-70"
-        style={{
-          backgroundImage:
-            "radial-gradient(60% 80% at 15% 0%, oklch(0.577 0.245 27.325 / 0.18), transparent 70%)",
-        }}
         aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-60"
+        style={{
+          background:
+            "radial-gradient(60% 80% at 15% 0%, color-mix(in oklch, var(--primary) 22%, transparent), transparent 70%)",
+        }}
       />
-      <div className="container-page relative">
+      <div className="relative mx-auto w-full max-w-7xl px-5">
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-primary"
+          className="label-eyebrow"
         >
           {eyebrow}
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.05 }}
-          className="max-w-4xl text-4xl font-bold uppercase leading-[1.05] text-foreground sm:text-5xl lg:text-6xl"
+          transition={{ duration: 0.6, delay: 0.08 }}
+          className="mt-4 text-4xl font-bold md:text-6xl"
         >
           {title}
         </motion.h1>
-        {description ? (
+        {subtitle ? (
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.12 }}
-            className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground"
+            transition={{ duration: 0.6, delay: 0.16 }}
+            className="mt-5 max-w-2xl text-muted-foreground"
           >
-            {description}
+            {subtitle}
           </motion.p>
         ) : null}
       </div>

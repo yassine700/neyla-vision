@@ -1,69 +1,72 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PageHeader } from "@/components/shared/PageHeader";
-import { SectionHeading } from "@/components/shared/SectionHeading";
-import { TeamGrid } from "@/components/shared/TeamGrid";
-import { CtaBanner } from "@/components/home/CtaBanner";
-import { SafeImage } from "@/components/shared/SafeImage";
-import { pageHead } from "@/lib/seo";
 
-const values = [
-  { title: "Exigence", text: "Chaque image est pensée, cadrée et étalonnée avec un niveau d'exigence broadcast." },
-  { title: "Créativité", text: "Une direction artistique forte au service de votre message et de votre marque." },
-  { title: "Réactivité", text: "Une équipe intégrée à Casablanca, capable de produire vite et bien." },
-];
+import { PageHeader } from "../components/shared/PageHeader";
+import { SectionHeading } from "../components/shared/SectionHeading";
+import { TeamGrid } from "../components/shared/TeamGrid";
+import { Reveal } from "../components/shared/Reveal";
+import { CtaBanner } from "../components/home/CtaBanner";
+import { seo } from "../lib/seo";
 
 export const Route = createFileRoute("/a-propos")({
   head: () =>
-    pageHead({
+    seo({
       title: "À Propos & Équipe — Neyla Production Casablanca",
       description:
-        "Découvrez Neyla Production : notre histoire, nos valeurs et l'équipe de réalisateurs, photographes et motion designers basée à Casablanca.",
+        "Neyla Production est une agence de création audiovisuelle et digitale basée à Casablanca. Découvrez notre vision et l'équipe derrière nos productions.",
       path: "/a-propos",
     }),
-  component: AProposPage,
+  component: AboutPage,
 });
 
-function AProposPage() {
+const stats = [
+  { value: "10+", label: "Années d'expérience" },
+  { value: "13", label: "Marques accompagnées" },
+  { value: "100%", label: "Production interne" },
+];
+
+function AboutPage() {
   return (
     <>
       <PageHeader
-        eyebrow="À Propos"
-        title="L'agence Neyla Production"
-        description="Une agence de création audiovisuelle et digitale installée au cœur de Casablanca, au service des marques exigeantes."
+        eyebrow="L'agence"
+        title="À Propos"
+        subtitle="Une équipe de réalisateurs, cadreurs, photographes et motion designers réunis à Casablanca autour d'une même exigence : raconter juste."
       />
 
-      <section className="container-page grid gap-14 py-20 lg:grid-cols-2 lg:items-center">
-        <div>
-          <SectionHeading
-            eyebrow="Notre histoire"
-            title="Raconter vos marques en images"
-            subtitle="Née de la passion de l'image, Neyla Production réunit réalisateurs, photographes, monteurs et motion designers sous un même toit. Nous concevons des contenus audiovisuels et des campagnes digitales qui allient qualité artistique et performance business."
-          />
-          <div className="mt-10 grid gap-6 sm:grid-cols-3">
-            {values.map((v) => (
-              <div key={v.title} className="border-l-2 border-primary pl-4">
-                <p className="text-sm font-bold uppercase tracking-[0.16em] text-foreground">{v.title}</p>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{v.text}</p>
+      <section className="mx-auto w-full max-w-7xl px-5 py-16 md:py-24">
+        <div className="grid gap-12 lg:grid-cols-2">
+          <Reveal>
+            <h2 className="text-3xl font-bold md:text-4xl">Notre vision</h2>
+            <p className="mt-6 text-muted-foreground">
+              Chez Neyla Production, chaque image sert un message. Nous concevons des films
+              institutionnels, des couvertures d'événements et des campagnes digitales qui traduisent
+              l'identité de nos clients avec précision et élégance.
+            </p>
+            <p className="mt-4 text-muted-foreground">
+              Du repérage au master final, tout est produit en interne : direction artistique,
+              tournage multi-caméras, photographie, montage, étalonnage et motion design. Cette
+              maîtrise complète garantit des délais tenus et une cohérence visuelle sans compromis.
+            </p>
+          </Reveal>
+          <Reveal delay={0.1} className="grid gap-px self-start bg-border sm:grid-cols-3">
+            {stats.map((stat) => (
+              <div key={stat.label} className="bg-background p-8 text-center">
+                <p className="font-display text-4xl font-bold text-primary">{stat.value}</p>
+                <p className="mt-2 text-xs tracking-[0.15em] text-muted-foreground uppercase">
+                  {stat.label}
+                </p>
               </div>
             ))}
-          </div>
-        </div>
-        <div className="aspect-[4/5] border border-border bg-card">
-          <SafeImage
-            src="/portfolio/agence.jpg"
-            alt="L'équipe de Neyla Production en tournage à Casablanca"
-            label="Photo agence — /portfolio/agence.jpg"
-            className="size-full"
-          />
+          </Reveal>
         </div>
       </section>
 
-      <section className="border-t border-border bg-card/40 py-20">
-        <div className="container-page">
+      <section className="border-t border-border">
+        <div className="mx-auto w-full max-w-7xl px-5 py-16 md:py-24">
           <SectionHeading
-            eyebrow="Notre équipe"
-            title="Les visages derrière la caméra"
-            subtitle="Une équipe pluridisciplinaire qui pilote vos projets de la stratégie à la livraison."
+            eyebrow="L'équipe"
+            title="Les visages de Neyla"
+            subtitle="Une équipe soudée, présente sur chaque tournage."
           />
           <div className="mt-12">
             <TeamGrid />

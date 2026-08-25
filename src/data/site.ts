@@ -1,36 +1,22 @@
-export const site = {
-  name: "Neyla Production",
-  legalName: "Neyla Production SARL",
+import { siteData } from "./siteData";
+
+export const company = {
+  name: siteData.company.name,
   tagline: "Agence de Création Audiovisuelle & Digitale à Casablanca",
-  description:
-    "Neyla Production, agence de création audiovisuelle et digitale à Casablanca : captation vidéo, shooting corporate, marketing digital et motion design.",
-  url: "https://neylaproduction.ma",
-  email: "contact@neylaproduction.ma",
-  phone: "+212 663 66 88 17",
-  phoneHref: "+212663668817",
-  address: {
-    street: "144, Rue Mohamed Smiha, 8ème Étage",
-    city: "Casablanca",
-    country: "Maroc",
-    postalCode: "20250",
-  },
-  socials: {
-    instagram: "https://www.instagram.com/neylaproduction",
-    facebook: "https://www.facebook.com/neylaproduction",
-    linkedin: "https://www.linkedin.com/company/neylaproduction",
-    youtube: "https://www.youtube.com/@neylaproduction",
-  },
-  heroVideo: "/videos/best-of-neyla.mp4",
-  heroPoster: "/videos/best-of-neyla-poster.jpg",
-} as const;
+  address:
+    "144, Rue Mohamed Smiha, Res Jawharat Mohamed Smiha 6ème Étage N° 35, Casablanca",
+  email: siteData.company.email,
+  phones: siteData.company.phones,
+  geo: { lat: 33.5883, lng: -7.6114 },
+};
 
 export const navLinks = [
-  { label: "Accueil", to: "/" },
-  { label: "Nos Réalisations", to: "/nos-realisations" },
-  { label: "Nos Références", to: "/nos-references" },
-  { label: "Services", to: "/nos-services" },
-  { label: "À Propos", to: "/a-propos" },
-  { label: "Contact", to: "/contact" },
+  { to: "/", label: "Accueil" },
+  { to: "/nos-realisations", label: "Nos Réalisations" },
+  { to: "/nos-services", label: "Nos Services" },
+  { to: "/nos-references", label: "Nos Références" },
+  { to: "/a-propos", label: "À Propos" },
+  { to: "/contact", label: "Contact" },
 ] as const;
 
 export type Service = {
@@ -38,69 +24,47 @@ export type Service = {
   title: string;
   icon: "video" | "camera" | "megaphone" | "sparkles";
   description: string;
-  bullets: string[];
+  points: string[];
 };
 
 export const services: Service[] = [
   {
     slug: "captation-video",
-    title: "CAPTATION VIDEO",
+    title: "Captation Vidéo",
     icon: "video",
     description:
-      "Nous réalisons des vidéos et films professionnels pour vos événements, produits et campagnes. Avec une approche artistique et des équipements de pointe, nous créons des contenus percutants : vidéos promotionnelles, institutionnelles, montage et live streaming.",
-    bullets: ["Vidéos promotionnelles", "Films institutionnels", "Montage & étalonnage", "Live streaming"],
+      "Captation multi-caméras de vos événements, conférences et lancements produits, du tournage au montage final.",
+    points: ["Multi-caméras 4K", "Interviews & aftermovies", "Live & streaming"],
   },
   {
     slug: "shooting-corporate",
-    title: "SHOOTING CORPORATE",
+    title: "Shooting Corporate",
     icon: "camera",
     description:
-      "Nous réalisons des shooting photo professionnels pour valoriser votre image de marque et vos équipes. Nos photographes créent des visuels de qualité, adaptés aux réseaux sociaux, sites web et supports imprimés, pour renforcer votre visibilité et votre impact.",
-    bullets: ["Portraits d'équipe", "Photo produit", "Reportage événementiel", "Retouche professionnelle"],
+      "Photographie institutionnelle, portraits d'équipe, culinaire et immobilier au service de votre image de marque.",
+    points: ["Portraits & équipes", "Culinaire & produit", "Architecture & immobilier"],
   },
   {
     slug: "marketing-digital",
-    title: "MARKETING DIGITAL",
+    title: "Marketing Digital",
     icon: "megaphone",
     description:
-      "Nous concevons et gérons des campagnes publicitaires en ligne performantes sur Google Ads, Facebook, Instagram et plus encore. Grâce à des stratégies sur mesure et un suivi continu, nous maximisons votre visibilité et votre retour sur investissement.",
-    bullets: ["Google Ads", "Meta Ads", "Stratégie de contenu", "Reporting & ROI"],
+      "Stratégie de contenu, community management et campagnes social media pensées pour la performance.",
+    points: ["Stratégie éditoriale", "Social media", "Campagnes sponsorisées"],
   },
   {
     slug: "motion-design",
-    title: "MOTION DESIGN",
+    title: "Motion Design",
     icon: "sparkles",
     description:
-      "Nous vous accompagnons dans la création de vidéos animées professionnelles qui transforment vos messages en expériences visuelles impactantes.",
-    bullets: ["Habillage graphique", "Animation 2D", "Explainer videos", "Génériques & logos animés"],
+      "Animations graphiques, habillages et vidéos explicatives qui donnent du rythme à vos messages.",
+    points: ["Habillage & génériques", "Vidéos explicatives", "Animation 2D/3D"],
   },
 ];
 
-export const localBusinessJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: site.name,
-  image: `${site.url}/logo.png`,
-  url: site.url,
-  telephone: site.phone,
-  email: site.email,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: site.address.street,
-    addressLocality: site.address.city,
-    postalCode: site.address.postalCode,
-    addressCountry: "MA",
-  },
-  geo: { "@type": "GeoCoordinates", latitude: 33.5883, longitude: -7.6114 },
-  areaServed: "Maroc",
-  priceRange: "$$",
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "09:00",
-      closes: "18:30",
-    },
-  ],
-  sameAs: Object.values(site.socials),
-};
+export const processSteps = [
+  { step: "01", title: "Brief & Stratégie", text: "Nous cadrons vos objectifs, cibles et messages clés." },
+  { step: "02", title: "Pré-production", text: "Scénario, repérages, casting, plan de tournage et logistique." },
+  { step: "03", title: "Production", text: "Tournage et shooting avec une équipe et un matériel professionnels." },
+  { step: "04", title: "Post-production", text: "Montage, étalonnage, motion design, sound design et livraison." },
+];

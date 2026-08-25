@@ -1,51 +1,54 @@
-import { useEffect } from "react";
 import { X } from "lucide-react";
-import { youtubeEmbed, type VideoItem } from "@/data/videos";
+import { useEffect } from "react";
 
-export function VideoLightbox({ video, onClose }: { video: VideoItem | null; onClose: () => void }) {
+export function VideoLightbox({
+  youtubeId,
+  title,
+  onClose,
+}: {
+  youtubeId: string;
+  title: string;
+  onClose: () => void;
+}) {
   useEffect(() => {
-    if (!video) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
-    document.addEventListener("keydown", onKey);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
     return () => {
-      document.removeEventListener("keydown", onKey);
+      window.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
     };
-  }, [video, onClose]);
-
-  if (!video) return null;
+  }, [onClose]);
 
   return (
     <div
       role="dialog"
       aria-modal="true"
-      aria-label={video.title}
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-background/95 p-4 backdrop-blur-sm"
+      aria-label={title}
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4"
       onClick={onClose}
     >
       <button
         type="button"
+        aria-label="Fermer"
         onClick={onClose}
-        aria-label="Fermer la vidéo"
-        className="absolute right-5 top-5 inline-flex size-11 items-center justify-center border border-border text-foreground transition-colors hover:border-primary hover:text-primary"
+        className="absolute top-5 right-5 grid size-11 place-items-center border border-border text-foreground transition-colors hover:border-primary hover:text-primary"
       >
         <X className="size-5" />
       </button>
-      <div className="w-full max-w-5xl" onClick={(e) => e.stopPropagation()}>
-        <div className="aspect-video w-full border border-border bg-card">
-          <iframe
-            src={youtubeEmbed(video.youtubeId)}
-            title={video.title}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="size-full"
-          />
-        </div>
-        <p className="mt-4 text-sm uppercase tracking-[0.18em] text-muted-foreground">
-          {video.client ? `${video.client} — ` : ""}
-          <span className="text-foreground">{video.title}</span>
-        </p>
+      <div
+        className="aspect-video w-full max-w-5xl bg-black"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <iframe
+          src={`https://www.youtube.com/embed/${youtubeId}?rel=0&modestbranding=1&autoplay=1`}
+          title={title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          className="size-full border-0"
+        />
       </div>
     </div>
   );

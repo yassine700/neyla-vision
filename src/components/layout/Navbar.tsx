@@ -1,15 +1,12 @@
-import { useEffect, useState } from "react";
-import { Link, useRouterState } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
-import { navLinks } from "@/data/site";
-import { cn } from "@/lib/utils";
+import { useEffect, useState } from "react";
+
+import { navLinks } from "../../data/site";
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
-
-  useEffect(() => setOpen(false), [pathname]);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -19,34 +16,33 @@ export function Navbar() {
   }, []);
 
   return (
-    <nav
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 border-b transition-all duration-300",
-        scrolled || open
-          ? "border-border bg-background/80 backdrop-blur-md"
-          : "border-transparent bg-gradient-to-b from-background/80 to-transparent",
-      )}
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        scrolled ? "border-b border-border bg-background/85 backdrop-blur-xl" : "bg-transparent"
+      }`}
     >
-      <div className="container-page flex h-20 items-center justify-between gap-6">
-        <Link to="/" className="group flex items-center gap-3" aria-label="Neyla Production — accueil">
-          <span className="flex size-9 items-center justify-center bg-primary font-display text-lg font-bold text-primary-foreground">
+      <nav className="mx-auto flex w-full max-w-7xl items-center justify-between gap-6 px-5 py-4">
+        <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+          <span className="grid size-9 place-items-center bg-primary font-display text-lg font-bold text-primary-foreground">
             N
           </span>
-          <span className="font-display text-lg font-bold uppercase leading-none tracking-[0.18em] text-foreground">
-            Neyla
-            <span className="block text-[10px] font-medium tracking-[0.42em] text-muted-foreground">Production</span>
+          <span className="font-display text-lg leading-none font-bold tracking-widest">
+            NEYLA
+            <span className="block text-[0.6rem] tracking-[0.35em] text-muted-foreground">
+              PRODUCTION
+            </span>
           </span>
         </Link>
 
-        <ul className="hidden items-center gap-8 lg:flex">
+        <ul className="hidden items-center gap-7 lg:flex">
           {navLinks.map((link) => (
             <li key={link.to}>
               <Link
                 to={link.to}
                 activeOptions={{ exact: link.to === "/" }}
-                activeProps={{ className: "text-foreground after:w-full" }}
-                inactiveProps={{ className: "text-muted-foreground" }}
-                className="relative text-xs font-semibold uppercase tracking-[0.18em] transition-colors after:absolute after:-bottom-2 after:left-0 after:h-px after:w-0 after:bg-primary after:transition-all hover:text-foreground hover:after:w-full"
+                activeProps={{ className: "text-foreground border-primary" }}
+                inactiveProps={{ className: "text-muted-foreground border-transparent" }}
+                className="border-b-2 pb-1 font-display text-xs tracking-[0.18em] uppercase transition-colors hover:text-foreground"
               >
                 {link.label}
               </Link>
@@ -57,48 +53,40 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           <Link
             to="/contact"
-            className="hidden bg-primary px-5 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground transition-colors hover:bg-primary/85 sm:inline-flex"
+            className="hidden bg-primary px-5 py-3 font-display text-xs tracking-[0.18em] text-primary-foreground uppercase transition-colors hover:bg-primary/85 sm:inline-block"
           >
             Demandez un devis
           </Link>
           <button
             type="button"
-            onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
-            aria-expanded={open}
-            className="inline-flex size-10 items-center justify-center border border-border text-foreground lg:hidden"
+            onClick={() => setOpen((v) => !v)}
+            className="grid size-10 place-items-center border border-border lg:hidden"
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
         </div>
-      </div>
+      </nav>
 
       {open ? (
-        <div className="border-t border-border bg-background/95 backdrop-blur-md lg:hidden">
-          <ul className="container-page flex flex-col py-4">
+        <div className="border-t border-border bg-background lg:hidden">
+          <ul className="mx-auto flex w-full max-w-7xl flex-col px-5 py-4">
             {navLinks.map((link) => (
               <li key={link.to}>
                 <Link
                   to={link.to}
+                  onClick={() => setOpen(false)}
                   activeOptions={{ exact: link.to === "/" }}
                   activeProps={{ className: "text-primary" }}
-                  className="block border-b border-border/60 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-foreground"
+                  className="block border-b border-border py-3 font-display text-sm tracking-[0.18em] uppercase"
                 >
                   {link.label}
                 </Link>
               </li>
             ))}
-            <li className="pt-5">
-              <Link
-                to="/contact"
-                className="block bg-primary px-5 py-4 text-center text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground"
-              >
-                Demandez un devis
-              </Link>
-            </li>
           </ul>
         </div>
       ) : null}
-    </nav>
+    </header>
   );
 }

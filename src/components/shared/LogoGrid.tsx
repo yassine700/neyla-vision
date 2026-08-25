@@ -1,22 +1,25 @@
 import { motion } from "motion/react";
-import { logos } from "@/data/logos";
-import { SafeImage } from "./SafeImage";
+
+import { siteData } from "../../data/siteData";
 
 export function LogoGrid() {
   return (
-    <div className="grid grid-cols-2 gap-px border border-border bg-border sm:grid-cols-3 lg:grid-cols-4">
-      {logos.map((logo, i) => (
+    <div className="grid grid-cols-2 gap-px bg-border sm:grid-cols-3 lg:grid-cols-4">
+      {siteData.references.map((ref, i) => (
         <motion.div
-          key={logo.name}
-          initial={{ opacity: 0, scale: 0.96 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          key={ref.name}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.4, delay: (i % 4) * 0.05 }}
-          className="group flex h-36 items-center justify-center bg-card p-8"
+          transition={{ duration: 0.45, delay: Math.min(i, 8) * 0.04 }}
+          className="group flex aspect-[3/2] items-center justify-center bg-background p-8"
         >
-          <div className="h-full w-full opacity-55 grayscale transition duration-500 group-hover:opacity-100 group-hover:grayscale-0">
-            <SafeImage src={logo.src} alt={logo.name} label={logo.name} className="size-full" imgClassName="object-contain" />
-          </div>
+          <img
+            src={ref.logo}
+            alt={ref.name}
+            loading="lazy"
+            className="max-h-16 w-auto max-w-[70%] object-contain opacity-70 grayscale transition duration-300 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0"
+          />
         </motion.div>
       ))}
     </div>
