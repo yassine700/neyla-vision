@@ -8,6 +8,7 @@ import { SectionHeading } from "../components/shared/SectionHeading";
 import { ServiceCard } from "../components/shared/ServiceCard";
 import { VideoGrid } from "../components/shared/VideoGrid";
 import { ClientsMarquee } from "../components/shared/ClientsMarquee";
+import { ContactForm } from "../components/shared/ContactForm";
 import { services } from "../data/site";
 import { seo } from "../lib/seo";
 
@@ -50,7 +51,7 @@ function HomePage() {
 
       <section className="border-t border-border pt-20 md:pt-28">
         <div className="mx-auto w-full max-w-7xl px-5 pb-10">
-          <SectionHeading eyebrow="Ils nous font confiance" title="Nos références" align="center" />
+          <SectionHeading title="Ils nous font confiance" align="center" />
         </div>
         <ClientsMarquee />
       </section>
@@ -69,6 +70,20 @@ function HomePage() {
       </section>
 
       <AboutIntro />
+
+      <section className="border-t border-border">
+        <div className="mx-auto w-full max-w-4xl px-5 py-20 md:py-28">
+          <SectionHeading
+            eyebrow="Contact"
+            title="Demander un devis"
+            subtitle="Parlez-nous de votre projet, notre équipe vous répond sous 24h ouvrées."
+            align="center"
+          />
+          <div className="mt-12">
+            <ContactForm />
+          </div>
+        </div>
+      </section>
 
       <CtaBanner />
     </>
