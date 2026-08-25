@@ -10,6 +10,8 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AProposRouteImport } from './routes/a-propos'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as NosRealisationsRouteImport } from './routes/nos-realisations'
 import { Route as NosReferencesRouteImport } from './routes/nos-references'
 import { Route as NosServicesRouteImport } from './routes/nos-services'
@@ -17,6 +19,16 @@ import { Route as NosServicesRouteImport } from './routes/nos-services'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AProposRoute = AProposRouteImport.update({
+  id: '/a-propos',
+  path: '/a-propos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NosRealisationsRoute = NosRealisationsRouteImport.update({
@@ -37,12 +49,16 @@ const NosServicesRoute = NosServicesRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/contact': typeof ContactRoute
   '/nos-realisations': typeof NosRealisationsRoute
   '/nos-references': typeof NosReferencesRoute
   '/nos-services': typeof NosServicesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/contact': typeof ContactRoute
   '/nos-realisations': typeof NosRealisationsRoute
   '/nos-references': typeof NosReferencesRoute
   '/nos-services': typeof NosServicesRoute
@@ -50,21 +66,43 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/contact': typeof ContactRoute
   '/nos-realisations': typeof NosRealisationsRoute
   '/nos-references': typeof NosReferencesRoute
   '/nos-services': typeof NosServicesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/nos-realisations' | '/nos-references' | '/nos-services'
+  fullPaths:
+    | '/'
+    | '/a-propos'
+    | '/contact'
+    | '/nos-realisations'
+    | '/nos-references'
+    | '/nos-services'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/nos-realisations' | '/nos-references' | '/nos-services'
+  to:
+    | '/'
+    | '/a-propos'
+    | '/contact'
+    | '/nos-realisations'
+    | '/nos-references'
+    | '/nos-services'
   id:
-    '__root__' | '/' | '/nos-realisations' | '/nos-references' | '/nos-services'
+    | '__root__'
+    | '/'
+    | '/a-propos'
+    | '/contact'
+    | '/nos-realisations'
+    | '/nos-references'
+    | '/nos-services'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AProposRoute: typeof AProposRoute
+  ContactRoute: typeof ContactRoute
   NosRealisationsRoute: typeof NosRealisationsRoute
   NosReferencesRoute: typeof NosReferencesRoute
   NosServicesRoute: typeof NosServicesRoute
@@ -77,6 +115,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/a-propos': {
+      id: '/a-propos'
+      path: '/a-propos'
+      fullPath: '/a-propos'
+      preLoaderRoute: typeof AProposRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/nos-realisations': {
@@ -105,6 +157,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AProposRoute: AProposRoute,
+  ContactRoute: ContactRoute,
   NosRealisationsRoute: NosRealisationsRoute,
   NosReferencesRoute: NosReferencesRoute,
   NosServicesRoute: NosServicesRoute,
