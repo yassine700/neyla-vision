@@ -60,14 +60,16 @@ function HomePage() {
         <SectionHeading
           eyebrow="Nos expertises"
           title="Ce que nous produisons"
-          subtitle="Cinq pôles complémentaires pour couvrir toute la chaîne de production de votre contenu."
+          subtitle="Quatre pôles complémentaires pour couvrir toute la chaîne de production de votre contenu."
         />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service, i) => (
             <ServiceCard key={service.slug} service={service} index={i} />
           ))}
         </div>
       </section>
+
+      <CtaBanner />
 
       <AboutIntro />
 
@@ -84,8 +86,6 @@ function HomePage() {
           </div>
         </div>
       </section>
-
-      <CtaBanner />
     </>
   );
 }
