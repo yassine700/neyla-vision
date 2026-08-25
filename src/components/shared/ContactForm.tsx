@@ -40,7 +40,7 @@ export function ContactForm() {
             Nom complet *
           </label>
           <input id="nom" className={field} value={values.nom} onChange={(e) => set("nom", e.target.value)} placeholder="Votre nom" />
-          {errors.nom ? <p className="mt-2 text-xs text-primary">{errors.nom}</p> : null}
+          {errors['nom'] ? <p className="mt-2 text-xs text-primary">{errors['nom']}</p> : null}
         </div>
         <div>
           <label htmlFor="societe" className="mb-2 block text-xs uppercase tracking-[0.2em] text-muted-foreground">
@@ -53,7 +53,7 @@ export function ContactForm() {
             E-mail *
           </label>
           <input id="email" type="email" className={field} value={values.email} onChange={(e) => set("email", e.target.value)} placeholder="vous@societe.ma" />
-          {errors.email ? <p className="mt-2 text-xs text-primary">{errors.email}</p> : null}
+          {errors['email'] ? <p className="mt-2 text-xs text-primary">{errors['email']}</p> : null}
         </div>
         <div>
           <label htmlFor="telephone" className="mb-2 block text-xs uppercase tracking-[0.2em] text-muted-foreground">
@@ -89,7 +89,7 @@ export function ContactForm() {
           onChange={(e) => set("message", e.target.value)}
           placeholder="Décrivez votre besoin, vos délais et votre budget estimé."
         />
-        {errors.message ? <p className="mt-2 text-xs text-primary">{errors.message}</p> : null}
+        {errors['message'] ? <p className="mt-2 text-xs text-primary">{errors['message']}</p> : null}
       </div>
 
       <button
