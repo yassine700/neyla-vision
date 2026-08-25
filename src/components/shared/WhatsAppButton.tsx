@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
-const PHONE_NUMBER = "+212665362673";
+const PHONE_NUMBER = "+212665352673";
 const WHATSAPP_URL = `https://wa.me/${PHONE_NUMBER.replace(/\D/g, "")}`;
 
 function WhatsAppIcon({ className }: { className?: string }) {
