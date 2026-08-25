@@ -8,6 +8,7 @@ import { SectionHeading } from "../components/shared/SectionHeading";
 import { ServiceCard } from "../components/shared/ServiceCard";
 import { VideoGrid } from "../components/shared/VideoGrid";
 import { ClientsMarquee } from "../components/shared/ClientsMarquee";
+import { ContactForm } from "../components/shared/ContactForm";
 import { services } from "../data/site";
 import { seo } from "../lib/seo";
 
