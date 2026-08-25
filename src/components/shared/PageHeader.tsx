@@ -1,6 +1,4 @@
-import * as motionReact from "motion/react";
-
-const { motion } = motionReact;
+import { motion } from "motion/react";
 
 type Props = {
   eyebrow: string;
