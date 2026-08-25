@@ -1,7 +1,15 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Mail, MapPin, Music2, Phone, Youtube } from "lucide-react";
 
-import { company, navLinks } from "../../data/site";
+import { company, navLinks, socials } from "../../data/site";
+
+const socialIcons = {
+  facebook: Facebook,
+  instagram: Instagram,
+  linkedin: Linkedin,
+  tiktok: Music2,
+  youtube: Youtube,
+} as const;
 
 export function Footer() {
   return (
