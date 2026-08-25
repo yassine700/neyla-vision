@@ -53,14 +53,6 @@ export const services: Service[] = [
     points: ["Stratégie éditoriale", "Social media", "Campagnes sponsorisées"],
   },
   {
-    slug: "motion-design",
-    title: "Motion Design",
-    icon: "sparkles",
-    description:
-      "Animations graphiques, habillages et vidéos explicatives qui donnent du rythme à vos messages.",
-    points: ["Habillage & génériques", "Vidéos explicatives", "Animation 2D/3D"],
-  },
-  {
     slug: "relation-presse",
     title: "Relation Presse",
     icon: "newspaper",
