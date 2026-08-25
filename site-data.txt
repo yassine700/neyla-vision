@@ -1,0 +1,91 @@
+NEYLA PRODUCTION — DOCUMENT MAÎTRE DE CONTENU
+=============================================
+
+1. IDENTITÉ
+-----------
+Nom            : Neyla Production
+Baseline       : Agence de Création Audiovisuelle & Digitale à Casablanca
+Adresse        : 144, Rue Mohamed Smiha, 8ème Étage, Casablanca, Maroc
+Téléphone      : +212 663 66 88 17
+E-mail         : contact@neylaproduction.ma
+Site           : https://neylaproduction.ma
+(Modifier dans src/data/site.ts)
+
+
+2. ARBORESCENCE DES PAGES
+-------------------------
+/                  Accueil (hero vidéo + teasers)
+/nos-realisations  Portfolio — onglets Vidéos / Photos
+/nos-services      4 services
+/nos-references    Logos clients
+/a-propos          Agence + équipe
+/contact           Formulaire de devis + coordonnées
+
+
+3. ASSETS À DÉPOSER DANS /public
+--------------------------------
+/public/videos/
+  best-of-neyla.mp4            <- vidéo de fond du hero (muette au chargement, son activable)
+  best-of-neyla-poster.jpg     <- image d'attente du hero (1920x1080)
+
+/public/logos/                 (PNG transparents, ~400x200)
+  richbond.png, hyundai.png, dp-world.png, marjane.png, attijariwafa.png,
+  maroc-telecom.png, ocp.png, renault.png, sanofi.png, lesieur.png,
+  cih-bank.png, label-vie.png
+  -> liste modifiable dans src/data/logos.ts
+
+/public/portfolio/             (JPG haute résolution)
+  portfolio-01.jpg ... portfolio-08.jpg
+  agence.jpg                   <- photo utilisée sur /a-propos
+  -> liste + catégories dans src/data/photos.ts (corporate | evenements | produit)
+
+/public/team/                  (portraits verticaux 3:4)
+  team-01.jpg ... team-06.jpg
+  -> noms et rôles dans src/data/team.ts
+
+Tant qu'un fichier est absent, un placeholder élégant s'affiche automatiquement.
+
+
+4. VIDÉOS YOUTUBE
+-----------------
+À renseigner dans src/data/videos.ts. On n'utilise QUE l'ID YouTube :
+  https://www.youtube.com/watch?v=ScMzIvxBSi4   ->  youtubeId: "ScMzIvxBSi4"
+  https://youtu.be/ScMzIvxBSi4                  ->  youtubeId: "ScMzIvxBSi4"
+
+Format d'une entrée :
+  { id: "v-01", title: "Titre", client: "Client", youtubeId: "XXXXXXXXXXX", category: "videos" }
+
+Catégories autorisées : "videos" | "evenements" | "institutionnel"
+
+Liste à compléter :
+  1. Titre : ............  Client : ............  URL : ............  Catégorie : ............
+  2. Titre : ............  Client : ............  URL : ............  Catégorie : ............
+  3. Titre : ............  Client : ............  URL : ............  Catégorie : ............
+  4. ...
+
+
+5. TEXTES SERVICES (copie exacte, ne pas modifier sans validation)
+------------------------------------------------------------------
+CAPTATION VIDEO
+Nous réalisons des vidéos et films professionnels pour vos événements, produits et campagnes.
+Avec une approche artistique et des équipements de pointe, nous créons des contenus percutants :
+vidéos promotionnelles, institutionnelles, montage et live streaming.
+
+SHOOTING CORPORATE
+Nous réalisons des shooting photo professionnels pour valoriser votre image de marque et vos équipes.
+Nos photographes créent des visuels de qualité, adaptés aux réseaux sociaux, sites web et supports
+imprimés, pour renforcer votre visibilité et votre impact.
+
+MARKETING DIGITAL
+Nous concevons et gérons des campagnes publicitaires en ligne performantes sur Google Ads, Facebook,
+Instagram et plus encore. Grâce à des stratégies sur mesure et un suivi continu, nous maximisons votre
+visibilité et votre retour sur investissement.
+
+MOTION DESIGN
+Nous vous accompagnons dans la création de vidéos animées professionnelles qui transforment vos messages
+en expériences visuelles impactantes.
+
+
+6. RÉSEAUX SOCIAUX
+------------------
+Instagram / Facebook / LinkedIn / YouTube : à confirmer dans src/data/site.ts (clé `socials`).
