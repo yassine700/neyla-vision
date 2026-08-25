@@ -38,22 +38,14 @@ export function Hero() {
       />
 
       <div className="relative mx-auto w-full max-w-7xl px-5 pt-32 pb-24">
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="label-eyebrow"
-        >
-          Production audiovisuelle · Casablanca
-        </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.08 }}
-          className="mt-5 max-w-4xl text-4xl leading-[0.95] font-bold md:text-7xl"
+          className="max-w-4xl text-4xl leading-[0.95] font-bold md:text-7xl"
         >
           {company.name}
-          <span className="mt-3 block text-lg font-normal tracking-normal text-muted-foreground normal-case md:text-2xl">
+          <span className="mt-3 block text-lg font-normal tracking-normal text-primary normal-case md:text-2xl">
             {company.tagline}
           </span>
         </motion.h1>
