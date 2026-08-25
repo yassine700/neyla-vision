@@ -40,7 +40,7 @@ function HomePage() {
               to="/nos-realisations"
               className="inline-flex items-center gap-2 font-display text-xs tracking-[0.2em] text-primary uppercase"
             >
-              Tout voir <ArrowRight className="size-4" />
+              Voir plus <ArrowRight className="size-4" />
             </Link>
           </div>
           <div className="mt-12">
