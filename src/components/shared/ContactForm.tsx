@@ -17,9 +17,9 @@ export function ContactForm() {
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
     const next: Record<string, string> = {};
-    if (values.nom.trim().length < 2) next.nom = "Merci d'indiquer votre nom.";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) next.email = "Adresse e-mail invalide.";
-    if (values.message.trim().length < 10) next.message = "Décrivez votre projet en quelques mots.";
+    if (values.nom.trim().length < 2) next["nom"] = "Merci d'indiquer votre nom.";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) next["email"] = "Adresse e-mail invalide.";
+    if (values.message.trim().length < 10) next["message"] = "Décrivez votre projet en quelques mots.";
     setErrors(next);
     if (Object.keys(next).length > 0) return;
 
