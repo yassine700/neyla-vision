@@ -70,6 +70,20 @@ function HomePage() {
 
       <AboutIntro />
 
+      <section className="border-t border-border">
+        <div className="mx-auto w-full max-w-4xl px-5 py-20 md:py-28">
+          <SectionHeading
+            eyebrow="Contact"
+            title="Demander un devis"
+            subtitle="Parlez-nous de votre projet, notre équipe vous répond sous 24h ouvrées."
+            align="center"
+          />
+          <div className="mt-12">
+            <ContactForm />
+          </div>
+        </div>
+      </section>
+
       <CtaBanner />
     </>
   );
