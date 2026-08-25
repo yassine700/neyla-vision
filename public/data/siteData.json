@@ -1,0 +1,114 @@
+{
+  "company": {
+    "name": "Neyla Production",
+    "address": "144, RUE MOHAMED SMIHA, RES JAWHARAT MOHAMED SMIHA 6ème ETAGE N° 35 CASABLANCA",
+    "email": "Contact@neylaproduction.ma",
+    "phones": [
+      "+212 663 66 88 17",
+      "+212 665 36 26 73"
+    ]
+  },
+  "heroVideo": {
+    "url": "https://vimeo.com/1221114282?fl=ip&fe=ec",
+    "vimeoId": "1221114282"
+  },
+  "references": [
+    { "name": "AFRICAMED", "logo": "/assets/nos-references/AFRICAMED.png" },
+    { "name": "AIEM", "logo": "/assets/nos-references/AIEM.png" },
+    { "name": "Clinique Zarhoun", "logo": "/assets/nos-references/Clinique Zarhoun.png" },
+    { "name": "DISAGRI", "logo": "/assets/nos-references/DISAGRI.png" },
+    { "name": "FRMK", "logo": "/assets/nos-references/FRMK.png" },
+    { "name": "GARDENIA", "logo": "/assets/nos-references/GARDENIA.png" },
+    { "name": "GITEX AFRICA MR", "logo": "/assets/nos-references/GITEX AFRICA MR.png" },
+    { "name": "Hyundai", "logo": "/assets/nos-references/hundai.png" },
+    { "name": "Lafarge", "logo": "/assets/nos-references/lafarge.png" },
+    { "name": "MOROCCO FOUNDATION", "logo": "/assets/nos-references/MOROCCO FOUNDATION.png" },
+    { "name": "Richbond", "logo": "/assets/nos-references/richbond.png" },
+    { "name": "Simmons", "logo": "/assets/nos-references/simmons.png" },
+    { "name": "UM6P", "logo": "/assets/nos-references/UMP6.png" }
+  ],
+  "team": [
+    { "name": "Elmehdi MOUTRIB", "image": "/assets/team/Elmehdi MOUTRIB.avif" },
+    { "name": "Nassira MAMCHACH", "image": "/assets/team/Nassira MAMCHACH.avif" },
+    { "name": "Younes BARI", "image": "/assets/team/Younes BARI.avif" },
+    { "name": "Youssef MAADOUR", "image": "/assets/team/Youssef MAADOUR.avif" },
+    { "name": "Zouhir LAALAM", "image": "/assets/team/Zouhir LAALAM.avif" }
+  ],
+  "realisations": [
+    { "title": "BEST OF AFRICAMED NEYLA", "url": "https://youtu.be/Z_OaRPO3Iko", "youtubeId": "Z_OaRPO3Iko" },
+    { "title": "DECOMEUBLE CHARKAOUI NADOR", "url": "https://youtu.be/33h3FSDj1Pk", "youtubeId": "33h3FSDj1Pk" },
+    { "title": "8eme EDITION DU SALON INTERNATIONAL DU TEXTILE", "url": "https://youtu.be/_Xxc2tr09H0", "youtubeId": "_Xxc2tr09H0" },
+    { "title": "LAFARGE", "url": "https://youtu.be/M4zdseMhF_o", "youtubeId": "M4zdseMhF_o" },
+    { "title": "best of all nad publication", "url": "https://youtu.be/0pbhjZID1Qk", "youtubeId": "0pbhjZID1Qk" },
+    { "title": "FORMATION ESCA", "url": "https://youtu.be/-ZpQdqXDii4", "youtubeId": "-ZpQdqXDii4" },
+    { "title": "06 8eme EDITION DU SALON INTERNATIONAL DU TEXTILE 2", "url": "https://youtu.be/qZgEYe42ql8", "youtubeId": "qZgEYe42ql8" },
+    { "title": "AIEM", "url": "https://youtu.be/fxsMnF0e1Hs", "youtubeId": "fxsMnF0e1Hs" },
+    { "title": "mesidor", "url": "https://youtu.be/piwiymbXf6U", "youtubeId": "piwiymbXf6U" },
+    { "title": "MARATHON BOUSKOURA", "url": "https://youtu.be/zFOTCZVWsEU", "youtubeId": "zFOTCZVWsEU" },
+    { "title": "charaka", "url": "https://youtu.be/ojVfYnutpwo", "youtubeId": "ojVfYnutpwo" }
+  ],
+  "portfolio": {
+    "evenementiel": [
+      "/assets/portfolio/photographie-evenementiel/384321_179971aa539042c4889c26c36003b019~mv2.jpg",
+      "/assets/portfolio/photographie-evenementiel/384321_1d1edf0014144b88b667796109a1cb73~mv2.jpg",
+      "/assets/portfolio/photographie-evenementiel/384321_2b0298a139504326ac03bdc1f3ce62a8~mv2.jpg",
+      "/assets/portfolio/photographie-evenementiel/384321_4325d66eb35f40e38df6568175e338e4~mv2.jpg",
+      "/assets/portfolio/photographie-evenementiel/384321_5342e417497f4f5196d4bd05751eec3f~mv2.jpg",
+      "/assets/portfolio/photographie-evenementiel/384321_898e8c875751409a8147eadede85174c~mv2.jpg",
+      "/assets/portfolio/photographie-evenementiel/384321_8c1da68042bf4a998317234d9749bd32~mv2.jpg",
+      "/assets/portfolio/photographie-evenementiel/384321_9e0dbc4718e54e8484af94de66187604~mv2.jpg",
+      "/assets/portfolio/photographie-evenementiel/384321_9fb29ca2d28c41a0bad3aa73f683c5fe~mv2.jpg",
+      "/assets/portfolio/photographie-evenementiel/384321_a850cd931d304928ab0b74de5514d9ac~mv2.jpg",
+      "/assets/portfolio/photographie-evenementiel/384321_a87fb94556a84207999a1229e40f8803~mv2.jpg",
+      "/assets/portfolio/photographie-evenementiel/384321_a8c38e3a6a7e45409999055061775d73~mv2.jpg",
+      "/assets/portfolio/photographie-evenementiel/384321_bef96c94f9e142758bac102973a4e12d~mv2.jpg",
+      "/assets/portfolio/photographie-evenementiel/384321_cd1dbede8feb42eb930e6ee68259ddd6~mv2.jpg",
+      "/assets/portfolio/photographie-evenementiel/384321_dde5e53d24d44a0497502c0de8d3be6f~mv2.jpg",
+      "/assets/portfolio/photographie-evenementiel/384321_e3e411a372cf46e6be854a93c13be1ff~mv2.jpg",
+      "/assets/portfolio/photographie-evenementiel/384321_e6885c4e38e34d55aace636a7b928a48~mv2.jpg",
+      "/assets/portfolio/photographie-evenementiel/384321_f3522e919afc4ce7ac267da3033db8d8~mv2.jpg"
+    ],
+    "institutionnelle": [
+      "/assets/portfolio/photographie-institutionnelle/384321_2731fd053554473bb6f40faae2d9663d~mv2.jpg",
+      "/assets/portfolio/photographie-institutionnelle/384321_2f466e9188c14020a9305fc36d8c5fb1~mv2.jpg",
+      "/assets/portfolio/photographie-institutionnelle/384321_302b43fef1134df7aa4bb88dfee5ea1f~mv2.jpg",
+      "/assets/portfolio/photographie-institutionnelle/384321_6ec916ebaaa245d5a835ea137de04625~mv2.jpg",
+      "/assets/portfolio/photographie-institutionnelle/384321_8c4a94fd45c54ed59a9b59f99c62265f~mv2.jpg",
+      "/assets/portfolio/photographie-institutionnelle/384321_9fa228d033e740d1b1c82f339140cf79~mv2.jpg",
+      "/assets/portfolio/photographie-institutionnelle/384321_b39e5edf8b75497e967fd1446de63d3b~mv2.jpg",
+      "/assets/portfolio/photographie-institutionnelle/384321_bae73bdd6aae4979b7e19b6ae9baf4b4~mv2.jpg",
+      "/assets/portfolio/photographie-institutionnelle/384321_bb79c9d16bbe43bdb931da677c9c0f9b~mv2.jpg",
+      "/assets/portfolio/photographie-institutionnelle/384321_d8f99e85b9a84a89a498a58863a7621e~mv2.jpg",
+      "/assets/portfolio/photographie-institutionnelle/384321_d9d3037af7b44065b4f8608850258c04~mv2.png"
+    ],
+    "culinaire": [
+      "/assets/portfolio/shooting-culinaire/384321_02f8e4eb09ea4e98bfddcfa53bc2d6e6~mv2.jpg",
+      "/assets/portfolio/shooting-culinaire/384321_048a11dd20904d5d93702dc1019a0c96~mv2.jpg",
+      "/assets/portfolio/shooting-culinaire/384321_11921691394645a0acc7d12a343118f6~mv2.jpg",
+      "/assets/portfolio/shooting-culinaire/384321_4c929dfa17854b2b8dd1593230cfc4ed~mv2.jpg",
+      "/assets/portfolio/shooting-culinaire/384321_619ef04441ef4fd98005fc0ec1119cd5~mv2.jpg",
+      "/assets/portfolio/shooting-culinaire/384321_8575babd2ccd4c6287386aeeb753ab13~mv2.jpg",
+      "/assets/portfolio/shooting-culinaire/384321_9455603b6674469385d4a8f3605cb64a~mv2.jpg",
+      "/assets/portfolio/shooting-culinaire/384321_af71283392c942bc8602c39911116be3~mv2.jpg",
+      "/assets/portfolio/shooting-culinaire/384321_b78f62bfbd214d64989d89c89da69b95~mv2.jpg",
+      "/assets/portfolio/shooting-culinaire/384321_cb2506d84d4c461a94de3c678fb59f9e~mv2.jpg",
+      "/assets/portfolio/shooting-culinaire/384321_de5cd6bf75a440e3bd2cb61f32af04ad~mv2.jpg",
+      "/assets/portfolio/shooting-culinaire/384321_e8187159661946e6bf957756f99946fa~mv2.jpg"
+    ],
+    "immobilier": [
+      "/assets/portfolio/shooting-immobilier/384321_21a34eb4e8e14f10af22ba8f8ae808bf~mv2.jpg",
+      "/assets/portfolio/shooting-immobilier/384321_2b159710f8c44060be63c0477cdc470f~mv2.jpg",
+      "/assets/portfolio/shooting-immobilier/384321_2c83962425ea43b78db7c6d4534f2345~mv2.jpg",
+      "/assets/portfolio/shooting-immobilier/384321_3296c17bde0e41eba225ca69711fbcb3~mv2.jpg",
+      "/assets/portfolio/shooting-immobilier/384321_49a01418041a4f25a7e4f49a2b9e11f6~mv2.jpg",
+      "/assets/portfolio/shooting-immobilier/384321_5c090c199efc413296739e464fb269b9~mv2.jpg",
+      "/assets/portfolio/shooting-immobilier/384321_60b319f446dc4237abe7f2491d357032~mv2.jpg",
+      "/assets/portfolio/shooting-immobilier/384321_613bd07d70434250b5cf296213233749~mv2.jpg",
+      "/assets/portfolio/shooting-immobilier/384321_846e5faad27a4ca18d5b52cc2d67bf7c~mv2.jpg",
+      "/assets/portfolio/shooting-immobilier/384321_8499da67c67b4f29aa44d8c51855bb58~mv2.jpg",
+      "/assets/portfolio/shooting-immobilier/384321_90f74d2a78c84b68999fc39cf38741ca~mv2.jpg",
+      "/assets/portfolio/shooting-immobilier/384321_b1628d37aa8b4079bc799e4835b0eb54~mv2.jpg",
+      "/assets/portfolio/shooting-immobilier/384321_fe36baa754cf48ed92e3337b297599ba~mv2.jpg"
+    ]
+  }
+}
