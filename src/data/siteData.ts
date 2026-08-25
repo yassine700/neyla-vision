@@ -70,10 +70,10 @@ export const siteData: SiteData = {
     { name: "UM6P", logo: "/assets/nos-references/UMP6.png" },
   ],
   team: [
-    { name: "Elmehdi MOUTRIB", image: "/assets/team/Elmehdi MOUTRIB.avif" },
-    { name: "Nassira MAMCHACH", image: "/assets/team/Nassira MAMCHACH.avif" },
-    { name: "Younes BARI", image: "/assets/team/Younes BARI.avif" },
     { name: "Youssef MAADOUR", image: "/assets/team/Youssef MAADOUR.avif" },
+    { name: "Nassira MAMCHACH", image: "/assets/team/Nassira MAMCHACH.avif" },
+    { name: "Elmehdi MOUTRIB", image: "/assets/team/Elmehdi MOUTRIB.avif" },
+    { name: "Younes BARI", image: "/assets/team/Younes BARI.avif" },
     { name: "Zouhir LAALAM", image: "/assets/team/Zouhir LAALAM.avif" },
   ],
   realisations: [

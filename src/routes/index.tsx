@@ -50,7 +50,7 @@ function HomePage() {
 
       <section className="border-t border-border pt-20 md:pt-28">
         <div className="mx-auto w-full max-w-7xl px-5 pb-10">
-          <SectionHeading eyebrow="Ils nous font confiance" title="Nos références" align="center" />
+          <SectionHeading title="Ils nous font confiance" align="center" />
         </div>
         <ClientsMarquee />
       </section>
