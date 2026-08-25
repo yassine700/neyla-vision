@@ -1,6 +1,5 @@
-import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { ArrowRight, Volume2, VolumeX } from "lucide-react";
+import { Volume2, VolumeX } from "lucide-react";
 import { useMemo, useState } from "react";
 
 import { siteData } from "../../data/siteData";
@@ -58,25 +57,6 @@ export function Hero() {
             {company.tagline}
           </span>
         </motion.h1>
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.18 }}
-          className="mt-10 flex flex-wrap gap-4"
-        >
-          <Link
-            to="/nos-realisations"
-            className="inline-flex items-center gap-2 bg-primary px-7 py-4 font-display text-xs tracking-[0.2em] text-primary-foreground uppercase transition-colors hover:bg-primary/85"
-          >
-            Voir nos réalisations <ArrowRight className="size-4" />
-          </Link>
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 border border-border px-7 py-4 font-display text-xs tracking-[0.2em] uppercase transition-colors hover:border-primary hover:text-primary"
-          >
-            Demandez un devis
-          </Link>
-        </motion.div>
       </div>
 
       <button
