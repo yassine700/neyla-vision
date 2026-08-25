@@ -40,11 +40,19 @@ function HomePage() {
               to="/nos-realisations"
               className="inline-flex items-center gap-2 font-display text-xs tracking-[0.2em] text-primary uppercase"
             >
-              Tout voir <ArrowRight className="size-4" />
+              Voir plus <ArrowRight className="size-4" />
             </Link>
           </div>
           <div className="mt-12">
             <VideoGrid limit={6} />
+          </div>
+          <div className="mt-12 flex justify-center">
+            <Link
+              to="/nos-realisations"
+              className="inline-flex items-center gap-2 border border-border px-7 py-4 font-display text-xs tracking-[0.2em] uppercase transition-colors hover:border-primary hover:text-primary"
+            >
+              Voir plus <ArrowRight className="size-4" />
+            </Link>
           </div>
         </div>
       </section>
