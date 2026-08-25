@@ -22,16 +22,8 @@ export function Navbar() {
       }`}
     >
       <nav className="mx-auto flex w-full max-w-7xl items-center justify-between gap-6 px-5 py-4">
-        <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <span className="grid size-9 place-items-center bg-primary font-display text-lg font-bold text-primary-foreground">
-            N
-          </span>
-          <span className="font-display text-lg leading-none font-bold tracking-widest">
-            NEYLA
-            <span className="block text-[0.6rem] tracking-[0.35em] text-muted-foreground">
-              PRODUCTION
-            </span>
-          </span>
+        <Link to="/" className="flex items-center" onClick={() => setOpen(false)}>
+          <img src={logo.url} alt="Neyla Production" className="h-10 w-auto md:h-12" />
         </Link>
 
         <ul className="hidden items-center gap-7 lg:flex">
