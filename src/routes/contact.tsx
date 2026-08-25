@@ -62,15 +62,6 @@ function ContactPage() {
               </li>
             </ul>
           </div>
-
-          <div className="overflow-hidden border border-border">
-            <iframe
-              title="Localisation Neyla Production Casablanca"
-              src="https://www.google.com/maps?q=144%20Rue%20Mohamed%20Smiha%20Casablanca&output=embed"
-              loading="lazy"
-              className="h-72 w-full border-0 grayscale"
-            />
-          </div>
         </Reveal>
       </section>
     </>
