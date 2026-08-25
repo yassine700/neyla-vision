@@ -1,24 +1,73 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import { Hero } from "../components/home/Hero";
+import { CtaBanner } from "../components/home/CtaBanner";
+import { SectionHeading } from "../components/shared/SectionHeading";
+import { ServiceCard } from "../components/shared/ServiceCard";
+import { VideoGrid } from "../components/shared/VideoGrid";
+import { ClientsMarquee } from "../components/shared/ClientsMarquee";
+import { services } from "../data/site";
+import { seo } from "../lib/seo";
+
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () =>
+    seo({
+      title: "Neyla Production — Agence Audiovisuelle & Digitale à Casablanca",
+      description:
+        "Agence de production audiovisuelle à Casablanca : captation vidéo, shooting corporate, marketing digital et motion design pour les marques et institutions au Maroc.",
+      path: "/",
+    }),
+  component: HomePage,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function HomePage() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <Hero />
+
+      <section className="mx-auto w-full max-w-7xl px-5 py-20 md:py-28">
+        <SectionHeading
+          eyebrow="Nos expertises"
+          title="Ce que nous produisons"
+          subtitle="Quatre pôles complémentaires pour couvrir toute la chaîne de production de votre contenu."
+        />
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {services.map((service, i) => (
+            <ServiceCard key={service.slug} service={service} index={i} />
+          ))}
+        </div>
+      </section>
+
+      <section className="border-t border-border">
+        <div className="mx-auto w-full max-w-7xl px-5 py-20 md:py-28">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <SectionHeading
+              eyebrow="Portfolio"
+              title="Réalisations récentes"
+              subtitle="Une sélection de films institutionnels, événementiels et corporate."
+            />
+            <Link
+              to="/nos-realisations"
+              className="inline-flex items-center gap-2 font-display text-xs tracking-[0.2em] text-primary uppercase"
+            >
+              Tout voir <ArrowRight className="size-4" />
+            </Link>
+          </div>
+          <div className="mt-12">
+            <VideoGrid limit={6} />
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="mx-auto w-full max-w-7xl px-5 pb-10">
+          <SectionHeading eyebrow="Ils nous font confiance" title="Nos références" align="center" />
+        </div>
+        <ClientsMarquee />
+      </section>
+
+      <CtaBanner />
+    </>
   );
 }
