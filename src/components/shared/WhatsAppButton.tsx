@@ -44,12 +44,9 @@ export function WhatsAppButton() {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8, y: 20 }}
           transition={{ duration: 0.25, ease: "easeOut" }}
-          className="fixed bottom-6 left-6 z-50 flex items-center gap-3 rounded-full bg-[#25D366] px-4 py-3 text-white shadow-lg shadow-black/30 transition-transform hover:scale-105"
+          className="fixed bottom-6 right-6 z-50 grid size-14 place-items-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/30 transition-transform hover:scale-105"
         >
-          <WhatsAppIcon className="size-6" />
-          <span className="hidden font-display text-sm font-semibold tracking-wide sm:inline">
-            WhatsApp
-          </span>
+          <WhatsAppIcon className="size-7" />
         </motion.a>
       ) : null}
     </AnimatePresence>
