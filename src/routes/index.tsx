@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 import { Hero } from "../components/home/Hero";
 import { CtaBanner } from "../components/home/CtaBanner";
+import { AboutIntro } from "../components/home/AboutIntro";
 import { SectionHeading } from "../components/shared/SectionHeading";
 import { ServiceCard } from "../components/shared/ServiceCard";
 import { VideoGrid } from "../components/shared/VideoGrid";
@@ -26,19 +27,6 @@ function HomePage() {
     <>
       <Hero />
 
-      <section className="mx-auto w-full max-w-7xl px-5 py-20 md:py-28">
-        <SectionHeading
-          eyebrow="Nos expertises"
-          title="Ce que nous produisons"
-          subtitle="Quatre pôles complémentaires pour couvrir toute la chaîne de production de votre contenu."
-        />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {services.map((service, i) => (
-            <ServiceCard key={service.slug} service={service} index={i} />
-          ))}
-        </div>
-      </section>
-
       <section className="border-t border-border">
         <div className="mx-auto w-full max-w-7xl px-5 py-20 md:py-28">
           <div className="flex flex-wrap items-end justify-between gap-6">
@@ -60,12 +48,27 @@ function HomePage() {
         </div>
       </section>
 
-      <section>
+      <section className="border-t border-border pt-20 md:pt-28">
         <div className="mx-auto w-full max-w-7xl px-5 pb-10">
           <SectionHeading eyebrow="Ils nous font confiance" title="Nos références" align="center" />
         </div>
         <ClientsMarquee />
       </section>
+
+      <section className="mx-auto w-full max-w-7xl px-5 py-20 md:py-28">
+        <SectionHeading
+          eyebrow="Nos expertises"
+          title="Ce que nous produisons"
+          subtitle="Cinq pôles complémentaires pour couvrir toute la chaîne de production de votre contenu."
+        />
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+          {services.map((service, i) => (
+            <ServiceCard key={service.slug} service={service} index={i} />
+          ))}
+        </div>
+      </section>
+
+      <AboutIntro />
 
       <CtaBanner />
     </>

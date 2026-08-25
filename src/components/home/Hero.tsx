@@ -1,6 +1,5 @@
-import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { ArrowRight, Volume2, VolumeX } from "lucide-react";
+import { Volume2, VolumeX } from "lucide-react";
 import { useMemo, useState } from "react";
 
 import { siteData } from "../../data/siteData";
