@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as NosRealisationsRouteImport } from './routes/nos-realisations'
+import { Route as NosReferencesRouteImport } from './routes/nos-references'
 import { Route as NosServicesRouteImport } from './routes/nos-services'
 
 const IndexRoute = IndexRouteImport.update({
@@ -23,6 +24,11 @@ const NosRealisationsRoute = NosRealisationsRouteImport.update({
   path: '/nos-realisations',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NosReferencesRoute = NosReferencesRouteImport.update({
+  id: '/nos-references',
+  path: '/nos-references',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NosServicesRoute = NosServicesRouteImport.update({
   id: '/nos-services',
   path: '/nos-services',
@@ -32,30 +38,35 @@ const NosServicesRoute = NosServicesRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/nos-realisations': typeof NosRealisationsRoute
+  '/nos-references': typeof NosReferencesRoute
   '/nos-services': typeof NosServicesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/nos-realisations': typeof NosRealisationsRoute
+  '/nos-references': typeof NosReferencesRoute
   '/nos-services': typeof NosServicesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/nos-realisations': typeof NosRealisationsRoute
+  '/nos-references': typeof NosReferencesRoute
   '/nos-services': typeof NosServicesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/nos-realisations' | '/nos-services'
+  fullPaths: '/' | '/nos-realisations' | '/nos-references' | '/nos-services'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/nos-realisations' | '/nos-services'
-  id: '__root__' | '/' | '/nos-realisations' | '/nos-services'
+  to: '/' | '/nos-realisations' | '/nos-references' | '/nos-services'
+  id:
+    '__root__' | '/' | '/nos-realisations' | '/nos-references' | '/nos-services'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   NosRealisationsRoute: typeof NosRealisationsRoute
+  NosReferencesRoute: typeof NosReferencesRoute
   NosServicesRoute: typeof NosServicesRoute
 }
 
@@ -75,6 +86,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NosRealisationsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/nos-references': {
+      id: '/nos-references'
+      path: '/nos-references'
+      fullPath: '/nos-references'
+      preLoaderRoute: typeof NosReferencesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/nos-services': {
       id: '/nos-services'
       path: '/nos-services'
@@ -88,6 +106,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   NosRealisationsRoute: NosRealisationsRoute,
+  NosReferencesRoute: NosReferencesRoute,
   NosServicesRoute: NosServicesRoute,
 }
 export const routeTree = rootRouteImport
