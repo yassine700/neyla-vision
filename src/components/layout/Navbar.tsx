@@ -22,9 +22,19 @@ export function Navbar() {
         scrolled ? "border-b border-border bg-background/85 backdrop-blur-xl" : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex w-full max-w-7xl items-center justify-between gap-6 px-5 py-4">
+      <nav
+        className={`mx-auto flex w-full max-w-7xl items-center justify-between gap-6 px-5 transition-all duration-300 ${
+          scrolled ? "py-2" : "py-4"
+        }`}
+      >
         <Link to="/" className="flex items-center" onClick={() => setOpen(false)}>
-          <img src={logo.url} alt="Neyla Production" className="h-24 w-auto md:h-32" />
+          <img
+            src={logo.url}
+            alt="Neyla Production"
+            className={`w-auto origin-left transition-all duration-300 ${
+              scrolled ? "h-16 md:h-24" : "h-24 md:h-32"
+            }`}
+          />
         </Link>
 
         <ul className="hidden items-center gap-7 lg:flex">
@@ -46,7 +56,7 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           <Link
             to="/contact"
-            className="hidden bg-primary px-5 py-3 font-display text-xs tracking-[0.18em] text-primary-foreground uppercase transition-colors hover:bg-primary/85 sm:inline-block"
+            className="hidden bg-primary px-5 py-3 font-display text-xs tracking-[0.18em] text-primary-foreground uppercase transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/85 hover:shadow-[0_8px_24px_-8px_var(--primary)] sm:inline-block"
           >
             Demandez un devis
           </Link>

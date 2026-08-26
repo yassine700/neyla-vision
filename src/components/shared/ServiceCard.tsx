@@ -14,9 +14,10 @@ export function ServiceCard({ service, index = 0 }: { service: Service; index?: 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.5, delay: index * 0.07 }}
-      className="group relative flex flex-col border border-border bg-card p-8 transition-colors hover:border-primary"
+      whileHover={{ y: -6 }}
+      className="group relative flex flex-col border border-border bg-card p-8 transition-colors duration-300 hover:border-primary hover:shadow-[0_20px_40px_-24px_var(--primary)]"
     >
-      <Icon className="size-8 text-primary" />
+      <Icon className="size-8 text-primary transition-transform duration-300 group-hover:scale-110" />
       <h3 className="mt-6 text-xl font-bold">{service.title}</h3>
       <p className="mt-3 text-sm text-muted-foreground">{service.description}</p>
       <ul className="mt-5 space-y-2">
@@ -29,9 +30,10 @@ export function ServiceCard({ service, index = 0 }: { service: Service; index?: 
       </ul>
       <Link
         to="/contact"
-        className="mt-8 inline-flex items-center gap-2 font-display text-xs tracking-[0.18em] text-primary uppercase"
+        className="mt-8 inline-flex items-center gap-2 font-display text-xs tracking-[0.18em] text-primary uppercase transition-colors hover:text-foreground"
       >
-        Discuter du projet <ArrowUpRight className="size-4" />
+        Discuter du projet{" "}
+        <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
       </Link>
     </motion.article>
   );

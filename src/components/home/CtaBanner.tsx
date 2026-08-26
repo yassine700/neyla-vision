@@ -20,9 +20,10 @@ export function CtaBanner() {
         <div className="flex flex-wrap items-center gap-4">
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 bg-primary px-8 py-4 font-display text-xs tracking-[0.2em] text-primary-foreground uppercase transition-colors hover:bg-primary/85"
+            className="group inline-flex items-center gap-2 bg-primary px-8 py-4 font-display text-xs tracking-[0.2em] text-primary-foreground uppercase transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/85 hover:shadow-[0_10px_30px_-10px_var(--primary)]"
           >
-            Demandez un devis <ArrowRight className="size-4" />
+            Demandez un devis{" "}
+            <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </div>
       </div>
