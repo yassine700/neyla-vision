@@ -14,7 +14,7 @@ export function ClientsMarquee() {
               src={logo.logo}
               alt={logo.name}
               loading="lazy"
-              className="max-h-full max-w-full object-contain opacity-60 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0"
+              className="h-10 max-w-full object-contain grayscale opacity-70 transition-opacity duration-300 hover:opacity-100"
             />
           </div>
         ))}
@@ -22,3 +22,4 @@ export function ClientsMarquee() {
     </div>
   );
 }
+
