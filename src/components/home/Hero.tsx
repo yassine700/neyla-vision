@@ -34,11 +34,7 @@ export function Hero() {
       </div>
       <div
         aria-hidden
-        className="absolute inset-0 bg-gradient-to-t from-background via-background/55 to-background/25"
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0 bg-gradient-to-r from-background/85 via-background/45 to-transparent"
+        className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/90 via-[#0A0A0A]/40 to-black/10"
       />
 
       <div className="relative mx-auto w-full max-w-7xl px-5 pt-32 pb-24">
@@ -46,10 +42,10 @@ export function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.08 }}
-          className="max-w-4xl text-4xl leading-[0.95] font-bold md:text-7xl"
+          className="max-w-4xl text-4xl leading-[0.95] font-bold drop-shadow-xl md:text-7xl"
         >
           {company.name}
-          <span className="mt-3 block text-lg font-normal tracking-normal text-primary normal-case md:text-2xl">
+          <span className="mt-3 block text-lg font-normal tracking-normal text-primary normal-case drop-shadow-xl md:text-2xl">
             {company.tagline}
           </span>
         </motion.h1>
