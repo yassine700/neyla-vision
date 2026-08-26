@@ -66,7 +66,7 @@ export function ContactForm() {
   };
 
   const inputClass =
-    "w-full border border-border bg-card px-4 py-3 text-sm outline-none transition-colors focus:border-primary";
+    "w-full border border-white/20 bg-input px-4 py-3 text-sm text-foreground outline-none transition-colors focus:border-primary";
 
   return (
     <form onSubmit={onSubmit} className="space-y-5" noValidate>
@@ -75,7 +75,7 @@ export function ContactForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="label-eyebrow">
-            Nom complet *
+            Nom complet<span className="ml-0.5 text-primary">*</span>
           </label>
           <input
             id="name"
@@ -89,7 +89,7 @@ export function ContactForm() {
         </div>
         <div>
           <label htmlFor="email" className="label-eyebrow">
-            E-mail *
+            E-mail<span className="ml-0.5 text-primary">*</span>
           </label>
           <input
             id="email"
@@ -104,7 +104,7 @@ export function ContactForm() {
         </div>
         <div>
           <label htmlFor="phone" className="label-eyebrow">
-            Téléphone / WhatsApp *
+            Téléphone / WhatsApp<span className="ml-0.5 text-primary">*</span>
           </label>
           <input
             id="phone"
@@ -119,7 +119,7 @@ export function ContactForm() {
         </div>
         <div>
           <label htmlFor="service" className="label-eyebrow">
-            Sujet *
+            Sujet<span className="ml-0.5 text-primary">*</span>
           </label>
           <textarea
             id="service"
@@ -136,7 +136,7 @@ export function ContactForm() {
       </div>
       <div>
         <label htmlFor="message" className="label-eyebrow">
-          Votre projet *
+          Votre projet<span className="ml-0.5 text-primary">*</span>
         </label>
         <textarea
           id="message"
