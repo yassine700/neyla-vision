@@ -15,10 +15,10 @@ export function ServiceCard({ service, index = 0 }: { service: Service; index?: 
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.5, delay: index * 0.07 }}
       whileHover={{ y: -6 }}
-      className="group relative flex flex-col border border-border bg-card p-8 transition-colors duration-300 hover:border-primary hover:shadow-[0_20px_40px_-24px_var(--primary)]"
+      className="group relative flex flex-col border border-border bg-card p-10 transition-colors duration-300 hover:border-primary hover:shadow-[0_20px_40px_-24px_var(--primary)]"
     >
-      <Icon className="size-8 text-primary transition-transform duration-300 group-hover:scale-110" />
-      <h3 className="mt-6 text-xl font-bold">{service.title}</h3>
+      <Icon className="size-12 text-primary transition-transform duration-300 group-hover:scale-110" />
+      <h3 className="mt-8 text-xl font-bold">{service.title}</h3>
       <p className="mt-3 text-sm text-muted-foreground">{service.description}</p>
       <ul className="mt-5 space-y-2">
         {service.points.map((point) => (
