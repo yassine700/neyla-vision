@@ -54,7 +54,7 @@ export const services: Service[] = [
   },
   {
     slug: "communication-digital",
-    title: "Communication Digital",
+    title: "Communication Digitale",
     icon: "megaphone",
     description:
       "Stratégie de contenu, community management et campagnes social media pensées pour la performance.",
