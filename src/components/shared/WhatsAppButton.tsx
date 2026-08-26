@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
-const PHONE_NUMBER = "+212665352673";
-const WHATSAPP_URL = `https://wa.me/${PHONE_NUMBER.replace(/\D/g, "")}`;
+import { useContactInfo } from "../../lib/sanityContent";
+
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -19,6 +19,8 @@ function WhatsAppIcon({ className }: { className?: string }) {
 
 export function WhatsAppButton() {
   const [visible, setVisible] = useState(false);
+  const { data: contact } = useContactInfo();
+  const whatsappUrl = `https://wa.me/${contact.whatsappNumber.replace(/\D/g, "")}`;
 
   useEffect(() => {
     const onScroll = () => {
@@ -36,7 +38,7 @@ export function WhatsAppButton() {
       {visible ? (
         <motion.a
           key="whatsapp"
-          href={WHATSAPP_URL}
+          href={whatsappUrl}
           target="_blank"
           rel="noreferrer noopener"
           aria-label="Discuter sur WhatsApp"

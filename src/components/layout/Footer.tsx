@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Music2, Phone, Youtube } from "lucide-react";
 
 import { company, navLinks, socials } from "../../data/site";
+import { useContactInfo } from "../../lib/sanityContent";
 
 const socialIcons = {
   facebook: Facebook,
@@ -12,6 +13,9 @@ const socialIcons = {
 } as const;
 
 export function Footer() {
+  const { data: contact } = useContactInfo();
+  const phones = [contact.phonePrimary, contact.phoneSecondary].filter(Boolean);
+
   return (
     <footer className="border-t border-border bg-background">
       <div className="mx-auto grid w-full max-w-7xl gap-12 px-5 py-16 md:grid-cols-3">
@@ -65,9 +69,9 @@ export function Footer() {
           <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
             <li className="flex gap-3">
               <MapPin className="mt-0.5 size-4 shrink-0 text-primary" />
-              <span>{company.address}</span>
+              <span>{contact.address}</span>
             </li>
-            {company.phones.map((phone) => (
+            {phones.map((phone) => (
               <li key={phone} className="flex gap-3">
                 <Phone className="mt-0.5 size-4 shrink-0 text-primary" />
                 <a href={`tel:${phone.replace(/\s/g, "")}`} className="hover:text-primary">
@@ -77,8 +81,8 @@ export function Footer() {
             ))}
             <li className="flex gap-3">
               <Mail className="mt-0.5 size-4 shrink-0 text-primary" />
-              <a href={`mailto:${company.email}`} className="hover:text-primary">
-                {company.email}
+              <a href={`mailto:${contact.email}`} className="hover:text-primary">
+                {contact.email}
               </a>
             </li>
           </ul>
