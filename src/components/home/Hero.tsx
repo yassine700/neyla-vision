@@ -45,8 +45,10 @@ export function Hero() {
           className="max-w-4xl text-4xl leading-[0.95] font-bold drop-shadow-xl md:text-7xl"
         >
           {company.name}
-          <span className="mt-3 block text-lg font-normal tracking-normal text-primary normal-case drop-shadow-xl md:text-2xl">
-            {company.tagline}
+          <span className="mt-4 block text-lg font-normal tracking-normal normal-case drop-shadow-xl md:text-2xl">
+            <span className="block text-primary">Agence audiovisuelle.</span>
+            <span className="block text-primary">Communication digitale.</span>
+            <span className="block text-primary">Relation presse.</span>
           </span>
         </motion.h1>
       </div>
