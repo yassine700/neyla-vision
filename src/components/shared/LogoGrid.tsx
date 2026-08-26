@@ -12,13 +12,13 @@ export function LogoGrid() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.45, delay: Math.min(i, 8) * 0.04 }}
-          className="group flex aspect-[3/2] items-center justify-center bg-background p-8"
+          className="group flex h-32 items-center justify-center bg-background p-6 md:h-40 md:p-8"
         >
           <img
             src={ref.logo}
             alt={ref.name}
             loading="lazy"
-            className="max-h-16 w-auto max-w-[70%] object-contain opacity-70 grayscale transition duration-300 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0"
+            className="max-h-14 w-auto max-w-[78%] object-contain md:max-h-16 opacity-70 grayscale transition duration-300 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0"
           />
         </motion.div>
       ))}

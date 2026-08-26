@@ -2,7 +2,7 @@ import { siteData } from "./siteData";
 
 export const company = {
   name: siteData.company.name,
-  tagline: "Agence de Création Audiovisuelle & Digitale à Casablanca",
+  tagline: "Agence audiovisuelle, communication digitale et relations presse",
   address:
     "144, Rue Mohamed Smiha, Res Jawharat Mohamed Smiha 6ème Étage N° 35, Casablanca",
   email: siteData.company.email,

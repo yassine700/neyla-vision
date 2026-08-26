@@ -4,7 +4,6 @@ import { PageHeader } from "../components/shared/PageHeader";
 import { LogoGrid } from "../components/shared/LogoGrid";
 import { ClientsMarquee } from "../components/shared/ClientsMarquee";
 import { CtaBanner } from "../components/home/CtaBanner";
-import { siteData } from "../data/siteData";
 import { seo } from "../lib/seo";
 
 export const Route = createFileRoute("/nos-references")({
@@ -23,8 +22,7 @@ function ReferencesPage() {
     <>
       <PageHeader
         eyebrow="Clientèle"
-        title="Nos Références"
-        subtitle={`${siteData.references.length} marques, institutions et groupes industriels nous confient leur image.`}
+        title="Ils nous font confiance"
       />
 
       <section className="mx-auto w-full max-w-7xl px-5 py-16 md:py-24">
