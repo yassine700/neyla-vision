@@ -5,7 +5,8 @@ import { ServiceCard } from "../components/shared/ServiceCard";
 import { SectionHeading } from "../components/shared/SectionHeading";
 import { Reveal } from "../components/shared/Reveal";
 import { CtaBanner } from "../components/home/CtaBanner";
-import { processSteps, services } from "../data/site";
+import { processSteps } from "../data/site";
+import { useServicesContent } from "../lib/sanityContent";
 import { seo } from "../lib/seo";
 
 export const Route = createFileRoute("/nos-services")({
