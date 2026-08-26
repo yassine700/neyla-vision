@@ -5,7 +5,7 @@ import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "./src/sanity/schemaTypes";
 import { deskStructure } from "./src/sanity/deskStructure";
 
-const SINGLETON_TYPES = new Set(["heroSection", "aboutSection", "contactInfo"]);
+const SINGLETON_TYPES = new Set(["siteSettings"]);
 
 export default defineConfig({
   name: "neyla-production",

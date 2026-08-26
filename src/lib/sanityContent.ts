@@ -9,108 +9,137 @@ function or<T extends string>(value: T | undefined | null, fallback: T): T {
   return value && value.trim() ? value : fallback;
 }
 
-/* ------------------------------- Hero ---------------------------------- */
+/* --------------------------- Site settings ------------------------------ */
 
-export interface HeroContent {
-  headline: string;
-  subheadlineLines: string[];
-  ctaText: string;
-  ctaLink: string;
+export interface SiteSettingsContent {
+  heroTitle: string;
+  heroSubtitleLines: string[];
+  heroCtaText: string;
+  aboutTitle: string;
+  aboutText: string;
+  aboutImage: string | null;
+  servicesTitle: string;
+  servicesSubtitle: string;
+  phonePrimary: string;
+  phoneSecondary: string;
+  email: string;
+  address: string;
+  whatsappNumber: string;
 }
 
-export const heroFallback: HeroContent = {
-  headline: company.name,
-  subheadlineLines: [
+export const siteSettingsFallback: SiteSettingsContent = {
+  heroTitle: company.name,
+  heroSubtitleLines: [
     "Agence audiovisuelle.",
     "Communication digitale.",
     "Relation presse.",
   ],
-  ctaText: "",
-  ctaLink: "/contact",
+  heroCtaText: "DEMANDER UN DEVIS",
+  aboutTitle: "À propos",
+  aboutText:
+    "Experts de l’image et créateurs de contenus audiovisuels percutants, nous mettons notre expertise technique et artistique au service de vos projets. Notre savoir-faire s’adresse à une clientèle diversifiée : Entreprises (Corporate), Enseignes, Marques, Institutions, Associations, Artistes, ou encore Particuliers. Que ce soit pour des productions vidéo, des shootings ou la création de contenus digitaux sur mesure, nous vous accompagnons à chaque étape du processus.",
+  aboutImage: null,
+  servicesTitle: "Ce que nous produisons",
+  servicesSubtitle:
+    "Quatre pôles complémentaires pour couvrir toute la chaîne de production de votre contenu.",
+  phonePrimary: siteData.company.phones[0] ?? "",
+  phoneSecondary: siteData.company.phones[1] ?? "",
+  email: company.email,
+  address: company.address,
+  whatsappNumber: "212665352673",
 };
 
-export async function fetchHero(): Promise<HeroContent> {
+const SITE_SETTINGS_QUERY = `*[_type == "siteSettings"][0]{
+  heroTitle, heroSubtitle, heroCtaText,
+  aboutTitle, aboutText, aboutImage,
+  servicesTitle, servicesSubtitle,
+  phonePrimary, phoneSecondary, email, address, whatsappNumber
+}`;
+
+export async function fetchSiteSettings(): Promise<SiteSettingsContent> {
   try {
-    const doc = await sanityClient.fetch<{
-      headline?: string;
-      subheadline?: string;
-      ctaText?: string;
-      ctaLink?: string;
-    } | null>(`*[_type == "heroSection"][0]{ headline, subheadline, ctaText, ctaLink }`);
-    if (!doc) return heroFallback;
-    const lines = (doc.subheadline ?? "")
+    const doc = await sanityClient.fetch<
+      (Partial<Omit<SiteSettingsContent, "heroSubtitleLines" | "aboutImage">> & {
+        heroSubtitle?: string;
+        aboutImage?: unknown;
+      }) | null
+    >(SITE_SETTINGS_QUERY);
+    if (!doc) return siteSettingsFallback;
+
+    const lines = (doc.heroSubtitle ?? "")
       .split(/\r?\n|\s*\|\s*/)
       .map((l) => l.trim())
       .filter(Boolean);
+
     return {
-      headline: or(doc.headline, heroFallback.headline),
-      subheadlineLines: lines.length ? lines : heroFallback.subheadlineLines,
-      ctaText: or(doc.ctaText, heroFallback.ctaText),
-      ctaLink: or(doc.ctaLink, heroFallback.ctaLink),
-    };
-  } catch {
-    return heroFallback;
-  }
-}
-
-export function useHeroContent() {
-  return useQuery({
-    queryKey: ["sanity", "heroSection"],
-    queryFn: fetchHero,
-    initialData: heroFallback,
-  });
-}
-
-/* ------------------------------- About --------------------------------- */
-
-export interface AboutContent {
-  sectionTitle: string;
-  tagline: string;
-  description: string;
-  image: string | null;
-}
-
-export const aboutFallback: AboutContent = {
-  sectionTitle: "À propos",
-  tagline:
-    "Experts de l’image et créateurs de contenus audiovisuels percutants, nous mettons notre expertise technique et artistique au service de vos projets.",
-  description:
-    "Notre savoir-faire s’adresse à une clientèle diversifiée : Entreprises (Corporate), Enseignes, Marques, Institutions, Associations, Artistes, ou encore Particuliers. Que ce soit pour des productions vidéo, des shootings ou la création de contenus digitaux sur mesure, nous vous accompagnons à chaque étape du processus. Notre équipe s’engage à concevoir des contenus visuels qui captivent, inspirent et valorisent votre message, avec créativité, exigence et professionnalisme.",
-  image: null,
-};
-
-export async function fetchAbout(): Promise<AboutContent> {
-  try {
-    const doc = await sanityClient.fetch<{
-      sectionTitle?: string;
-      tagline?: string;
-      description?: string;
-      mainImage?: unknown;
-    } | null>(
-      `*[_type == "aboutSection"][0]{ sectionTitle, tagline, description, mainImage }`,
-    );
-    if (!doc) return aboutFallback;
-    return {
-      sectionTitle: or(doc.sectionTitle, aboutFallback.sectionTitle),
-      tagline: or(doc.tagline, aboutFallback.tagline),
-      description: or(doc.description, aboutFallback.description),
-      image: doc.mainImage
-        ? urlFor(doc.mainImage as never)
+      heroTitle: or(doc.heroTitle, siteSettingsFallback.heroTitle),
+      heroSubtitleLines: lines.length ? lines : siteSettingsFallback.heroSubtitleLines,
+      heroCtaText: or(doc.heroCtaText, siteSettingsFallback.heroCtaText),
+      aboutTitle: or(doc.aboutTitle, siteSettingsFallback.aboutTitle),
+      aboutText: or(doc.aboutText, siteSettingsFallback.aboutText),
+      aboutImage: doc.aboutImage
+        ? urlFor(doc.aboutImage as never)
             .width(900)
             .url()
         : null,
+      servicesTitle: or(doc.servicesTitle, siteSettingsFallback.servicesTitle),
+      servicesSubtitle: or(doc.servicesSubtitle, siteSettingsFallback.servicesSubtitle),
+      phonePrimary: or(doc.phonePrimary, siteSettingsFallback.phonePrimary),
+      phoneSecondary: or(doc.phoneSecondary, siteSettingsFallback.phoneSecondary),
+      email: or(doc.email, siteSettingsFallback.email),
+      address: or(doc.address, siteSettingsFallback.address),
+      whatsappNumber: or(doc.whatsappNumber, siteSettingsFallback.whatsappNumber),
     };
   } catch {
-    return aboutFallback;
+    return siteSettingsFallback;
   }
 }
 
-export function useAboutContent() {
+export function useSiteSettings() {
   return useQuery({
-    queryKey: ["sanity", "aboutSection"],
-    queryFn: fetchAbout,
-    initialData: aboutFallback,
+    queryKey: ["sanity", "siteSettings"],
+    queryFn: fetchSiteSettings,
+    initialData: siteSettingsFallback,
   });
+}
+
+/* --------------------- Section-specific view models ---------------------- */
+
+export function useHeroContent() {
+  const { data } = useSiteSettings();
+  return {
+    data: {
+      headline: data.heroTitle,
+      subheadlineLines: data.heroSubtitleLines,
+      ctaText: data.heroCtaText,
+      ctaLink: "/contact",
+    },
+  };
+}
+
+export function useAboutContent() {
+  const { data } = useSiteSettings();
+  return {
+    data: {
+      sectionTitle: data.aboutTitle,
+      tagline: data.aboutText,
+      description: "",
+      image: data.aboutImage,
+    },
+  };
+}
+
+export function useContactInfo() {
+  const { data } = useSiteSettings();
+  return {
+    data: {
+      phonePrimary: data.phonePrimary,
+      phoneSecondary: data.phoneSecondary,
+      email: data.email,
+      address: data.address,
+      whatsappNumber: data.whatsappNumber,
+    },
+  };
 }
 
 /* ------------------------------ Services -------------------------------- */
@@ -165,49 +194,5 @@ export function useServicesContent() {
     queryKey: ["sanity", "serviceItem"],
     queryFn: fetchServices,
     initialData: staticServices,
-  });
-}
-
-/* ------------------------------ Contact --------------------------------- */
-
-export interface ContactContent {
-  phonePrimary: string;
-  phoneSecondary: string;
-  email: string;
-  address: string;
-  whatsappNumber: string;
-}
-
-export const contactFallback: ContactContent = {
-  phonePrimary: siteData.company.phones[0] ?? "",
-  phoneSecondary: siteData.company.phones[1] ?? "",
-  email: company.email,
-  address: company.address,
-  whatsappNumber: "212665352673",
-};
-
-export async function fetchContactInfo(): Promise<ContactContent> {
-  try {
-    const doc = await sanityClient.fetch<Partial<ContactContent> | null>(
-      `*[_type == "contactInfo"][0]{ phonePrimary, phoneSecondary, email, address, whatsappNumber }`,
-    );
-    if (!doc) return contactFallback;
-    return {
-      phonePrimary: or(doc.phonePrimary, contactFallback.phonePrimary),
-      phoneSecondary: or(doc.phoneSecondary, contactFallback.phoneSecondary),
-      email: or(doc.email, contactFallback.email),
-      address: or(doc.address, contactFallback.address),
-      whatsappNumber: or(doc.whatsappNumber, contactFallback.whatsappNumber),
-    };
-  } catch {
-    return contactFallback;
-  }
-}
-
-export function useContactInfo() {
-  return useQuery({
-    queryKey: ["sanity", "contactInfo"],
-    queryFn: fetchContactInfo,
-    initialData: contactFallback,
   });
 }
