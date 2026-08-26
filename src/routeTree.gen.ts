@@ -15,6 +15,8 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as NosRealisationsRouteImport } from './routes/nos-realisations'
 import { Route as NosReferencesRouteImport } from './routes/nos-references'
 import { Route as NosServicesRouteImport } from './routes/nos-services'
+import { Route as StudioIndexRouteImport } from './routes/studio.index'
+import { Route as StudioSplatRouteImport } from './routes/studio.$'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -46,6 +48,16 @@ const NosServicesRoute = NosServicesRouteImport.update({
   path: '/nos-services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StudioIndexRoute = StudioIndexRouteImport.update({
+  id: '/studio/',
+  path: '/studio/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudioSplatRoute = StudioSplatRouteImport.update({
+  id: '/studio/$',
+  path: '/studio/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -54,6 +66,8 @@ export interface FileRoutesByFullPath {
   '/nos-realisations': typeof NosRealisationsRoute
   '/nos-references': typeof NosReferencesRoute
   '/nos-services': typeof NosServicesRoute
+  '/studio/$': typeof StudioSplatRoute
+  '/studio/': typeof StudioIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +76,8 @@ export interface FileRoutesByTo {
   '/nos-realisations': typeof NosRealisationsRoute
   '/nos-references': typeof NosReferencesRoute
   '/nos-services': typeof NosServicesRoute
+  '/studio/$': typeof StudioSplatRoute
+  '/studio': typeof StudioIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,6 +87,8 @@ export interface FileRoutesById {
   '/nos-realisations': typeof NosRealisationsRoute
   '/nos-references': typeof NosReferencesRoute
   '/nos-services': typeof NosServicesRoute
+  '/studio/$': typeof StudioSplatRoute
+  '/studio/': typeof StudioIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -81,6 +99,8 @@ export interface FileRouteTypes {
     | '/nos-realisations'
     | '/nos-references'
     | '/nos-services'
+    | '/studio/$'
+    | '/studio/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -89,6 +109,8 @@ export interface FileRouteTypes {
     | '/nos-realisations'
     | '/nos-references'
     | '/nos-services'
+    | '/studio/$'
+    | '/studio'
   id:
     | '__root__'
     | '/'
@@ -97,6 +119,8 @@ export interface FileRouteTypes {
     | '/nos-realisations'
     | '/nos-references'
     | '/nos-services'
+    | '/studio/$'
+    | '/studio/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -106,6 +130,8 @@ export interface RootRouteChildren {
   NosRealisationsRoute: typeof NosRealisationsRoute
   NosReferencesRoute: typeof NosReferencesRoute
   NosServicesRoute: typeof NosServicesRoute
+  StudioSplatRoute: typeof StudioSplatRoute
+  StudioIndexRoute: typeof StudioIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -152,6 +178,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NosServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/studio/': {
+      id: '/studio/'
+      path: '/studio'
+      fullPath: '/studio/'
+      preLoaderRoute: typeof StudioIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/studio/$': {
+      id: '/studio/$'
+      path: '/studio/$'
+      fullPath: '/studio/$'
+      preLoaderRoute: typeof StudioSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -162,6 +202,8 @@ const rootRouteChildren: RootRouteChildren = {
   NosRealisationsRoute: NosRealisationsRoute,
   NosReferencesRoute: NosReferencesRoute,
   NosServicesRoute: NosServicesRoute,
+  StudioSplatRoute: StudioSplatRoute,
+  StudioIndexRoute: StudioIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
