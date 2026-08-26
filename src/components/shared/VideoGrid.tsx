@@ -3,7 +3,7 @@ import { Play } from "lucide-react";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { siteData, type VideoRealisation } from "../../data/siteData";
+import { siteData } from "../../data/siteData";
 import { fetchProjects, type PortfolioProject } from "../../lib/sanityQueries";
 import { VideoLightbox } from "./VideoLightbox";
 
@@ -12,7 +12,7 @@ function prettify(title: string) {
 }
 
 export function VideoGrid({ limit }: { limit?: number }) {
-  const [active, setActive] = useState<VideoRealisation | null>(null);
+  const [active, setActive] = useState<PortfolioProject | null>(null);
 
   const { data, isLoading } = useQuery({
     queryKey: ["sanity", "projects"],

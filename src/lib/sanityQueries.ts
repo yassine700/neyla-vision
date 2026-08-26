@@ -1,9 +1,11 @@
 import { sanityClient, urlFor } from "./sanity";
 import { siteData, type ClientReference, type VideoRealisation } from "../data/siteData";
 
-export interface PortfolioProject extends VideoRealisation {
-  thumbnail?: string | undefined;
+export interface PortfolioProject {
+  title: string;
+  url: string;
   youtubeId?: string | undefined;
+  thumbnail?: string | undefined;
 }
 
 const PROJECTS_QUERY = `*[_type == "project"] | order(order asc, _createdAt desc){
