@@ -25,17 +25,18 @@ export function VideoGrid({ limit }: { limit?: number }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.5, delay: Math.min(i, 5) * 0.05 }}
-            className="group border border-border bg-card text-left transition-colors hover:border-primary"
+            whileHover={{ y: -6 }}
+            className="group overflow-hidden border border-border bg-card text-left transition-colors duration-300 hover:border-primary hover:shadow-[0_24px_48px_-28px_var(--primary)]"
           >
             <div className="relative aspect-video overflow-hidden bg-secondary">
               <img
                 src={`https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`}
                 alt={prettify(video.title)}
                 loading="lazy"
-                className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="size-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
               />
-              <span className="absolute inset-0 grid place-items-center bg-black/25 transition-colors group-hover:bg-black/10">
-                <span className="grid size-14 place-items-center rounded-full bg-primary text-primary-foreground">
+              <span className="absolute inset-0 grid place-items-center bg-black/25 transition-colors duration-300 group-hover:bg-black/10">
+                <span className="grid size-14 place-items-center rounded-full bg-primary text-primary-foreground transition-transform duration-300 group-hover:scale-110">
                   <Play className="size-5 fill-current" />
                 </span>
               </span>

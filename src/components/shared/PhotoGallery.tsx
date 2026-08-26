@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
@@ -68,9 +68,9 @@ export function PhotoGallery() {
               setFilter(cat.slug);
               setIndex(null);
             }}
-            className={`px-5 py-2.5 font-display text-xs tracking-[0.18em] uppercase transition-colors ${
+            className={`px-5 py-2.5 font-display text-xs tracking-[0.18em] uppercase transition-all duration-300 hover:-translate-y-0.5 ${
               filter === cat.slug
-                ? "bg-primary text-primary-foreground"
+                ? "bg-primary text-primary-foreground shadow-[0_10px_24px_-12px_var(--primary)]"
                 : "border border-border text-muted-foreground hover:border-primary hover:text-foreground"
             }`}
           >
@@ -80,25 +80,32 @@ export function PhotoGallery() {
       </div>
 
       <div className="columns-1 gap-4 sm:columns-2 lg:columns-3 [&>*]:mb-4">
-        {photos.map((photo, i) => (
-          <motion.button
-            key={photo.src}
-            type="button"
-            onClick={() => setIndex(i)}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.45 }}
-            className="group block w-full break-inside-avoid overflow-hidden border border-border"
-          >
-            <img
-              src={photo.src}
-              alt={`${photo.label} — Neyla Production`}
-              loading="lazy"
-              className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-          </motion.button>
-        ))}
+        <AnimatePresence mode="popLayout" initial={false}>
+          {photos.map((photo, i) => (
+            <motion.button
+              layout
+              key={`${filter}-${photo.src}`}
+              type="button"
+              onClick={() => setIndex(i)}
+              initial={{ opacity: 0, y: 24, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.97 }}
+              transition={{
+                duration: 0.45,
+                delay: Math.min(i, 12) * 0.035,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="group block w-full break-inside-avoid overflow-hidden border border-border transition-colors duration-300 hover:border-primary"
+            >
+              <img
+                src={photo.src}
+                alt={`${photo.label} — Neyla Production`}
+                loading="lazy"
+                className="w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+              />
+            </motion.button>
+          ))}
+        </AnimatePresence>
       </div>
 
       {current ? (
