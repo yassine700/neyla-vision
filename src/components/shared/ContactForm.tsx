@@ -96,7 +96,7 @@ export function ContactForm() {
   };
 
   const inputClass =
-    "w-full border border-[#333333] bg-[#121212] px-4 py-3 text-sm text-foreground outline-none transition-colors focus:border-primary";
+    "w-full border border-[#333333] border-b-[#4A4A4A] bg-[#121212] px-4 py-3 text-sm text-foreground shadow-[inset_0_0_0_1px_rgba(255,255,255,0.015)] outline-none transition-colors hover:border-[#444444] focus:border-primary focus:border-b-primary";
 
   return (
     <form onSubmit={onSubmit} className="space-y-5" noValidate>
