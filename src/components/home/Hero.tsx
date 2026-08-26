@@ -3,10 +3,11 @@ import { Volume2, VolumeX } from "lucide-react";
 import { useMemo, useState } from "react";
 
 import { siteData } from "../../data/siteData";
-import { company } from "../../data/site";
+import { useHeroContent } from "../../lib/sanityContent";
 
 export function Hero() {
   const [muted, setMuted] = useState(true);
+  const { data: hero } = useHeroContent();
 
   const src = useMemo(() => {
     const params = new URLSearchParams({
