@@ -57,7 +57,6 @@ export function useHeroContent() {
   return useQuery({
     queryKey: ["sanity", "heroSection"],
     queryFn: fetchHero,
-    placeholderData: heroFallback,
     initialData: heroFallback,
   });
 }
@@ -110,7 +109,6 @@ export function useAboutContent() {
   return useQuery({
     queryKey: ["sanity", "aboutSection"],
     queryFn: fetchAbout,
-    placeholderData: aboutFallback,
     initialData: aboutFallback,
   });
 }
@@ -166,7 +164,6 @@ export function useServicesContent() {
   return useQuery({
     queryKey: ["sanity", "serviceItem"],
     queryFn: fetchServices,
-    placeholderData: staticServices,
     initialData: staticServices,
   });
 }
@@ -211,7 +208,6 @@ export function useContactInfo() {
   return useQuery({
     queryKey: ["sanity", "contactInfo"],
     queryFn: fetchContactInfo,
-    placeholderData: contactFallback,
     initialData: contactFallback,
   });
 }
