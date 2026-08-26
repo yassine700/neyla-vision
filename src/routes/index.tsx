@@ -24,6 +24,8 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
+  const { data: services } = useServicesContent();
+
   return (
     <>
       <Hero />
