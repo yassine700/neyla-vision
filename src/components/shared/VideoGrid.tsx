@@ -1,8 +1,10 @@
 import { motion } from "motion/react";
 import { Play } from "lucide-react";
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 import { siteData, type VideoRealisation } from "../../data/siteData";
+import { fetchProjects, type PortfolioProject } from "../../lib/sanityQueries";
 import { VideoLightbox } from "./VideoLightbox";
 
 function prettify(title: string) {
@@ -11,14 +13,38 @@ function prettify(title: string) {
 
 export function VideoGrid({ limit }: { limit?: number }) {
   const [active, setActive] = useState<VideoRealisation | null>(null);
-  const videos = limit ? siteData.realisations.slice(0, limit) : siteData.realisations;
+
+  const { data, isLoading } = useQuery({
+    queryKey: ["sanity", "projects"],
+    queryFn: fetchProjects,
+    initialData: siteData.realisations as PortfolioProject[],
+    staleTime: 5 * 60_000,
+  });
+
+  const all = data?.length ? data : (siteData.realisations as PortfolioProject[]);
+  const videos = limit ? all.slice(0, limit) : all;
+
+  if (isLoading && !data) {
+    return (
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {Array.from({ length: limit ?? 6 }).map((_, i) => (
+          <div key={i} className="animate-pulse rounded-xl bg-neutral-900">
+            <div className="aspect-video rounded-xl bg-neutral-900" />
+            <div className="p-5">
+              <div className="h-3 w-2/3 rounded bg-neutral-800" />
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
 
   return (
     <>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {videos.map((video, i) => (
           <motion.button
-            key={video.youtubeId ?? video.url}
+            key={video.youtubeId ?? video.url ?? video.title}
             type="button"
             onClick={() => setActive(video)}
             initial={{ opacity: 0, y: 24 }}
@@ -30,7 +56,7 @@ export function VideoGrid({ limit }: { limit?: number }) {
           >
             <div className="relative aspect-video overflow-hidden bg-secondary">
               <img
-                src={`https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`}
+                src={video.thumbnail ?? `https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`}
                 alt={prettify(video.title)}
                 loading="lazy"
                 className="size-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
