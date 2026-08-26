@@ -47,7 +47,7 @@ function AboutPage() {
               maîtrise complète garantit des délais tenus et une cohérence visuelle sans compromis.
             </p>
           </Reveal>
-          <Reveal delay={0.1} className="grid gap-px self-start bg-border sm:grid-cols-3">
+          <Reveal delay={0.1} className="grid gap-px self-start bg-border sm:grid-cols-2">
             {stats.map((stat) => (
               <div key={stat.label} className="bg-background p-8 text-center">
                 <p className="font-display text-4xl font-bold text-primary">{stat.value}</p>
