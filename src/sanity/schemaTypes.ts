@@ -31,37 +31,6 @@ export const clientLogo = defineType({
   preview: { select: { title: "name", media: "logo" } },
 });
 
-export const heroSection = defineType({
-  name: "heroSection",
-  title: "Section Hero",
-  type: "document",
-  fields: [
-    defineField({ name: "headline", title: "Titre principal", type: "string" }),
-    defineField({ name: "subheadline", title: "Sous-titre", type: "string" }),
-    defineField({ name: "ctaText", title: "Texte du bouton", type: "string" }),
-    defineField({ name: "ctaLink", title: "Lien du bouton", type: "string" }),
-  ],
-  preview: { select: { title: "headline", subtitle: "subheadline" } },
-});
-
-export const aboutSection = defineType({
-  name: "aboutSection",
-  title: "Section À propos",
-  type: "document",
-  fields: [
-    defineField({ name: "sectionTitle", title: "Titre de section", type: "string" }),
-    defineField({ name: "tagline", title: "Accroche", type: "string" }),
-    defineField({ name: "description", title: "Description", type: "text", rows: 6 }),
-    defineField({
-      name: "mainImage",
-      title: "Image",
-      type: "image",
-      options: { hotspot: true },
-    }),
-  ],
-  preview: { select: { title: "sectionTitle", subtitle: "tagline", media: "mainImage" } },
-});
-
 export const serviceItem = defineType({
   name: "serviceItem",
   title: "Service",
@@ -86,25 +55,122 @@ export const serviceItem = defineType({
   preview: { select: { title: "title", subtitle: "iconName" } },
 });
 
-export const contactInfo = defineType({
-  name: "contactInfo",
-  title: "Coordonnées",
+export const siteSettings = defineType({
+  name: "siteSettings",
+  title: "Configuration du Site",
   type: "document",
-  fields: [
-    defineField({ name: "phonePrimary", title: "Téléphone principal", type: "string" }),
-    defineField({ name: "phoneSecondary", title: "Téléphone secondaire", type: "string" }),
-    defineField({ name: "email", title: "Email", type: "string" }),
-    defineField({ name: "address", title: "Adresse", type: "text", rows: 3 }),
-    defineField({ name: "whatsappNumber", title: "Numéro WhatsApp", type: "string" }),
+  groups: [
+    { name: "hero", title: "Hero", default: true },
+    { name: "about", title: "À Propos" },
+    { name: "services", title: "Services" },
+    { name: "contact", title: "Contact & Footer" },
   ],
-  preview: { select: { title: "email", subtitle: "phonePrimary" } },
+  fields: [
+    defineField({
+      name: "heroTitle",
+      title: "Titre Hero",
+      type: "string",
+      group: "hero",
+      initialValue: "NEYLA PRODUCTION",
+    }),
+    defineField({
+      name: "heroSubtitle",
+      title: "Sous-titre Hero",
+      type: "text",
+      rows: 3,
+      description: "Une ligne par phrase (ou séparées par « | »).",
+      group: "hero",
+      initialValue:
+        "Agence audiovisuelle, communication digitale et relations presse",
+    }),
+    defineField({
+      name: "heroCtaText",
+      title: "Texte du bouton Hero",
+      type: "string",
+      group: "hero",
+      initialValue: "DEMANDER UN DEVIS",
+    }),
+
+    defineField({
+      name: "aboutTitle",
+      title: "Titre À Propos",
+      type: "string",
+      group: "about",
+      initialValue: "À PROPOS",
+    }),
+    defineField({
+      name: "aboutText",
+      title: "Texte À Propos",
+      type: "text",
+      rows: 8,
+      group: "about",
+      initialValue:
+        "Experts de l’image et créateurs de contenus audiovisuels percutants, nous mettons notre expertise technique et artistique au service de vos projets. Notre savoir-faire s’adresse à une clientèle diversifiée : Entreprises (Corporate), Enseignes, Marques, Institutions, Associations, Artistes, ou encore Particuliers.",
+    }),
+    defineField({
+      name: "aboutImage",
+      title: "Image À Propos",
+      type: "image",
+      options: { hotspot: true },
+      group: "about",
+    }),
+
+    defineField({
+      name: "servicesTitle",
+      title: "Titre Services",
+      type: "string",
+      group: "services",
+      initialValue: "CE QUE NOUS PRODUISONS",
+    }),
+    defineField({
+      name: "servicesSubtitle",
+      title: "Sous-titre Services",
+      type: "text",
+      rows: 3,
+      group: "services",
+      initialValue:
+        "Quatre pôle complémentaires pour couvrir toute la chaîne de production de votre contenu.",
+    }),
+
+    defineField({
+      name: "phonePrimary",
+      title: "Téléphone principal",
+      type: "string",
+      group: "contact",
+      initialValue: "+212 663 68 88 17",
+    }),
+    defineField({
+      name: "phoneSecondary",
+      title: "Téléphone secondaire",
+      type: "string",
+      group: "contact",
+      initialValue: "+212 665 36 26 73",
+    }),
+    defineField({
+      name: "email",
+      title: "Email",
+      type: "string",
+      group: "contact",
+      initialValue: "Contact@neylaproduction.ma",
+    }),
+    defineField({
+      name: "address",
+      title: "Adresse",
+      type: "text",
+      rows: 3,
+      group: "contact",
+      initialValue:
+        "144, Rue Mohamed Smiha, Res Jawharat Mohamed Smiha 6ème Étage N° 35, Casablanca",
+    }),
+    defineField({
+      name: "whatsappNumber",
+      title: "Numéro WhatsApp",
+      type: "string",
+      group: "contact",
+      initialValue: "212665352673",
+    }),
+  ],
+  preview: { select: { title: "heroTitle", subtitle: "email" } },
 });
 
-export const schemaTypes = [
-  project,
-  clientLogo,
-  heroSection,
-  aboutSection,
-  serviceItem,
-  contactInfo,
-];
+export const schemaTypes = [siteSettings, project, clientLogo, serviceItem];

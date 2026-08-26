@@ -9,7 +9,7 @@ import { ServiceCard } from "../components/shared/ServiceCard";
 import { VideoGrid } from "../components/shared/VideoGrid";
 import { ClientsMarquee } from "../components/shared/ClientsMarquee";
 import { ContactForm } from "../components/shared/ContactForm";
-import { useServicesContent } from "../lib/sanityContent";
+import { useServicesContent, useSiteSettings } from "../lib/sanityContent";
 import { seo } from "../lib/seo";
 
 export const Route = createFileRoute("/")({
@@ -25,6 +25,7 @@ export const Route = createFileRoute("/")({
 
 function HomePage() {
   const { data: services } = useServicesContent();
+  const { data: settings } = useSiteSettings();
 
   return (
     <>
@@ -69,8 +70,8 @@ function HomePage() {
       <section className="mx-auto w-full max-w-7xl px-5 py-20 md:py-28">
         <SectionHeading
           eyebrow="Nos expertises"
-          title="Ce que nous produisons"
-          subtitle="Quatre pôles complémentaires pour couvrir toute la chaîne de production de votre contenu."
+          title={settings.servicesTitle}
+          subtitle={settings.servicesSubtitle}
         />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service, i) => (
