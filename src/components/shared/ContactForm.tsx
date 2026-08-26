@@ -1,11 +1,9 @@
-import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { Send } from "lucide-react";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { toast } from "sonner";
 
 const ACCESS_KEY = "6af5d050-0055-4dec-b4a7-16b22ad9c541";
 const ENDPOINT = "https://api.web3forms.com/submit";
-const HCAPTCHA_SITEKEY = "50b2fe65-b00b-4b9e-ad62-3ba471098be2";
 
 type Fields = { name: string; email: string; phone: string; service: string; message: string };
 
@@ -15,29 +13,9 @@ export function ContactForm() {
   const [values, setValues] = useState<Fields>(empty);
   const [errors, setErrors] = useState<Partial<Record<keyof Fields, string>>>({});
   const [sending, setSending] = useState(false);
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
-  const [captchaReady, setCaptchaReady] = useState(false);
-  const captchaRef = useRef<any>(null);
 
   const set = (key: keyof Fields) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setValues((v) => ({ ...v, [key]: e.target.value }));
-
-  const onVerify = (token: string) => setCaptchaToken(token);
-
-  const onExpire = () => {
-    setCaptchaToken(null);
-    toast.error("Captcha expiré", { description: "Veuillez valider à nouveau le captcha." });
-  };
-
-  const onError = () => {
-    setCaptchaToken(null);
-    toast.error("Erreur captcha", { description: "Réessayez dans un instant." });
-  };
-
-  const resetCaptcha = () => {
-    captchaRef.current?.resetCaptcha?.();
-    setCaptchaToken(null);
-  };
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -45,11 +23,6 @@ export function ContactForm() {
 
     const botcheck = (e.currentTarget.elements.namedItem("botcheck") as HTMLInputElement | null)?.checked;
     if (botcheck) return;
-
-    if (!captchaToken) {
-      toast.error("Veuillez valider le captcha avant d'envoyer.");
-      return;
-    }
 
     const next: Partial<Record<keyof Fields, string>> = {};
     if (values.name.trim().length < 2) next.name = "Merci d'indiquer votre nom.";
@@ -75,7 +48,6 @@ export function ContactForm() {
           phone: values.phone.trim().slice(0, 255),
           service: values.service.trim().slice(0, 255),
           message: values.message.trim().slice(0, 2000),
-          "h-captcha-response": captchaToken,
         }),
       });
       const data = (await res.json()) as { success?: boolean };
@@ -84,12 +56,10 @@ export function ContactForm() {
         description: "Notre équipe vous recontacte sous 24h ouvrées.",
       });
       setValues(empty);
-      resetCaptcha();
     } catch {
       toast.error("Échec de l'envoi", {
         description: "Réessayez dans un instant ou appelez-nous directement.",
       });
-      resetCaptcha();
     } finally {
       setSending(false);
     }
@@ -180,21 +150,9 @@ export function ContactForm() {
         {errors.message ? <p className="mt-1 text-xs text-primary">{errors.message}</p> : null}
       </div>
 
-      <div className="overflow-hidden rounded bg-[#121212] p-4 ring-1 ring-white/10">
-        <HCaptcha
-          ref={captchaRef}
-          sitekey={HCAPTCHA_SITEKEY}
-          theme="dark"
-          onVerify={onVerify}
-          onExpire={onExpire}
-          onError={onError}
-          onLoad={() => setCaptchaReady(true)}
-        />
-      </div>
-
       <button
         type="submit"
-        disabled={sending || !captchaToken}
+        disabled={sending}
         className="inline-flex items-center gap-2 bg-primary px-8 py-4 font-display text-xs tracking-[0.2em] text-primary-foreground uppercase transition-colors hover:bg-primary/85 disabled:cursor-not-allowed disabled:opacity-60"
       >
         {sending ? "Envoi en cours…" : "Envoyer la demande"} <Send className="size-4" />
