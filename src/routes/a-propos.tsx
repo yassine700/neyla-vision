@@ -19,7 +19,6 @@ export const Route = createFileRoute("/a-propos")({
 });
 
 const stats = [
-  { value: "10+", label: "Années d'expérience" },
   { value: "13", label: "Marques accompagnées" },
   { value: "100%", label: "Production interne" },
 ];
