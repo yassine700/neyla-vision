@@ -13,25 +13,17 @@ export function CtaBanner() {
         }}
       />
       <div className="relative mx-auto flex w-full max-w-7xl flex-col items-start justify-between gap-8 px-5 py-20 md:flex-row md:items-center">
-        <h2 className="text-3xl font-bold md:text-5xl">
+        <h2 className="text-2xl font-bold md:text-3xl">
           Prêt à discuter votre projet ?<br />
           <span className="text-primary">Contactez-nous</span>
         </h2>
         <div className="flex flex-wrap items-center gap-4">
-        <Link
-          to="/contact"
-          className="inline-flex items-center gap-2 bg-primary px-8 py-4 font-display text-xs tracking-[0.2em] text-primary-foreground uppercase transition-colors hover:bg-primary/85"
-        >
-          Demandez un devis <ArrowRight className="size-4" />
-        </Link>
-          <a
-            href="https://wa.me/212665352673"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 border border-primary px-8 py-4 font-display text-xs tracking-[0.2em] text-primary uppercase transition-colors hover:bg-primary hover:text-primary-foreground"
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 bg-primary px-8 py-4 font-display text-xs tracking-[0.2em] text-primary-foreground uppercase transition-colors hover:bg-primary/85"
           >
-            Discuter du projet
-          </a>
+            Demandez un devis <ArrowRight className="size-4" />
+          </Link>
         </div>
       </div>
     </section>
