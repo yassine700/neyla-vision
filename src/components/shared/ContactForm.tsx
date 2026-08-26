@@ -124,12 +124,12 @@ export function ContactForm() {
           <textarea
             id="service"
             name="service"
-            rows={2}
+            rows={1}
             maxLength={255}
             value={values.service}
             onChange={set("service")}
             placeholder="Captation vidéo, shooting, relation presse…"
-            className={`${inputClass} mt-2 resize-none`}
+            className={`${inputClass} mt-2 resize-none leading-tight`}
           />
           {errors.service ? <p className="mt-1 text-xs text-primary">{errors.service}</p> : null}
         </div>
