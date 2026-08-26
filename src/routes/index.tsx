@@ -9,7 +9,7 @@ import { ServiceCard } from "../components/shared/ServiceCard";
 import { VideoGrid } from "../components/shared/VideoGrid";
 import { ClientsMarquee } from "../components/shared/ClientsMarquee";
 import { ContactForm } from "../components/shared/ContactForm";
-import { useServicesContent } from "../lib/sanityContent";
+import { useServicesContent, useSiteSettings } from "../lib/sanityContent";
 import { seo } from "../lib/seo";
 
 export const Route = createFileRoute("/")({
@@ -25,6 +25,7 @@ export const Route = createFileRoute("/")({
 
 function HomePage() {
   const { data: services } = useServicesContent();
+  const { data: settings } = useSiteSettings();
 
   return (
     <>
