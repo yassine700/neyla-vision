@@ -17,12 +17,14 @@ export function CtaBanner() {
           Prêt à discuter votre projet ?<br />
           <span className="text-primary">Contactez-nous</span>
         </h2>
+        <div className="flex flex-wrap items-center gap-4">
         <Link
           to="/contact"
           className="inline-flex items-center gap-2 bg-primary px-8 py-4 font-display text-xs tracking-[0.2em] text-primary-foreground uppercase transition-colors hover:bg-primary/85"
         >
           Demandez un devis <ArrowRight className="size-4" />
         </Link>
+        </div>
       </div>
     </section>
   );
