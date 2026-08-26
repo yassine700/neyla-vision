@@ -14,12 +14,14 @@ export function LogoGrid() {
           transition={{ duration: 0.45, delay: Math.min(i, 8) * 0.04 }}
           className="group flex h-32 items-center justify-center bg-background p-6 md:h-40 md:p-8"
         >
-          <img
-            src={ref.logo}
-            alt={ref.name}
-            loading="lazy"
-            className="max-h-14 w-auto max-w-[78%] object-contain md:max-h-16 opacity-70 grayscale transition duration-300 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0"
-          />
+          <div className="flex h-16 w-32 items-center justify-center md:h-20 md:w-40">
+            <img
+              src={ref.logo}
+              alt={ref.name}
+              loading="lazy"
+              className="max-h-full max-w-full object-contain opacity-70 grayscale transition duration-300 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0"
+            />
+          </div>
         </motion.div>
       ))}
     </div>
