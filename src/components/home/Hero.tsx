@@ -34,11 +34,7 @@ export function Hero() {
       </div>
       <div
         aria-hidden
-        className="absolute inset-0 bg-gradient-to-t from-background via-background/55 to-background/25"
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0 bg-gradient-to-r from-background/85 via-background/45 to-transparent"
+        className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/90 via-[#0A0A0A]/40 to-black/10"
       />
 
       <div className="relative mx-auto w-full max-w-7xl px-5 pt-32 pb-24">
