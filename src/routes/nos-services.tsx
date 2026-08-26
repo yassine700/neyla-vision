@@ -21,6 +21,8 @@ export const Route = createFileRoute("/nos-services")({
 });
 
 function ServicesPage() {
+  const { data: services } = useServicesContent();
+
   return (
     <>
       <PageHeader
