@@ -24,7 +24,6 @@ function ReferencesPage() {
       <PageHeader
         eyebrow="Clientèle"
         title="Nos Références"
-        subtitle={`${siteData.references.length} marques, institutions et groupes industriels nous confient leur image.`}
       />
 
       <section className="mx-auto w-full max-w-7xl px-5 py-16 md:py-24">

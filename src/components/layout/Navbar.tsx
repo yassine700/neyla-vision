@@ -24,7 +24,7 @@ export function Navbar() {
     >
       <nav className="mx-auto flex w-full max-w-7xl items-center justify-between gap-6 px-5 py-4">
         <Link to="/" className="flex items-center" onClick={() => setOpen(false)}>
-          <img src={logo.url} alt="Neyla Production" className="h-16 w-auto md:h-20" />
+          <img src={logo.url} alt="Neyla Production" className="h-20 w-auto md:h-24" />
         </Link>
 
         <ul className="hidden items-center gap-7 lg:flex">
