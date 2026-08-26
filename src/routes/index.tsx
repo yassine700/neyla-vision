@@ -89,6 +89,14 @@ function HomePage() {
             subtitle="Parlez-nous de votre projet, notre équipe vous répond sous 24h ouvrées."
             align="center"
           />
+          <div className="mt-8 flex justify-center">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 bg-primary px-8 py-4 font-display text-xs tracking-[0.2em] text-primary-foreground uppercase transition-colors hover:bg-primary/85"
+            >
+              Demandez un devis <ArrowRight className="size-4" />
+            </Link>
+          </div>
           <div className="mt-12">
             <ContactForm />
           </div>
