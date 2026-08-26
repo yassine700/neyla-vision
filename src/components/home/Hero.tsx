@@ -45,11 +45,13 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.08 }}
           className="max-w-4xl text-4xl leading-[0.95] font-bold drop-shadow-xl md:text-7xl"
         >
-          {company.name}
+          {hero.headline}
           <span className="mt-4 block text-lg font-normal tracking-normal normal-case drop-shadow-xl md:text-2xl">
-            <span className="block text-primary">Agence audiovisuelle.</span>
-            <span className="block text-primary">Communication digitale.</span>
-            <span className="block text-primary">Relation presse.</span>
+            {hero.subheadlineLines.map((line) => (
+              <span key={line} className="block text-primary">
+                {line}
+              </span>
+            ))}
           </span>
         </motion.h1>
       </div>
