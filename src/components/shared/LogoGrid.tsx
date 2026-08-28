@@ -19,6 +19,7 @@ export function LogoGrid() {
               src={ref.logo}
               alt={ref.name}
               loading="lazy"
+              decoding="async"
               className="max-h-full max-w-full object-contain opacity-70 grayscale transition duration-300 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0"
             />
           </div>

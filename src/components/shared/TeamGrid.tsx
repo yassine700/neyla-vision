@@ -19,6 +19,7 @@ export function TeamGrid() {
               src={member.image}
               alt={member.name}
               loading="lazy"
+              decoding="async"
               className="size-full object-cover grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
             />
           </div>
