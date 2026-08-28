@@ -17,6 +17,7 @@ export const deskStructure: StructureResolver = (S) =>
       S.documentTypeListItem("serviceItem").title("Services"),
       S.documentTypeListItem("project").title("Réalisations"),
       S.documentTypeListItem("clientLogo").title("Logos Clients"),
+      S.documentTypeListItem("teamMember").title("Notre Équipe"),
     ]);
 
 export default deskStructure;
