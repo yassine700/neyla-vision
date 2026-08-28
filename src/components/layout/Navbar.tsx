@@ -3,7 +3,7 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { navLinks } from "../../data/site";
-import logo from "../../assets/neyla-logo.png.asset.json";
+import logo from "../../assets/neyla-logo.png";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -29,7 +29,7 @@ export function Navbar() {
       >
         <Link to="/" className="flex items-center" onClick={() => setOpen(false)}>
           <img
-            src={logo.url}
+            src={logo}
             alt="Neyla Production"
             className={`w-auto origin-left transition-all duration-300 ${
               scrolled ? "h-16 md:h-24" : "h-24 md:h-32"

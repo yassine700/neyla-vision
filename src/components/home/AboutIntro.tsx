@@ -1,5 +1,5 @@
 import { Reveal } from "../shared/Reveal";
-import logo from "../../assets/neyla-logo.png.asset.json";
+import logo from "../../assets/neyla-logo.png";
 import { useAboutContent } from "../../lib/sanityContent";
 
 export function AboutIntro() {
@@ -10,7 +10,7 @@ export function AboutIntro() {
       <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-5 py-20 md:grid-cols-2 md:gap-16 md:py-28">
         <Reveal className="flex justify-center md:justify-start">
           <img
-            src={about.image ?? logo.url}
+            src={about.image ?? logo}
             alt="Neyla Production"
             className="w-full max-w-md md:max-w-lg"
           />

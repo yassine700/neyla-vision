@@ -87,7 +87,7 @@ export const siteData: SiteData = {
     { title: "LAFARGE", url: "https://youtu.be/M4zdseMhF_o", youtubeId: "M4zdseMhF_o" },
     { title: "best of all nad publication", url: "https://youtu.be/0pbhjZID1Qk", youtubeId: "0pbhjZID1Qk" },
     { title: "FORMATION ESCA", url: "https://youtu.be/-ZpQdqXDii4", youtubeId: "-ZpQdqXDii4" },
-    { title: "06 8eme EDITION DU SALON INTERNATIONAL DU TEXTILE 2", url: "https://youtu.be/qZgEYe42ql8", youtubeId: "qZgEYe42ql8" },
+    
     { title: "AIEM", url: "https://youtu.be/fxsMnF0e1Hs", youtubeId: "fxsMnF0e1Hs" },
     { title: "mesidor", url: "https://youtu.be/piwiymbXf6U", youtubeId: "piwiymbXf6U" },
     { title: "MARATHON BOUSKOURA", url: "https://youtu.be/zFOTCZVWsEU", youtubeId: "zFOTCZVWsEU" },
