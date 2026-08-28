@@ -1,4 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 
 import { SectionHeading } from "../shared/SectionHeading";
@@ -16,13 +18,15 @@ function TeamCard({ member, index }: { member: TeamMemberContent; index: number 
           alt={member.name}
           loading="lazy"
           decoding="async"
-          className={`size-full object-cover transition-all duration-500 ease-out group-hover:scale-105 md:grayscale md:opacity-80 md:group-hover:grayscale-0 md:group-hover:opacity-100 ${
-            inView ? "grayscale-0 opacity-100" : "grayscale opacity-70"
-          }`}
+          className={`size-full object-cover transition-all duration-700 ease-out group-hover:scale-105 md:duration-500 md:grayscale md:group-hover:grayscale-0 ${
+            inView ? "grayscale-0 opacity-100" : "grayscale opacity-80"
+          } md:grayscale md:opacity-80 md:group-hover:opacity-100`}
         />
       </div>
-      <p className="mt-4 font-medium text-foreground">{member.name}</p>
-      <p className="mt-1 text-sm text-neutral-400">{member.role ?? "Neyla Production"}</p>
+      <p className="mt-5 font-semibold text-foreground">{member.name}</p>
+      <span className="mt-2 inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary ring-1 ring-inset ring-primary/20">
+        {member.role ?? "Neyla Production"}
+      </span>
     </>
   );
 
@@ -46,7 +50,15 @@ function TeamCard({ member, index }: { member: TeamMemberContent; index: number 
   );
 }
 
-export function TeamSection() {
+export function TeamSection({
+  limit,
+  showCta = false,
+  bare = false,
+}: {
+  limit?: number;
+  showCta?: boolean;
+  bare?: boolean;
+}) {
   const { data: members } = useQuery({
     queryKey: ["sanity", "teamMember"],
     queryFn: fetchTeamMembers,
@@ -55,19 +67,33 @@ export function TeamSection() {
 
   if (!members.length) return null;
 
+  const displayed = limit ? members.slice(0, limit) : members;
+
   return (
-    <section className="border-t border-border">
-      <div className="mx-auto w-full max-w-7xl px-5 py-20 md:py-28">
-        <SectionHeading
-          eyebrow="Notre équipe"
-          title="Les visages derrière Neyla"
-          subtitle="Une équipe pluridisciplinaire : réalisation, image, son et stratégie de contenu."
-        />
-        <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {members.map((member, i) => (
+    <section className={bare ? "" : "border-t border-border"}>
+      <div className={`mx-auto w-full max-w-7xl px-5 ${bare ? "py-16 md:py-20" : "py-20 md:py-28"}`}>
+        {bare ? null : (
+          <SectionHeading
+            eyebrow="Notre équipe"
+            title="Les visages derrière Neyla"
+            subtitle="Une équipe pluridisciplinaire : réalisation, image, son et stratégie de contenu."
+          />
+        )}
+        <div className={`grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 ${bare ? "" : "mt-12"}`}>
+          {displayed.map((member, i) => (
             <TeamCard key={`${member.name}-${i}`} member={member} index={i} />
           ))}
         </div>
+        {showCta ? (
+          <div className="mt-12 flex justify-center">
+            <Link
+              to="/team"
+              className="inline-flex items-center gap-2 border border-border px-7 py-4 font-display text-xs tracking-[0.2em] uppercase transition-colors hover:border-primary hover:text-primary"
+            >
+              Voir toute l'équipe <ArrowRight className="size-4" />
+            </Link>
+          </div>
+        ) : null}
       </div>
     </section>
   );

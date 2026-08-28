@@ -28,8 +28,10 @@ export async function fetchTeamMembers(): Promise<TeamMemberContent[]> {
         name: doc.name ?? "",
         role: doc.role ?? undefined,
         photo: urlFor(doc.photo as never)
-          .width(700)
-          .height(700)
+          .format("webp")
+          .width(600)
+          .height(600)
+          .quality(80)
           .fit("crop")
           .url(),
         linkedin: doc.linkedin ?? undefined,

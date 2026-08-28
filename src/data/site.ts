@@ -15,6 +15,7 @@ export const navLinks = [
   { to: "/nos-realisations", label: "Nos Réalisations" },
   { to: "/nos-services", label: "Nos Services" },
   { to: "/nos-references", label: "Nos Références" },
+  { to: "/team", label: "Team" },
   { to: "/a-propos", label: "À Propos" },
   { to: "/contact", label: "Contact" },
 ] as const;
