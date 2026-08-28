@@ -1,12 +1,13 @@
 import { motion } from "motion/react";
 import { Volume2, VolumeX } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 
 import { siteData } from "../../data/siteData";
 import { useHeroContent } from "../../lib/sanityContent";
 
 export function Hero() {
   const [muted, setMuted] = useState(true);
+  const playerRef = useRef<HTMLIFrameElement>(null);
   const { data: hero } = useHeroContent();
 
   const src = useMemo(() => {
@@ -16,24 +17,39 @@ export function Hero() {
       loop: "1",
       byline: "0",
       title: "0",
-      muted: muted ? "1" : "0",
+      muted: "1",
       autopause: "0",
       playsinline: "1",
       quality: "auto",
       dnt: "1",
+      api: "1",
+      player_id: "neyla-hero-player",
     });
     return `https://player.vimeo.com/video/${siteData.heroVideo.vimeoId}?${params.toString()}`;
-  }, [muted]);
+  }, []);
+
+  const sendPlayerCommand = (method: string, value?: number) => {
+    playerRef.current?.contentWindow?.postMessage({ method, value }, "https://player.vimeo.com");
+  };
+
+  const toggleSound = () => {
+    const nextMuted = !muted;
+    setMuted(nextMuted);
+    sendPlayerCommand("setVolume", nextMuted ? 0 : 1);
+    sendPlayerCommand("play");
+  };
 
   return (
     <section className="relative flex min-h-svh items-center overflow-hidden">
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden bg-[#0A0A0A]">
         <iframe
-          key={muted ? "muted" : "unmuted"}
+          id="neyla-hero-player"
+          ref={playerRef}
           src={src}
           title="Showreel Neyla Production"
           allow="autoplay; fullscreen; picture-in-picture"
           loading="eager"
+          onLoad={() => sendPlayerCommand("play")}
           className="absolute top-1/2 left-1/2 aspect-video h-[56.25vw] min-h-full w-[177.77vh] min-w-full -translate-x-1/2 -translate-y-1/2 border-0"
         />
       </div>
@@ -62,7 +78,7 @@ export function Hero() {
 
       <button
         type="button"
-        onClick={() => setMuted((v) => !v)}
+        onClick={toggleSound}
         aria-label={muted ? "Activer le son" : "Couper le son"}
         className="absolute right-5 bottom-8 z-10 grid size-12 place-items-center border border-border bg-background/60 backdrop-blur transition-colors hover:border-primary hover:text-primary"
       >
