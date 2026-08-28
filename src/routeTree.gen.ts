@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AProposRouteImport } from './routes/a-propos'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as EquipeRouteImport } from './routes/equipe'
 import { Route as NosRealisationsRouteImport } from './routes/nos-realisations'
 import { Route as NosReferencesRouteImport } from './routes/nos-references'
 import { Route as NosServicesRouteImport } from './routes/nos-services'
@@ -31,6 +32,11 @@ const AProposRoute = AProposRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EquipeRoute = EquipeRouteImport.update({
+  id: '/equipe',
+  path: '/equipe',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NosRealisationsRoute = NosRealisationsRouteImport.update({
@@ -63,6 +69,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/contact': typeof ContactRoute
+  '/equipe': typeof EquipeRoute
   '/nos-realisations': typeof NosRealisationsRoute
   '/nos-references': typeof NosReferencesRoute
   '/nos-services': typeof NosServicesRoute
@@ -73,6 +80,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/contact': typeof ContactRoute
+  '/equipe': typeof EquipeRoute
   '/nos-realisations': typeof NosRealisationsRoute
   '/nos-references': typeof NosReferencesRoute
   '/nos-services': typeof NosServicesRoute
@@ -84,6 +92,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/contact': typeof ContactRoute
+  '/equipe': typeof EquipeRoute
   '/nos-realisations': typeof NosRealisationsRoute
   '/nos-references': typeof NosReferencesRoute
   '/nos-services': typeof NosServicesRoute
@@ -96,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/a-propos'
     | '/contact'
+    | '/equipe'
     | '/nos-realisations'
     | '/nos-references'
     | '/nos-services'
@@ -106,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/a-propos'
     | '/contact'
+    | '/equipe'
     | '/nos-realisations'
     | '/nos-references'
     | '/nos-services'
@@ -116,6 +127,7 @@ export interface FileRouteTypes {
     | '/'
     | '/a-propos'
     | '/contact'
+    | '/equipe'
     | '/nos-realisations'
     | '/nos-references'
     | '/nos-services'
@@ -127,6 +139,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AProposRoute: typeof AProposRoute
   ContactRoute: typeof ContactRoute
+  EquipeRoute: typeof EquipeRoute
   NosRealisationsRoute: typeof NosRealisationsRoute
   NosReferencesRoute: typeof NosReferencesRoute
   NosServicesRoute: typeof NosServicesRoute
@@ -155,6 +168,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/equipe': {
+      id: '/equipe'
+      path: '/equipe'
+      fullPath: '/equipe'
+      preLoaderRoute: typeof EquipeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/nos-realisations': {
@@ -199,6 +219,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AProposRoute: AProposRoute,
   ContactRoute: ContactRoute,
+  EquipeRoute: EquipeRoute,
   NosRealisationsRoute: NosRealisationsRoute,
   NosReferencesRoute: NosReferencesRoute,
   NosServicesRoute: NosServicesRoute,

@@ -51,9 +51,11 @@ function TeamCard({ member, index }: { member: TeamMemberContent; index: number 
 export function TeamSection({
   limit,
   showCta = false,
+  bare = false,
 }: {
   limit?: number;
   showCta?: boolean;
+  bare?: boolean;
 }) {
   const { data: members } = useQuery({
     queryKey: ["sanity", "teamMember"],
