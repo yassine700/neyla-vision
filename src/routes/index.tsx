@@ -85,7 +85,7 @@ function HomePage() {
 
       <AboutIntro />
 
-      <TeamSection />
+      <TeamSection limit={3} showCta />
 
       <section className="border-t border-border">
         <div className="mx-auto w-full max-w-4xl px-5 py-20 md:py-28">

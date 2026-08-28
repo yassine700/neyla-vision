@@ -1,4 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 
 import { SectionHeading } from "../shared/SectionHeading";
@@ -46,7 +48,15 @@ function TeamCard({ member, index }: { member: TeamMemberContent; index: number 
   );
 }
 
-export function TeamSection() {
+export function TeamSection({
+  limit,
+  showCta = false,
+  bare = false,
+}: {
+  limit?: number;
+  showCta?: boolean;
+  bare?: boolean;
+}) {
   const { data: members } = useQuery({
     queryKey: ["sanity", "teamMember"],
     queryFn: fetchTeamMembers,
@@ -55,19 +65,33 @@ export function TeamSection() {
 
   if (!members.length) return null;
 
+  const displayed = limit ? members.slice(0, limit) : members;
+
   return (
-    <section className="border-t border-border">
-      <div className="mx-auto w-full max-w-7xl px-5 py-20 md:py-28">
-        <SectionHeading
-          eyebrow="Notre équipe"
-          title="Les visages derrière Neyla"
-          subtitle="Une équipe pluridisciplinaire : réalisation, image, son et stratégie de contenu."
-        />
-        <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {members.map((member, i) => (
+    <section className={bare ? "" : "border-t border-border"}>
+      <div className={`mx-auto w-full max-w-7xl px-5 ${bare ? "py-16 md:py-20" : "py-20 md:py-28"}`}>
+        {bare ? null : (
+          <SectionHeading
+            eyebrow="Notre équipe"
+            title="Les visages derrière Neyla"
+            subtitle="Une équipe pluridisciplinaire : réalisation, image, son et stratégie de contenu."
+          />
+        )}
+        <div className={`grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 ${bare ? "" : "mt-12"}`}>
+          {displayed.map((member, i) => (
             <TeamCard key={`${member.name}-${i}`} member={member} index={i} />
           ))}
         </div>
+        {showCta ? (
+          <div className="mt-12 flex justify-center">
+            <Link
+              to="/equipe"
+              className="inline-flex items-center gap-2 border border-border px-7 py-4 font-display text-xs tracking-[0.2em] uppercase transition-colors hover:border-primary hover:text-primary"
+            >
+              Voir toute l'équipe <ArrowRight className="size-4" />
+            </Link>
+          </div>
+        ) : null}
       </div>
     </section>
   );
