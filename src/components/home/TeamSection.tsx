@@ -24,7 +24,13 @@ function TeamCard({ member, index }: { member: TeamMemberContent; index: number 
         />
       </div>
       <p className="mt-4 font-medium text-foreground">{member.name}</p>
-      <p className="mt-1 text-sm text-neutral-400">{member.role ?? "Neyla Production"}</p>
+      <p
+        className={`mt-1 text-sm ${
+          member.role?.toLowerCase().includes("ceo") ? "font-semibold text-primary" : "text-neutral-400"
+        }`}
+      >
+        {member.role ?? "Neyla Production"}
+      </p>
     </>
   );
 
