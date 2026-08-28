@@ -71,6 +71,7 @@ export const siteData: SiteData = {
   ],
   team: [
     { name: "Youssef MAADOUR", role: "CEO & Fondateur", image: "/assets/team/youssef-maadour.png" },
+    { name: "Asmaa EL MASSAR", role: "Chef de Projet Développement", image: "/assets/team/asmaa-el-massar.jpg" },
     { name: "Mehdi ELMOUTRIB", role: "Vidéaste & Droniste", image: "/assets/team/mehdi-elmoutrib.jpg" },
     { name: "Mouhcine BENHALAL", role: "Photographe & Vidéaste", image: "/assets/team/mouhcine-benhalal.jpg" },
     { name: "Zakaria BOUZANDAR", role: "Chargé Relation Presse & Digital", image: "/assets/team/zakaria-bouzandar.jpg" },
