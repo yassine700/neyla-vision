@@ -68,14 +68,16 @@ export function TeamSection({
   const displayed = limit ? members.slice(0, limit) : members;
 
   return (
-    <section className="border-t border-border">
-      <div className="mx-auto w-full max-w-7xl px-5 py-20 md:py-28">
-        <SectionHeading
-          eyebrow="Notre équipe"
-          title="Les visages derrière Neyla"
-          subtitle="Une équipe pluridisciplinaire : réalisation, image, son et stratégie de contenu."
-        />
-        <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    <section className={bare ? "" : "border-t border-border"}>
+      <div className={`mx-auto w-full max-w-7xl px-5 ${bare ? "py-16 md:py-20" : "py-20 md:py-28"}`}>
+        {bare ? null : (
+          <SectionHeading
+            eyebrow="Notre équipe"
+            title="Les visages derrière Neyla"
+            subtitle="Une équipe pluridisciplinaire : réalisation, image, son et stratégie de contenu."
+          />
+        )}
+        <div className={`grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 ${bare ? "" : "mt-12"}`}>
           {displayed.map((member, i) => (
             <TeamCard key={`${member.name}-${i}`} member={member} index={i} />
           ))}

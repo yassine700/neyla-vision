@@ -23,7 +23,7 @@ function EquipePage() {
         title="Les talents de Neyla Production"
         subtitle="Réalisation, image, son et stratégie de contenu : découvrez les visages derrière chaque production."
       />
-      <TeamSection />
+      <TeamSection bare />
     </>
   );
 }
