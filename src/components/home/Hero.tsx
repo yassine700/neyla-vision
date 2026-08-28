@@ -1,10 +1,9 @@
 import { motion } from "motion/react";
 import { Volume2, VolumeX } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 import { siteData } from "../../data/siteData";
 import { useHeroContent } from "../../lib/sanityContent";
-import { useIsMobile } from "../../hooks/use-mobile";
 
 const POSTER = "/hero-poster.webp";
 
@@ -12,14 +11,9 @@ export function Hero() {
   const [muted, setMuted] = useState(true);
   const [videoReady, setVideoReady] = useState(false);
   const { data: hero } = useHeroContent();
-  const isMobile = useIsMobile();
 
-  // On mobile we skip the heavy embedded player entirely and keep the poster.
-  const showVideo = !isMobile;
-
-  useEffect(() => {
-    if (!showVideo) setVideoReady(false);
-  }, [showVideo]);
+  // Video autoplays (muted) on all devices; the poster covers the buffering state.
+  const showVideo = true;
 
   const src = useMemo(() => {
     const params = new URLSearchParams({
