@@ -74,6 +74,7 @@ export const siteData: SiteData = {
     { name: "Mehdi ELMOUTRIB", role: "Vidéaste & Droniste", image: "/assets/team/mehdi-elmoutrib.webp" },
     { name: "Mouhcine BENHALAL", role: "Photographe & Vidéaste", image: "/assets/team/mouhcine-benhalal.webp" },
     { name: "Zakaria BOUZANDAR", role: "Chargé Relation Presse & Digital", image: "/assets/team/zakaria-bouzandar.webp" },
+    { name: "Asmaa EL MASSAR", role: "Chef de Projet Développement", image: "/assets/team/asmaa-el-massar.webp" },
   ],
 
   realisations: [
