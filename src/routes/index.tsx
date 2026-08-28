@@ -7,7 +7,7 @@ import { AboutIntro } from "../components/home/AboutIntro";
 import { TeamSection } from "../components/home/TeamSection";
 import { SectionHeading } from "../components/shared/SectionHeading";
 import { ServiceCard } from "../components/shared/ServiceCard";
-import { VideoGrid } from "../components/shared/VideoGrid";
+import { PortfolioTabs } from "../components/shared/PortfolioTabs";
 import { ClientsMarquee } from "../components/shared/ClientsMarquee";
 import { ContactForm } from "../components/shared/ContactForm";
 import { useServicesContent, useSiteSettings } from "../lib/sanityContent";
@@ -48,7 +48,7 @@ function HomePage() {
             </Link>
           </div>
           <div className="mt-12">
-            <VideoGrid limit={6} />
+            <PortfolioTabs videoLimit={6} />
           </div>
           <div className="mt-12 flex justify-center">
             <Link
