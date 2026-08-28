@@ -16,9 +16,9 @@ function TeamCard({ member, index }: { member: TeamMemberContent; index: number 
           alt={member.name}
           loading="lazy"
           decoding="async"
-          className={`size-full object-cover transition-all duration-500 ease-out group-hover:scale-105 md:grayscale md:opacity-80 md:group-hover:grayscale-0 md:group-hover:opacity-100 ${
-            inView ? "grayscale-0 opacity-100" : "grayscale opacity-70"
-          }`}
+          className={`size-full object-cover transition-all duration-700 ease-out group-hover:scale-105 md:duration-500 md:grayscale md:group-hover:grayscale-0 ${
+            inView ? "grayscale-0 opacity-100" : "grayscale opacity-80"
+          } md:grayscale md:opacity-80 md:group-hover:opacity-100`}
         />
       </div>
       <p className="mt-4 font-medium text-foreground">{member.name}</p>
