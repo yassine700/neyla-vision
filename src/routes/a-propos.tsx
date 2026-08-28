@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { PageHeader } from "../components/shared/PageHeader";
-import { SectionHeading } from "../components/shared/SectionHeading";
+
 
 import { Reveal } from "../components/shared/Reveal";
 import { CtaBanner } from "../components/home/CtaBanner";
