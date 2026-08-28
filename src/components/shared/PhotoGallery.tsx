@@ -101,6 +101,7 @@ export function PhotoGallery() {
                 src={photo.src}
                 alt={`${photo.label} — Neyla Production`}
                 loading="lazy"
+                decoding="async"
                 className="w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
               />
             </motion.button>

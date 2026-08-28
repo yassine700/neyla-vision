@@ -28,11 +28,10 @@
     { "name": "UM6P", "logo": "/assets/nos-references/UMP6.png" }
   ],
   "team": [
-    { "name": "Elmehdi MOUTRIB", "image": "/assets/team/Elmehdi MOUTRIB.avif" },
-    { "name": "Nassira MAMCHACH", "image": "/assets/team/Nassira MAMCHACH.avif" },
-    { "name": "Younes BARI", "image": "/assets/team/Younes BARI.avif" },
-    { "name": "Youssef MAADOUR", "image": "/assets/team/Youssef MAADOUR.avif" },
-    { "name": "Zouhir LAALAM", "image": "/assets/team/Zouhir LAALAM.avif" }
+    { "name": "Youssef MAADOUR", "role": "CEO & Fondateur", "image": "/assets/team/youssef-maadour.png" },
+    { "name": "Mehdi ELMOUTRIB", "role": "Vidéaste & Droniste", "image": "/assets/team/mehdi-elmoutrib.jpg" },
+    { "name": "Mouhcine BENHALAL", "role": "Photographe & Vidéaste", "image": "/assets/team/mouhcine-benhalal.jpg" },
+    { "name": "Zakaria BOUZANDAR", "role": "Chargé Relation Presse & Digital", "image": "/assets/team/zakaria-bouzandar.jpg" }
   ],
   "realisations": [
     { "title": "white garden", "url": "https://youtu.be/WJkb69qLQWc", "youtubeId": "WJkb69qLQWc" },
