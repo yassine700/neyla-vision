@@ -75,7 +75,7 @@ export function TeamSection({
         {bare ? null : (
           <SectionHeading
             eyebrow="Notre équipe"
-            title="Les visages derrière Neyla"
+            title="L'équipe derrière Neyla"
             subtitle="Une équipe pluridisciplinaire : réalisation, image, son et stratégie de contenu."
           />
         )}
