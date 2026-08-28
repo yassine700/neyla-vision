@@ -23,14 +23,10 @@ function TeamCard({ member, index }: { member: TeamMemberContent; index: number 
           } md:grayscale md:opacity-80 md:group-hover:opacity-100`}
         />
       </div>
-      <p className="mt-4 font-medium text-foreground">{member.name}</p>
-      <p
-        className={`mt-1 text-sm ${
-          member.role?.toLowerCase().includes("ceo") ? "font-semibold text-primary" : "text-neutral-400"
-        }`}
-      >
+      <p className="mt-5 font-semibold text-foreground">{member.name}</p>
+      <span className="mt-2 inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary ring-1 ring-inset ring-primary/20">
         {member.role ?? "Neyla Production"}
-      </p>
+      </span>
     </>
   );
 
