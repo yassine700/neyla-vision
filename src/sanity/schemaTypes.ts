@@ -173,4 +173,23 @@ export const siteSettings = defineType({
   preview: { select: { title: "heroTitle", subtitle: "email" } },
 });
 
-export const schemaTypes = [siteSettings, project, clientLogo, serviceItem];
+export const teamMember = defineType({
+  name: "teamMember",
+  title: "Membre de l'équipe",
+  type: "document",
+  fields: [
+    defineField({ name: "name", title: "Nom", type: "string" }),
+    defineField({ name: "role", title: "Poste", type: "string" }),
+    defineField({
+      name: "photo",
+      title: "Photo",
+      type: "image",
+      options: { hotspot: true },
+    }),
+    defineField({ name: "orderAsc", title: "Ordre", type: "number" }),
+    defineField({ name: "linkedin", title: "LinkedIn", type: "url" }),
+  ],
+  preview: { select: { title: "name", subtitle: "role", media: "photo" } },
+});
+
+export const schemaTypes = [siteSettings, project, clientLogo, serviceItem, teamMember];

@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Hero } from "../components/home/Hero";
 import { CtaBanner } from "../components/home/CtaBanner";
 import { AboutIntro } from "../components/home/AboutIntro";
+import { TeamSection } from "../components/home/TeamSection";
 import { SectionHeading } from "../components/shared/SectionHeading";
 import { ServiceCard } from "../components/shared/ServiceCard";
 import { VideoGrid } from "../components/shared/VideoGrid";
@@ -83,6 +84,8 @@ function HomePage() {
       <CtaBanner />
 
       <AboutIntro />
+
+      <TeamSection />
 
       <section className="border-t border-border">
         <div className="mx-auto w-full max-w-4xl px-5 py-20 md:py-28">
