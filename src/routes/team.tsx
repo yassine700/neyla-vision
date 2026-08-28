@@ -20,7 +20,7 @@ function EquipePage() {
     <>
       <PageHeader
         eyebrow="Team"
-        title="Les talents de Neyla Production"
+        title="L'équipe de Neyla Production"
         subtitle="Réalisation, image, son et stratégie de contenu : découvrez les visages derrière chaque production."
       />
       <TeamSection bare />
