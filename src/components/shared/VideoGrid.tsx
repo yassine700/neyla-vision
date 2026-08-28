@@ -59,6 +59,7 @@ export function VideoGrid({ limit }: { limit?: number }) {
                 src={video.thumbnail ?? `https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`}
                 alt={prettify(video.title)}
                 loading="lazy"
+                decoding="async"
                 className="size-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
               />
               <span className="absolute inset-0 grid place-items-center bg-black/25 transition-colors duration-300 group-hover:bg-black/10">
