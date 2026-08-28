@@ -70,12 +70,12 @@ export const siteData: SiteData = {
     { name: "UM6P", logo: "/assets/nos-references/UMP6.png" },
   ],
   team: [
-    { name: "Youssef MAADOUR", image: "/assets/team/Youssef MAADOUR.avif" },
-    { name: "Nassira MAMCHACH", image: "/assets/team/Nassira MAMCHACH.avif" },
-    { name: "Elmehdi MOUTRIB", image: "/assets/team/Elmehdi MOUTRIB.avif" },
-    { name: "Younes BARI", image: "/assets/team/Younes BARI.avif" },
-    { name: "Zouhir LAALAM", image: "/assets/team/Zouhir LAALAM.avif" },
+    { name: "Youssef MAADOUR", role: "CEO & Fondateur", image: "/assets/team/youssef-maadour.png" },
+    { name: "Mehdi ELMOUTRIB", role: "Vidéaste & Droniste", image: "/assets/team/mehdi-elmoutrib.jpg" },
+    { name: "Mouhcine BENHALAL", role: "Photographe & Vidéaste", image: "/assets/team/mouhcine-benhalal.jpg" },
+    { name: "Zakaria BOUZANDAR", role: "Chargé Relation Presse & Digital", image: "/assets/team/zakaria-bouzandar.jpg" },
   ],
+
   realisations: [
     { title: "white garden", url: "https://youtu.be/WJkb69qLQWc", youtubeId: "WJkb69qLQWc" },
     { title: "soirée dar kaid dreamin africa 2025", url: "https://youtu.be/GumI8rwY8O4", youtubeId: "GumI8rwY8O4" },
