@@ -1,29 +1,31 @@
-Sanity CMS integration for Neyla Production
+# Cloudflare Workers Static Hosting & SPA Routing
 
-Goal
-- Add a Sanity.io headless CMS client so future content (videos, photos, team, references, pages) can be loaded from Sanity instead of static JSON.
+Prepare the project for deployment as a static-assets Worker with client-side SPA routing so deep links like `/studio` and `/team` load correctly.
 
-Scope
-- Install the official Sanity client SDK and image URL builder.
-- Add a single reusable client config file under `src/lib/sanity.ts`.
-- Leave `projectId` and `dataset` as placeholders with clear comments so the user can paste their own credentials.
-- Expose a ready-to-use `sanityClient` instance and a `urlFor` helper for image URLs.
-- Provide a short example GROQ query comment to guide the next migration steps.
+## Changes
 
-Out of scope for this plan
-- No schema changes or document types yet.
-- No runtime data replacement in components.
+1. **Create `wrangler.toml`** (project root):
+```toml
+name = "neyla-production"
+compatibility_date = "2026-08-28"
 
-Technical details
-- Packages to install: `@sanity/client`, `@sanity/image-url`.
-- Client config:
-  - `projectId: "YOUR_PROJECT_ID"`
-  - `dataset: "production"` (default, user-editable)
-  - `apiVersion: "2024-01-01"`
-  - `useCdn: true` for public read-only mode
-- Add a visible TODO/comment reminding the user to update `projectId` and to add their Lovable preview + production URL as CORS origins in Sanity.
-- Image helper uses `imageUrlBuilder(sanityClient)` and returns the builder chain.
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+html_handling = "single-page-app"
+not_found_handling = "single-page-app"
+```
+This serves everything in `dist` as static assets and falls back to `index.html` for unknown routes so TanStack Router handles them client-side.
 
-Deliverables
-- Updated `package.json` (or lockfile) with new dependencies.
-- New file `src/lib/sanity.ts` containing the client and image helper.
+2. **Update `package.json` scripts** — add:
+```json
+"deploy": "vite build && wrangler deploy"
+```
+
+3. **Vite base path** — set `base: '/'` in `vite.config.ts` via the existing `defineConfig` `vite` passthrough, so all asset URLs are root-relative and resolve correctly on deep routes (`/studio`, `/team`, `/nos-realisations`, etc.) when served by the Worker.
+
+## Notes
+
+- The current build already targets Cloudflare via nitro (per the vite.config.ts header comment). The `wrangler.toml` + SPA asset handling makes the static hosting and client-side fallback explicit for direct `wrangler deploy` usage.
+- `wrangler` must be authenticated (`wrangler login` or `CLOUDFLARE_API_TOKEN`) when running `npm run deploy`; deployment itself is done from the user's machine/CI, not the preview sandbox.
+- No app code changes are needed — routing is already file-based TanStack Router with root-relative asset imports.
