@@ -85,7 +85,7 @@ export function TeamSection({
         {showCta ? (
           <div className="mt-12 flex justify-center">
             <Link
-              to="/equipe"
+              to="/team"
               className="inline-flex items-center gap-2 border border-border px-7 py-4 font-display text-xs tracking-[0.2em] uppercase transition-colors hover:border-primary hover:text-primary"
             >
               Voir toute l'équipe <ArrowRight className="size-4" />

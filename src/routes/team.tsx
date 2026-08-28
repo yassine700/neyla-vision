@@ -4,13 +4,13 @@ import { PageHeader } from "../components/shared/PageHeader";
 import { TeamSection } from "../components/home/TeamSection";
 import { seo } from "../lib/seo";
 
-export const Route = createFileRoute("/equipe")({
+export const Route = createFileRoute("/team")({
   head: () =>
     seo({
-      title: "Notre Équipe — Neyla Production",
+      title: "Team — Neyla Production",
       description:
         "Rencontrez l'équipe Neyla Production : réalisateurs, vidéastes, photographes et chargés de relations presse basés à Casablanca.",
-      path: "/equipe",
+      path: "/team",
     }),
   component: EquipePage,
 });
@@ -19,7 +19,7 @@ function EquipePage() {
   return (
     <>
       <PageHeader
-        eyebrow="Notre équipe"
+        eyebrow="Team"
         title="Les talents de Neyla Production"
         subtitle="Réalisation, image, son et stratégie de contenu : découvrez les visages derrière chaque production."
       />

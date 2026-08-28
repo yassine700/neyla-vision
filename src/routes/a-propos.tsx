@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { PageHeader } from "../components/shared/PageHeader";
 import { SectionHeading } from "../components/shared/SectionHeading";
-import { TeamGrid } from "../components/shared/TeamGrid";
+
 import { Reveal } from "../components/shared/Reveal";
 import { CtaBanner } from "../components/home/CtaBanner";
 import { seo } from "../lib/seo";
@@ -60,18 +60,6 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="border-t border-border">
-        <div className="mx-auto w-full max-w-7xl px-5 py-16 md:py-24">
-          <SectionHeading
-            eyebrow="L'équipe"
-            title="Les visages de Neyla"
-            subtitle="Une équipe soudée, présente sur chaque tournage."
-          />
-          <div className="mt-12">
-            <TeamGrid />
-          </div>
-        </div>
-      </section>
 
       <CtaBanner />
     </>
