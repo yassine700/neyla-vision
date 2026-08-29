@@ -78,6 +78,7 @@ export const siteData: SiteData = {
   ],
 
   realisations: [
+    { title: "EDS", url: "https://youtu.be/svy2gkeHlaI", youtubeId: "svy2gkeHlaI" },
     { title: "white garden", url: "https://youtu.be/WJkb69qLQWc", youtubeId: "WJkb69qLQWc" },
     { title: "soirée dar kaid dreamin africa 2025", url: "https://youtu.be/GumI8rwY8O4", youtubeId: "GumI8rwY8O4" },
     { title: "dreamin africa 2025", url: "https://youtu.be/TJsticcbRI8", youtubeId: "TJsticcbRI8" },
