@@ -41,7 +41,10 @@ export function Hero() {
 
   return (
     <section className="relative flex min-h-svh items-center overflow-hidden">
-      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden bg-[#0A0A0A]">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 overflow-hidden bg-[#0A0A0A]"
+      >
         <iframe
           id="neyla-hero-player"
           ref={playerRef}

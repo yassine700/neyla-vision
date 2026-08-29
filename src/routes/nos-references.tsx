@@ -20,10 +20,7 @@ export const Route = createFileRoute("/nos-references")({
 function ReferencesPage() {
   return (
     <>
-      <PageHeader
-        eyebrow="Clientèle"
-        title="Ils nous font confiance"
-      />
+      <PageHeader eyebrow="Clientèle" title="Ils nous font confiance" />
 
       <section className="mx-auto w-full max-w-7xl px-5 py-16 md:py-24">
         <LogoGrid />

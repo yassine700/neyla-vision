@@ -71,7 +71,9 @@ export function TeamSection({
 
   return (
     <section className={bare ? "" : "border-t border-border"}>
-      <div className={`mx-auto w-full max-w-7xl px-5 ${bare ? "py-16 md:py-20" : "py-20 md:py-28"}`}>
+      <div
+        className={`mx-auto w-full max-w-7xl px-5 ${bare ? "py-16 md:py-20" : "py-20 md:py-28"}`}
+      >
         {bare ? null : (
           <SectionHeading
             eyebrow="Notre équipe"
@@ -79,7 +81,9 @@ export function TeamSection({
             subtitle="Une équipe pluridisciplinaire : réalisation, image, son et stratégie de contenu."
           />
         )}
-        <div className={`grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 ${bare ? "" : "mt-12"}`}>
+        <div
+          className={`grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 ${bare ? "" : "mt-12"}`}
+        >
           {displayed.map((member, i) => (
             <TeamCard key={`${member.name}-${i}`} member={member} index={i} />
           ))}

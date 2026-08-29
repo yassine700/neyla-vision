@@ -64,8 +64,12 @@
   --animate-marquee: marquee 40s linear infinite;
 
   @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
 }
 
@@ -163,7 +167,10 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
   }
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     @apply font-display uppercase tracking-tight;
   }
   ::selection {

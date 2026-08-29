@@ -13,15 +13,15 @@ Set up the project structure so it syncs cleanly with GitHub and reads assets di
 
 Plaintext
 ├── public/
-│   ├── logos/        # Client logos (Richbond, Hyundai, DP World, etc.)
-│   ├── portfolio/    # High-res photo portfolio assets
-│   ├── team/         # Team photos
-│   └── videos/       # Best Of Neyla video asset
+│ ├── logos/ # Client logos (Richbond, Hyundai, DP World, etc.)
+│ ├── portfolio/ # High-res photo portfolio assets
+│ ├── team/ # Team photos
+│ └── videos/ # Best Of Neyla video asset
 ├── src/
-│   ├── components/   # Modular section components
-│   ├── data/         # Site configuration and video datasets
-│   └── pages/
-└── site-data.txt     # Content master document & YouTube URLs
+│ ├── components/ # Modular section components
+│ ├── data/ # Site configuration and video datasets
+│ └── pages/
+└── site-data.txt # Content master document & YouTube URLs
 Page Structure & Section Layout (Model: ndfilms.ma):
 
 1. Header & Navigation:
@@ -57,7 +57,7 @@ Modern logo marquee / grid displaying corporate partners using images from /publ
 Clean monochrome styling that turns full color on hover.
 
 5. Nos Services (Exact Copy Required):
-Create 4 distinct service cards with red hover accents and modern iconography using this exact text:
+   Create 4 distinct service cards with red hover accents and modern iconography using this exact text:
 
 CAPTATION VIDEO: "Nous réalisons des vidéos et films professionnels pour vos événements, produits et campagnes. Avec une approche artistique et des équipements de pointe, nous créons des contenus percutants : vidéos promotionnelles, institutionnelles, montage et live streaming."
 

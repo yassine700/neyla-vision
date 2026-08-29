@@ -14,19 +14,22 @@ export function ContactForm() {
   const [errors, setErrors] = useState<Partial<Record<keyof Fields, string>>>({});
   const [sending, setSending] = useState(false);
 
-  const set = (key: keyof Fields) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-    setValues((v) => ({ ...v, [key]: e.target.value }));
+  const set =
+    (key: keyof Fields) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+      setValues((v) => ({ ...v, [key]: e.target.value }));
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (sending) return;
 
-    const botcheck = (e.currentTarget.elements.namedItem("botcheck") as HTMLInputElement | null)?.checked;
+    const botcheck = (e.currentTarget.elements.namedItem("botcheck") as HTMLInputElement | null)
+      ?.checked;
     if (botcheck) return;
 
     const next: Partial<Record<keyof Fields, string>> = {};
     if (values.name.trim().length < 2) next.name = "Merci d'indiquer votre nom.";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) next.email = "Adresse e-mail invalide.";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim()))
+      next.email = "Adresse e-mail invalide.";
     if (values.phone.trim().length < 6) next.phone = "Merci d'indiquer un numéro joignable.";
     if (values.service.trim().length < 2) next.service = "Merci de préciser le sujet.";
     if (values.message.trim().length < 10) next.message = "Décrivez votre projet en quelques mots.";
@@ -70,7 +73,14 @@ export function ContactForm() {
 
   return (
     <form onSubmit={onSubmit} className="space-y-5" noValidate>
-      <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
+      <input
+        type="checkbox"
+        name="botcheck"
+        className="hidden"
+        style={{ display: "none" }}
+        tabIndex={-1}
+        autoComplete="off"
+      />
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div>

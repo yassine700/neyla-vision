@@ -80,8 +80,7 @@ export const siteSettings = defineType({
       rows: 3,
       description: "Une ligne par phrase (ou séparées par « | »).",
       group: "hero",
-      initialValue:
-        "Agence audiovisuelle, communication digitale et relations presse",
+      initialValue: "Agence audiovisuelle, communication digitale et relations presse",
     }),
     defineField({
       name: "heroCtaText",

@@ -5,6 +5,7 @@ Prepare the project for deployment as a static-assets Worker with client-side SP
 ## Changes
 
 1. **Create `wrangler.toml`** (project root):
+
 ```toml
 name = "neyla-production"
 compatibility_date = "2026-08-28"
@@ -15,9 +16,11 @@ binding = "ASSETS"
 html_handling = "single-page-app"
 not_found_handling = "single-page-app"
 ```
+
 This serves everything in `dist` as static assets and falls back to `index.html` for unknown routes so TanStack Router handles them client-side.
 
 2. **Update `package.json` scripts** — add:
+
 ```json
 "deploy": "vite build && wrangler deploy"
 ```

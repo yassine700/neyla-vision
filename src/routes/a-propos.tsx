@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { PageHeader } from "../components/shared/PageHeader";
 
-
 import { Reveal } from "../components/shared/Reveal";
 import { CtaBanner } from "../components/home/CtaBanner";
 import { seo } from "../lib/seo";
@@ -38,8 +37,8 @@ function AboutPage() {
             <h2 className="text-3xl font-bold md:text-4xl">Notre vision</h2>
             <p className="mt-6 text-muted-foreground">
               Chez Neyla Production, chaque image sert un message. Nous concevons des films
-              institutionnels, des couvertures d'événements et des campagnes digitales qui traduisent
-              l'identité de nos clients avec précision et élégance.
+              institutionnels, des couvertures d'événements et des campagnes digitales qui
+              traduisent l'identité de nos clients avec précision et élégance.
             </p>
             <p className="mt-4 text-muted-foreground">
               Du repérage au master final, tout est produit en interne : direction artistique,
@@ -59,7 +58,6 @@ function AboutPage() {
           </Reveal>
         </div>
       </section>
-
 
       <CtaBanner />
     </>

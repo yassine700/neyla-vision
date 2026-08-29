@@ -18,9 +18,10 @@ const TEAM_QUERY = `*[_type == "teamMember"] | order(orderAsc asc){ name, role, 
 
 export async function fetchTeamMembers(): Promise<TeamMemberContent[]> {
   try {
-    const docs = await sanityClient.fetch<
-      Array<{ name?: string; role?: string; photo?: unknown; linkedin?: string }>
-    >(TEAM_QUERY);
+    const docs =
+      await sanityClient.fetch<
+        Array<{ name?: string; role?: string; photo?: unknown; linkedin?: string }>
+      >(TEAM_QUERY);
     if (!docs?.length) return teamFallback;
     const mapped = docs
       .filter((doc) => Boolean(doc.name && doc.photo))

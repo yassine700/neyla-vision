@@ -16,15 +16,13 @@ export default defineConfig({
   plugins: [structureTool({ structure: deskStructure }), visionTool()],
   schema: {
     types: schemaTypes,
-    templates: (templates) =>
-      templates.filter((t) => !SINGLETON_TYPES.has(t.schemaType)),
+    templates: (templates) => templates.filter((t) => !SINGLETON_TYPES.has(t.schemaType)),
   },
   document: {
     actions: (input, context) =>
       SINGLETON_TYPES.has(context.schemaType)
         ? input.filter(
-            ({ action }) =>
-              action && ["publish", "discardChanges", "restore"].includes(action),
+            ({ action }) => action && ["publish", "discardChanges", "restore"].includes(action),
           )
         : input,
   },

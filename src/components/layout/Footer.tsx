@@ -47,7 +47,6 @@ export function Footer() {
           </ul>
         </div>
 
-
         <div>
           <p className="label-eyebrow">Navigation</p>
           <ul className="mt-4 space-y-2">

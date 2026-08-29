@@ -22,9 +22,10 @@ function youtubeIdFromUrl(url?: string) {
 
 export async function fetchProjects(): Promise<PortfolioProject[]> {
   try {
-    const docs = await sanityClient.fetch<
-      Array<{ title?: string; url?: string; youtubeId?: string; mainImage?: unknown }>
-    >(PROJECTS_QUERY);
+    const docs =
+      await sanityClient.fetch<
+        Array<{ title?: string; url?: string; youtubeId?: string; mainImage?: unknown }>
+      >(PROJECTS_QUERY);
     if (!docs?.length) return siteData.realisations;
     return docs.map((doc) => ({
       title: doc.title ?? "",

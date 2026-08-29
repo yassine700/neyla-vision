@@ -3,8 +3,7 @@ import { siteData } from "./siteData";
 export const company = {
   name: siteData.company.name,
   tagline: "Agence audiovisuelle, communication digitale et relations presse",
-  address:
-    "144, Rue Mohamed Smiha, Res Jawharat Mohamed Smiha 6ème Étage N° 35, Casablanca",
+  address: "144, Rue Mohamed Smiha, Res Jawharat Mohamed Smiha 6ème Étage N° 35, Casablanca",
   email: siteData.company.email,
   phones: siteData.company.phones,
   geo: { lat: 33.5883, lng: -7.6114 },
@@ -21,9 +20,17 @@ export const navLinks = [
 ] as const;
 
 export const socials = [
-  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61585832632916", icon: "facebook" },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/profile.php?id=61585832632916",
+    icon: "facebook",
+  },
   { label: "Instagram", href: "https://www.instagram.com/neylaproduction", icon: "instagram" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/company/neyla-production", icon: "linkedin" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/neyla-production",
+    icon: "linkedin",
+  },
   { label: "TikTok", href: "https://www.tiktok.com/@neylaproduction", icon: "tiktok" },
   { label: "YouTube", href: "https://www.youtube.com/@Neylaproduction", icon: "youtube" },
 ] as const;
@@ -72,8 +79,24 @@ export const services: Service[] = [
 ];
 
 export const processSteps = [
-  { step: "01", title: "Brief & Stratégie", text: "Nous cadrons vos objectifs, cibles et messages clés." },
-  { step: "02", title: "Pré-production", text: "Scénario, repérages, casting, plan de tournage et logistique." },
-  { step: "03", title: "Production", text: "Tournage et shooting avec une équipe et un matériel professionnels." },
-  { step: "04", title: "Post-production", text: "Montage, étalonnage, motion design, sound design et livraison." },
+  {
+    step: "01",
+    title: "Brief & Stratégie",
+    text: "Nous cadrons vos objectifs, cibles et messages clés.",
+  },
+  {
+    step: "02",
+    title: "Pré-production",
+    text: "Scénario, repérages, casting, plan de tournage et logistique.",
+  },
+  {
+    step: "03",
+    title: "Production",
+    text: "Tournage et shooting avec une équipe et un matériel professionnels.",
+  },
+  {
+    step: "04",
+    title: "Post-production",
+    text: "Montage, étalonnage, motion design, sound design et livraison.",
+  },
 ];

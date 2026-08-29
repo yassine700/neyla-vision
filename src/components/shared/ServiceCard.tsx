@@ -4,7 +4,13 @@ import { Camera, Megaphone, Newspaper, Sparkles, Video, ArrowUpRight } from "luc
 
 import type { Service } from "../../data/site";
 
-const icons = { video: Video, camera: Camera, megaphone: Megaphone, sparkles: Sparkles, newspaper: Newspaper };
+const icons = {
+  video: Video,
+  camera: Camera,
+  megaphone: Megaphone,
+  sparkles: Sparkles,
+  newspaper: Newspaper,
+};
 
 export function ServiceCard({ service, index = 0 }: { service: Service; index?: number }) {
   const Icon = icons[service.icon];

@@ -16,8 +16,13 @@ dist-ssr
 .nitro
 *.local
 
+# Raw assets & source files
+assets-raw/
+/assets-raw
+
 # Wrangler / Cloudflare
 .wrangler/
+.wrangler
 .dev.vars
 
 # Editor directories and files

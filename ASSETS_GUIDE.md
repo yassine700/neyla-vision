@@ -45,9 +45,7 @@ console.log(siteData.company.phones); // ["+212 663 66 88 17", "+212 665 36 26 7
 console.log(siteData.heroVideo.url); // "https://vimeo.com/1221114282"
 
 // Access Client Logos
-siteData.references.map((item) => (
-  <img key={item.name} src={item.logo} alt={item.name} />
-));
+siteData.references.map((item) => <img key={item.name} src={item.logo} alt={item.name} />);
 
 // Access Team Members
 siteData.team.map((member) => (
@@ -75,9 +73,11 @@ siteData.portfolio.evenementiel.map((imgSrc, i) => (
 ## 🎬 Video Assets Summary
 
 ### Hero Video
+
 - **Vimeo Link:** `https://vimeo.com/1221114282?fl=ip&fe=ec`
 
 ### Video Realisations (11 Videos)
+
 1. **BEST OF AFRICAMED NEYLA** - `https://youtu.be/Z_OaRPO3Iko`
 2. **DECOMEUBLE CHARKAOUI NADOR** - `https://youtu.be/33h3FSDj1Pk`
 3. **8eme EDITION DU SALON INTERNATIONAL DU TEXTILE** - `https://youtu.be/_Xxc2tr09H0`
@@ -93,6 +93,7 @@ siteData.portfolio.evenementiel.map((imgSrc, i) => (
 ---
 
 ## 👥 Team Members
+
 - Elmehdi MOUTRIB (`/assets/team/Elmehdi MOUTRIB.avif`)
 - Nassira MAMCHACH (`/assets/team/Nassira MAMCHACH.avif`)
 - Younes BARI (`/assets/team/Younes BARI.avif`)
@@ -102,6 +103,7 @@ siteData.portfolio.evenementiel.map((imgSrc, i) => (
 ---
 
 ## 🏢 Reference Clients / Partners (13)
+
 - AFRICAMED
 - AIEM
 - Clinique Zarhoun

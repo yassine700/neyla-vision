@@ -29,11 +29,7 @@ export interface SiteSettingsContent {
 
 export const siteSettingsFallback: SiteSettingsContent = {
   heroTitle: company.name,
-  heroSubtitleLines: [
-    "Agence audiovisuelle.",
-    "Communication digitale.",
-    "Relation presse.",
-  ],
+  heroSubtitleLines: ["Agence audiovisuelle.", "Communication digitale.", "Relation presse."],
   heroCtaText: "DEMANDER UN DEVIS",
   aboutTitle: "À propos",
   aboutText:
@@ -59,10 +55,11 @@ const SITE_SETTINGS_QUERY = `*[_type == "siteSettings"][0]{
 export async function fetchSiteSettings(): Promise<SiteSettingsContent> {
   try {
     const doc = await sanityClient.fetch<
-      (Partial<Omit<SiteSettingsContent, "heroSubtitleLines" | "aboutImage">> & {
-        heroSubtitle?: string;
-        aboutImage?: unknown;
-      }) | null
+      | (Partial<Omit<SiteSettingsContent, "heroSubtitleLines" | "aboutImage">> & {
+          heroSubtitle?: string;
+          aboutImage?: unknown;
+        })
+      | null
     >(SITE_SETTINGS_QUERY);
     if (!doc) return siteSettingsFallback;
 

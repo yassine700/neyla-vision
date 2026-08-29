@@ -24,7 +24,8 @@ export function PhotoGallery() {
     const push = (list: string[], label: string) =>
       list.forEach((src) => entries.push({ src, label }));
     if (filter === "all" || filter === "evenementiel") push(p.evenementiel, "Événementiel");
-    if (filter === "all" || filter === "institutionnelle") push(p.institutionnelle, "Institutionnel");
+    if (filter === "all" || filter === "institutionnelle")
+      push(p.institutionnelle, "Institutionnel");
     if (filter === "all" || filter === "culinaire") push(p.culinaire, "Culinaire");
     if (filter === "all" || filter === "immobilier") push(p.immobilier, "Immobilier");
     return entries;

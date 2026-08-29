@@ -30,7 +30,11 @@ export function PortfolioTabs({ videoLimit }: { videoLimit?: number }) {
         </button>
       </div>
 
-      {tab === "videos" ? <VideoGrid {...(videoLimit ? { limit: videoLimit } : {})} /> : <PhotoGallery />}
+      {tab === "videos" ? (
+        <VideoGrid {...(videoLimit ? { limit: videoLimit } : {})} />
+      ) : (
+        <PhotoGallery />
+      )}
     </div>
   );
 }

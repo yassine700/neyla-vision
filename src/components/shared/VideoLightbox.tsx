@@ -38,10 +38,7 @@ export function VideoLightbox({
       >
         <X className="size-5" />
       </button>
-      <div
-        className="aspect-video w-full max-w-5xl bg-black"
-        onClick={(e) => e.stopPropagation()}
-      >
+      <div className="aspect-video w-full max-w-5xl bg-black" onClick={(e) => e.stopPropagation()}>
         <iframe
           src={`https://www.youtube.com/embed/${youtubeId}?rel=0&modestbranding=1&autoplay=1`}
           title={title}
