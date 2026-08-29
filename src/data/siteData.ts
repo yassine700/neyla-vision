@@ -87,11 +87,19 @@ export const siteData: SiteData = {
     { title: "LAFARGE", url: "https://youtu.be/M4zdseMhF_o", youtubeId: "M4zdseMhF_o" },
     { title: "best of all nad publication", url: "https://youtu.be/0pbhjZID1Qk", youtubeId: "0pbhjZID1Qk" },
     { title: "FORMATION ESCA", url: "https://youtu.be/-ZpQdqXDii4", youtubeId: "-ZpQdqXDii4" },
-    
+    { title: "06 8eme EDITION DU SALON INTERNATIONAL DU TEXTILE 2", url: "https://youtu.be/qZgEYe42ql8", youtubeId: "qZgEYe42ql8" },
     { title: "AIEM", url: "https://youtu.be/fxsMnF0e1Hs", youtubeId: "fxsMnF0e1Hs" },
     { title: "mesidor", url: "https://youtu.be/piwiymbXf6U", youtubeId: "piwiymbXf6U" },
     { title: "MARATHON BOUSKOURA", url: "https://youtu.be/zFOTCZVWsEU", youtubeId: "zFOTCZVWsEU" },
     { title: "charaka", url: "https://youtu.be/ojVfYnutpwo", youtubeId: "ojVfYnutpwo" },
+    { title: "EDS", url: "https://youtu.be/svy2gkeHlaI", youtubeId: "svy2gkeHlaI" },
+    { title: "TANGER SALON D'AUTOMOBILE", url: "https://youtu.be/2lkVh-CPmqQ", youtubeId: "2lkVh-CPmqQ" },
+    { title: "GITEX", url: "https://youtu.be/0M_1cuI7Ka0", youtubeId: "0M_1cuI7Ka0" },
+    { title: "AFRICA DREAMIN", url: "https://youtu.be/6bcMSx1yUKY", youtubeId: "6bcMSx1yUKY" },
+    { title: "BEST OF REXA", url: "https://youtu.be/eoXMoNCiicM", youtubeId: "eoXMoNCiicM" },
+    { title: "HUNDAI", url: "https://youtu.be/3cTWs4NhNCw", youtubeId: "3cTWs4NhNCw" },
+    { title: "MARATHON CASA", url: "https://youtu.be/dS6se5XrTUg", youtubeId: "dS6se5XrTUg" },
+    { title: "GAB", url: "https://youtu.be/VY8z6cyMSNk", youtubeId: "VY8z6cyMSNk" },
   ],
   portfolio: {
     evenementiel: [
