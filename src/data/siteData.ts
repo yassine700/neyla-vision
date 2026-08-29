@@ -111,7 +111,7 @@ export const siteData: SiteData = {
       youtubeId: "Z_OaRPO3Iko",
     },
     {
-      title: "DECOMEUBLE CHARKAOUI NADOR",
+      title: "simmons rabat",
       url: "https://youtu.be/33h3FSDj1Pk",
       youtubeId: "33h3FSDj1Pk",
     },
