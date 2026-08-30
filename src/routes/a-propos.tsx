@@ -28,7 +28,7 @@ function AboutPage() {
       <PageHeader
         eyebrow="L'agence"
         title="À Propos"
-        subtitle="Une équipe de réalisateurs, cadreurs, photographes et motion designers réunis à Casablanca autour d'une même exigence : raconter juste."
+        subtitle="Une équipe de réalisateurs, cadreurs, photographes et motion designers réunis autour d'une même exigence : raconter juste."
       />
 
       <section className="mx-auto w-full max-w-7xl px-5 py-16 md:py-24">
