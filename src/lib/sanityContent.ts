@@ -33,7 +33,7 @@ export const siteSettingsFallback: SiteSettingsContent = {
   heroCtaText: "DEMANDER UN DEVIS",
   aboutTitle: "À propos",
   aboutText:
-    "Experts de l’image et créateurs de contenus audiovisuels percutants, nous mettons notre expertise technique et artistique au service de vos projets. Notre savoir-faire s’adresse à une clientèle diversifiée : Entreprises (Corporate), Enseignes, Marques, Institutions, Associations, Artistes, ou encore Particuliers. Que ce soit pour des productions vidéo, des shootings ou la création de contenus digitaux sur mesure, nous vous accompagnons à chaque étape du processus.",
+    "Spécialisés dans l’image, la création de contenus audiovisuels et la communication digitale, nous mettons notre savoir-faire technique, notre créativité et notre vision stratégique au service de vos projets.\n\nNous accompagnons une clientèle diversifiée - entreprises, enseignes, marques, institutions, associations, artistes et particuliers - dans la conception et la mise en œuvre de leur communication.\n\nDe la production vidéo et du shooting photo à la création de contenus digitaux, en passant par le motion design, la gestion des réseaux sociaux, la stratégie de communication digitale et les relations presse, nous concevons des solutions sur mesure adaptées à vos objectifs et à votre identité.\n\nNotre approche combine créativité, qualité d’exécution et stratégie, afin de construire une communication cohérente, renforcer votre visibilité et valoriser durablement votre image.\n\nDe l’idée à la diffusion, nous vous accompagnons à chaque étape pour créer des contenus qui captent l’attention, racontent votre histoire et créent de l’impact.",
   aboutImage: null,
   servicesTitle: "Ce que nous produisons",
   servicesSubtitle:
