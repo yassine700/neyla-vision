@@ -68,6 +68,7 @@ export const siteData: SiteData = {
     { name: "Richbond", logo: "/assets/nos-references/richbond.png" },
     { name: "Simmons", logo: "/assets/nos-references/simmons.png" },
     { name: "UM6P", logo: "/assets/nos-references/UMP6.png" },
+    { name: "Expert du Sommeil", logo: "/assets/nos-references/expert-du-sommeil.png" },
   ],
   team: [
     {
