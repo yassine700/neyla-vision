@@ -28,7 +28,7 @@ function AboutPage() {
       <PageHeader
         eyebrow="L'agence"
         title="À Propos"
-        subtitle="Une équipe de réalisateurs, cadreurs, photographes et motion designers réunis autour d'une même exigence : raconter juste."
+        subtitle="Une équipe de réalisateurs, cadreurs, photographes et motion designers réunis à Casablanca autour d'une même exigence : raconter juste."
       />
 
       <section className="mx-auto w-full max-w-7xl px-5 py-16 md:py-24">
@@ -36,29 +36,14 @@ function AboutPage() {
           <Reveal>
             <h2 className="text-3xl font-bold md:text-4xl">Notre vision</h2>
             <p className="mt-6 text-muted-foreground">
-              Spécialisés dans l’image, la création de contenus audiovisuels et la communication
-              digitale, nous mettons notre savoir-faire technique, notre créativité et notre vision
-              stratégique au service de vos projets.
+              Chez Neyla Production, chaque image sert un message. Nous concevons des films
+              institutionnels, des couvertures d'événements et des campagnes digitales qui
+              traduisent l'identité de nos clients avec précision et élégance.
             </p>
             <p className="mt-4 text-muted-foreground">
-              Nous accompagnons une clientèle diversifiée - entreprises, enseignes, marques,
-              institutions, associations, artistes et particuliers - dans la conception et la mise
-              en œuvre de leur communication.
-            </p>
-            <p className="mt-4 text-muted-foreground">
-              De la production vidéo et du shooting photo à la création de contenus digitaux, en
-              passant par le motion design, la gestion des réseaux sociaux, la stratégie de
-              communication digitale et les relations presse, nous concevons des solutions sur mesure
-              adaptées à vos objectifs et à votre identité.
-            </p>
-            <p className="mt-4 text-muted-foreground">
-              Notre approche combine créativité, qualité d’exécution et stratégie, afin de construire
-              une communication cohérente, renforcer votre visibilité et valoriser durablement
-              votre image.
-            </p>
-            <p className="mt-4 text-muted-foreground">
-              De l’idée à la diffusion, nous vous accompagnons à chaque étape pour créer des contenus
-              qui captent l’attention, racontent votre histoire et créent de l’impact.
+              Du repérage au master final, tout est produit en interne : direction artistique,
+              tournage multi-caméras, photographie, montage, étalonnage et motion design. Cette
+              maîtrise complète garantit des délais tenus et une cohérence visuelle sans compromis.
             </p>
           </Reveal>
           <Reveal delay={0.1} className="grid gap-px self-start bg-border sm:grid-cols-2">
