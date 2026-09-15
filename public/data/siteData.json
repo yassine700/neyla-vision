@@ -10,21 +10,20 @@
     "vimeoId": "1221114282"
   },
   "references": [
-    { "name": "AFRICAMED", "logo": "/assets/nos-references/AFRICAMED.png" },
-    { "name": "AIEM", "logo": "/assets/nos-references/AIEM.png" },
-    { "name": "Clinique Zarhoun", "logo": "/assets/nos-references/Clinique Zarhoun.png" },
-    { "name": "DISAGRI", "logo": "/assets/nos-references/DISAGRI.png" },
-    { "name": "FRMK", "logo": "/assets/nos-references/FRMK.png" },
-    { "name": "GARDENIA", "logo": "/assets/nos-references/GARDENIA.png" },
-    { "name": "GITEX AFRICA MR", "logo": "/assets/nos-references/GITEX AFRICA MR.png" },
-    { "name": "Hyundai", "logo": "/assets/nos-references/hundai.png" },
-    { "name": "Lafarge", "logo": "/assets/nos-references/lafarge.png" },
-    { "name": "MOROCCO FOUNDATION", "logo": "/assets/nos-references/MOROCCO FOUNDATION.png" },
     { "name": "Richbond", "logo": "/assets/nos-references/richbond.png" },
     { "name": "Simmons", "logo": "/assets/nos-references/simmons.png" },
-    { "name": "UM6P", "logo": "/assets/nos-references/UMP6.png" },
+    { "name": "Lafarge", "logo": "/assets/nos-references/lafarge.png" },
     { "name": "Expert du Sommeil", "logo": "/assets/nos-references/expert-du-sommeil.png" },
-    { "name": "Fundación Real Madrid", "logo": "/assets/nos-references/real-madrid.png" }
+    { "name": "Real Madrid", "logo": "/assets/nos-references/real-madrid.png" },
+    { "name": "FRMK Karaté", "logo": "/assets/nos-references/FRMK.png" },
+    { "name": "Hundai", "logo": "/assets/nos-references/hundai.png" },
+    { "name": "Université Mohammed VI", "logo": "/assets/nos-references/UMP6.png" },
+    { "name": "Dreamin", "logo": "/assets/nos-references/ Dreamin .png" },
+    { "name": "DISAGRI", "logo": "/assets/nos-references/DISAGRI.png" },
+    { "name": "GARDENIA", "logo": "/assets/nos-references/GARDENIA.png" },
+    { "name": "AFRICAMED", "logo": "/assets/nos-references/AFRICAMED.png" },
+    { "name": "Clinique Zarhoun", "logo": "/assets/nos-references/Clinique Zarhoun.png" },
+    { "name": "MOROCCO FOUNDATION", "logo": "/assets/nos-references/MOROCCO FOUNDATION.png" }
   ],
   "team": [
     {
