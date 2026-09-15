@@ -12,9 +12,9 @@ export function LogoGrid() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.45, delay: Math.min(i, 8) * 0.04 }}
-          className="group flex h-32 items-center justify-center bg-background p-6 md:h-40 md:p-8"
+          className="group flex h-36 items-center justify-center bg-background p-6 md:h-44 md:p-10"
         >
-          <div className="flex h-16 w-32 items-center justify-center md:h-20 md:w-40">
+          <div className="flex h-20 w-36 items-center justify-center md:h-24 md:w-44">
             <img
               src={ref.logo}
               alt={ref.name}
