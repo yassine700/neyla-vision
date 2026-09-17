@@ -9,8 +9,8 @@ This repository contains all official assets and content for the **Neyla Product
 ```
 public/
 ├── assets/
-│   ├── nos-references/           # 13 Client / Partner Logos (.png)
-│   ├── team/                     # 5 Team member portraits (.avif)
+│   ├── nos-references/           # 15 Client / Partner Logos (.png)
+│   ├── team/                     # 5 Team member portraits (.webp)
 │   └── portfolio/
 │       ├── photographie-evenementiel/    # 18 event photography items (.jpg)
 │       ├── photographie-institutionnelle/ # 11 institutional items (.jpg/.png)
@@ -102,18 +102,20 @@ siteData.portfolio.evenementiel.map((imgSrc, i) => (
 
 ---
 
-## 🏢 Reference Clients / Partners (13)
+## 🏢 Reference Clients / Partners (15)
 
 - AFRICAMED
-- AIEM
 - Clinique Zarhoun
 - DISAGRI
-- FRMK
+- Dreamin
+- Expert du Sommeil
+- FRMK Karaté
 - GARDENIA
-- GITEX AFRICA MR
-- Hyundai
+- GITEX AFRICA
+- Hundai
 - Lafarge
 - MOROCCO FOUNDATION
+- Real Madrid
 - Richbond
 - Simmons
-- UM6P
+- Université Mohammed VI
