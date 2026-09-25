@@ -10,3 +10,5 @@
 > the editor, so keep the branch in a working state.
 
 <!-- LOVABLE:END -->
+
+- Les reels sont des documents `reel` distincts dans Sanity Studio, avec fichier vidéo vertical ou lien YouTube Shorts ; cela permet de les publier sans mélanger les films du portfolio.

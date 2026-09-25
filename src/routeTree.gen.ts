@@ -15,6 +15,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as NosRealisationsRouteImport } from './routes/nos-realisations'
 import { Route as NosReferencesRouteImport } from './routes/nos-references'
 import { Route as NosServicesRouteImport } from './routes/nos-services'
+import { Route as ReelsRouteImport } from './routes/reels'
 import { Route as TeamRouteImport } from './routes/team'
 import { Route as StudioIndexRouteImport } from './routes/studio.index'
 import { Route as StudioSplatRouteImport } from './routes/studio.$'
@@ -49,6 +50,11 @@ const NosServicesRoute = NosServicesRouteImport.update({
   path: '/nos-services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReelsRoute = ReelsRouteImport.update({
+  id: '/reels',
+  path: '/reels',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TeamRoute = TeamRouteImport.update({
   id: '/team',
   path: '/team',
@@ -72,6 +78,7 @@ export interface FileRoutesByFullPath {
   '/nos-realisations': typeof NosRealisationsRoute
   '/nos-references': typeof NosReferencesRoute
   '/nos-services': typeof NosServicesRoute
+  '/reels': typeof ReelsRoute
   '/team': typeof TeamRoute
   '/studio/$': typeof StudioSplatRoute
   '/studio/': typeof StudioIndexRoute
@@ -83,6 +90,7 @@ export interface FileRoutesByTo {
   '/nos-realisations': typeof NosRealisationsRoute
   '/nos-references': typeof NosReferencesRoute
   '/nos-services': typeof NosServicesRoute
+  '/reels': typeof ReelsRoute
   '/team': typeof TeamRoute
   '/studio/$': typeof StudioSplatRoute
   '/studio': typeof StudioIndexRoute
@@ -95,6 +103,7 @@ export interface FileRoutesById {
   '/nos-realisations': typeof NosRealisationsRoute
   '/nos-references': typeof NosReferencesRoute
   '/nos-services': typeof NosServicesRoute
+  '/reels': typeof ReelsRoute
   '/team': typeof TeamRoute
   '/studio/$': typeof StudioSplatRoute
   '/studio/': typeof StudioIndexRoute
@@ -108,6 +117,7 @@ export interface FileRouteTypes {
     | '/nos-realisations'
     | '/nos-references'
     | '/nos-services'
+    | '/reels'
     | '/team'
     | '/studio/$'
     | '/studio/'
@@ -119,6 +129,7 @@ export interface FileRouteTypes {
     | '/nos-realisations'
     | '/nos-references'
     | '/nos-services'
+    | '/reels'
     | '/team'
     | '/studio/$'
     | '/studio'
@@ -130,6 +141,7 @@ export interface FileRouteTypes {
     | '/nos-realisations'
     | '/nos-references'
     | '/nos-services'
+    | '/reels'
     | '/team'
     | '/studio/$'
     | '/studio/'
@@ -142,6 +154,7 @@ export interface RootRouteChildren {
   NosRealisationsRoute: typeof NosRealisationsRoute
   NosReferencesRoute: typeof NosReferencesRoute
   NosServicesRoute: typeof NosServicesRoute
+  ReelsRoute: typeof ReelsRoute
   TeamRoute: typeof TeamRoute
   StudioSplatRoute: typeof StudioSplatRoute
   StudioIndexRoute: typeof StudioIndexRoute
@@ -191,6 +204,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NosServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/reels': {
+      id: '/reels'
+      path: '/reels'
+      fullPath: '/reels'
+      preLoaderRoute: typeof ReelsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/team': {
       id: '/team'
       path: '/team'
@@ -222,6 +242,7 @@ const rootRouteChildren: RootRouteChildren = {
   NosRealisationsRoute: NosRealisationsRoute,
   NosReferencesRoute: NosReferencesRoute,
   NosServicesRoute: NosServicesRoute,
+  ReelsRoute: ReelsRoute,
   TeamRoute: TeamRoute,
   StudioSplatRoute: StudioSplatRoute,
   StudioIndexRoute: StudioIndexRoute,
