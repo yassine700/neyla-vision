@@ -19,6 +19,26 @@ export const project = defineType({
   preview: { select: { title: "title", media: "mainImage" } },
 });
 
+export const reel = defineType({
+  name: "reel",
+  title: "Reel",
+  type: "document",
+  fields: [
+    defineField({ name: "title", title: "Titre", type: "string", validation: (Rule) => Rule.required() }),
+    defineField({
+      name: "videoFile",
+      title: "Vidéo verticale (MP4, 1080 × 1920 recommandé)",
+      type: "file",
+      options: { accept: "video/mp4,video/webm" },
+      description: "Importez une vidéo verticale ou renseignez un lien YouTube Shorts ci-dessous.",
+    }),
+    defineField({ name: "youtubeUrl", title: "Lien YouTube Shorts (facultatif)", type: "url" }),
+    defineField({ name: "cover", title: "Image de couverture verticale", type: "image", options: { hotspot: true } }),
+    defineField({ name: "order", title: "Ordre d’affichage (facultatif)", type: "number" }),
+  ],
+  preview: { select: { title: "title", media: "cover" } },
+});
+
 export const clientLogo = defineType({
   name: "clientLogo",
   title: "Logo client",
@@ -191,4 +211,4 @@ export const teamMember = defineType({
   preview: { select: { title: "name", subtitle: "role", media: "photo" } },
 });
 
-export const schemaTypes = [siteSettings, project, clientLogo, serviceItem, teamMember];
+export const schemaTypes = [siteSettings, project, reel, clientLogo, serviceItem, teamMember];

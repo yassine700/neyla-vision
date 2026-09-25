@@ -1,0 +1,3 @@
+- [ ] Ajouter « Reels » au menu et créer la page dédiée au format vertical 9:16.
+- [ ] Permettre la publication de reels dans le Studio existant.
+- [ ] Vérifier la page, le menu et la lecture sur ordinateur et mobile.
