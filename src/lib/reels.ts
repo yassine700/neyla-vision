@@ -3,9 +3,9 @@ import { sanityClient, urlFor } from "./sanity";
 export type Reel = {
   id: string;
   title: string;
-  videoUrl?: string;
-  youtubeId?: string;
-  cover?: string;
+  videoUrl?: string | undefined;
+  youtubeId?: string | undefined;
+  cover?: string | undefined;
 };
 
 type ReelDocument = {
