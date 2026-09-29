@@ -83,7 +83,7 @@ export const siteData: SiteData = {
       image: "/assets/team/asmaa-el-massar.webp",
     },
     {
-      name: "Mehdi ELMOUTRIB",
+      name: "El Mehdi MOUTRIB",
       role: "Vidéaste & Droniste",
       image: "/assets/team/mehdi-elmoutrib.webp",
     },
