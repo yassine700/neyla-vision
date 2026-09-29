@@ -4,7 +4,7 @@ import { siteData } from "../../data/siteData";
 
 export function LogoGrid() {
   return (
-    <div className="grid grid-cols-2 gap-px bg-border sm:grid-cols-3 lg:grid-cols-4">
+    <div className="grid grid-cols-2 border-l border-t border-border sm:grid-cols-3 lg:grid-cols-4">
       {siteData.references.map((ref, i) => (
         <motion.div
           key={ref.name}
@@ -12,7 +12,7 @@ export function LogoGrid() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.45, delay: Math.min(i, 8) * 0.04 }}
-          className="group flex h-36 items-center justify-center bg-background p-6 md:h-44 md:p-10"
+          className="group flex h-36 items-center justify-center border-b border-r border-border bg-background p-6 md:h-44 md:p-10"
         >
           <div className="flex h-20 w-36 items-center justify-center md:h-24 md:w-44">
             <img

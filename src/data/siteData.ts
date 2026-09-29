@@ -70,6 +70,7 @@ export const siteData: SiteData = {
     { name: "AFRICAMED", logo: "/assets/nos-references/AFRICAMED.png" },
     { name: "Clinique Zarhoun", logo: "/assets/nos-references/Clinique Zarhoun.png" },
     { name: "MOROCCO FOUNDATION", logo: "/assets/nos-references/MOROCCO FOUNDATION.png" },
+    { name: "HTGC", logo: "/assets/nos-references/HTGC.png" },
   ],
   team: [
     {
