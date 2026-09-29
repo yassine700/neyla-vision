@@ -78,11 +78,6 @@ export const siteData: SiteData = {
       image: "/assets/team/youssef-maadour.webp",
     },
     {
-      name: "Zakaria BOUZANDAR",
-      role: "Chargé Relation Presse & Digital",
-      image: "/assets/team/zakaria-bouzandar.webp",
-    },
-    {
       name: "Asmaa EL MASSAR",
       role: "Chef de Projet Développement",
       image: "/assets/team/asmaa-el-massar.webp",
