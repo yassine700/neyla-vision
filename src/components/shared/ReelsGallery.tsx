@@ -114,7 +114,6 @@ export function ReelsGallery() {
         <h2 className="mt-4 line-clamp-2 font-display text-sm font-semibold uppercase text-foreground">{reel.title}</h2>
       </button>)}
     </div>
-    <div className="mt-16"><InstagramReels /></div>
     <InstagramLink />
     {active ? <ReelPlayer reel={active} onClose={() => setActive(null)} /> : null}
   </>;
