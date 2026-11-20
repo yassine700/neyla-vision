@@ -15,3 +15,5 @@ Allow: /
 
 User-agent: *
 Disallow: /studio
+
+Sitemap: https://neylaproduction.ma/sitemap.xml
