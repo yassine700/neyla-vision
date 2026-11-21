@@ -5,6 +5,7 @@ import { Hero } from "../components/home/Hero";
 import { CtaBanner } from "../components/home/CtaBanner";
 import { AboutIntro } from "../components/home/AboutIntro";
 import { TeamSection } from "../components/home/TeamSection";
+import { InstagramBlock } from "../components/home/InstagramBlock";
 import { SectionHeading } from "../components/shared/SectionHeading";
 import { ServiceCard } from "../components/shared/ServiceCard";
 import { PortfolioTabs } from "../components/shared/PortfolioTabs";
@@ -86,6 +87,8 @@ function HomePage() {
       <AboutIntro />
 
       <TeamSection limit={3} showCta />
+
+      <InstagramBlock />
 
       <section className="border-t border-border">
         <div className="mx-auto w-full max-w-4xl px-5 py-20 md:py-28">
