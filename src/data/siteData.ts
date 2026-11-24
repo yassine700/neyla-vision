@@ -146,6 +146,7 @@ export const siteData: SiteData = {
     { title: "HUNDAI", url: "https://youtu.be/3cTWs4NhNCw", youtubeId: "3cTWs4NhNCw" },
     { title: "MARATHON CASA", url: "https://youtu.be/dS6se5XrTUg", youtubeId: "dS6se5XrTUg" },
     { title: "GAB", url: "https://youtu.be/VY8z6cyMSNk", youtubeId: "VY8z6cyMSNk" },
+    { title: "HTGC", url: "https://youtu.be/gOTkur-rR_w", youtubeId: "gOTkur-rR_w" },
   ],
   portfolio: {
     evenementiel: [
